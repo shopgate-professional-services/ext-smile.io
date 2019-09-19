@@ -1,10 +1,7 @@
 {
   "version": "1.0.0",
-  "id": "@shopgate-project/smile.io",
-  "components": [
-  ],
-  "configuration": {
-  },
-  "steps": [
-  ]
+  "id": "@shopgate-project/smile-io",
+  "components": [],
+  "configuration": {},
+  "steps": []
 }
