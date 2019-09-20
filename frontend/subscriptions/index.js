@@ -1,4 +1,5 @@
-import { userDataReceived$, userDidLogout$ } from '@shopgate/engage/user';
+import { getUserData, userDataReceived$, userDidLogout$ } from '@shopgate/engage/user';
+import { checkoutSucceeded$ } from '@shopgate/engage/checkout';
 import { fetchSmileCustomerInfo } from '../actions';
 import { clearSmileCustomerInfo } from '../action-creators';
 
@@ -13,5 +14,10 @@ export default (subscribe) => {
 
   subscribe(userDidLogout$, ({ dispatch }) => {
     dispatch(clearSmileCustomerInfo());
+  });
+
+  subscribe(checkoutSucceeded$, ({ dispatch, getState }) => {
+    const userData = getUserData(getState());
+    dispatch(fetchSmileCustomerInfo(userData.id));
   });
 };

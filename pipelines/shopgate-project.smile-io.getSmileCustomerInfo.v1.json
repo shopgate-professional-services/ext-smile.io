@@ -1,0 +1,20 @@
+{
+  "version": "1",
+  "pipeline": {
+    "id": "shopgate-project.smile-io.getSmileCustomerInfo.v1",
+    "public": true,
+    "input": [
+      {
+        "key": "customerId",
+        "id": "100"
+      }
+    ],
+    "output": [
+      {
+        "key": "customerId",
+        "id": "100"
+      }
+    ],
+    "steps": []
+  }
+}

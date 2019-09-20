@@ -14,6 +14,7 @@ import {
 export const fetchSmileCustomerInfo = id => (dispatch) => {
   dispatch(requestSmileCustomerInfo(id));
   new PipelineRequest(GET_SMILE_CUSTOMER_INFO)
+    .setInput({ customerId: id })
     .dispatch()
     .then((response) => {
       const { customerInfo } = response || {};
