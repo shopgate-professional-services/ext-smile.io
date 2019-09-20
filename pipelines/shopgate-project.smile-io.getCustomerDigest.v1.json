@@ -1,0 +1,60 @@
+{
+  "version": "1",
+  "pipeline": {
+    "id": "shopgate-project.smile-io.getCustomerDigest.v1",
+    "public": true,
+    "input": [
+      {
+        "key": "sgxsMeta",
+        "id": "100"
+      }
+    ],
+    "output": [
+      {
+        "key": "customerDigest",
+        "id": "200"
+      },
+      {
+        "key": "externalCustomerId",
+        "id": "150"
+      }
+    ],
+    "steps": [
+      {
+        "type": "pipeline",
+        "id": "shopgate.user.getUserShopAccount.v1",
+        "trusted": "true",
+        "input": [
+          {
+            "key": "sgxsMeta",
+            "id": "100"
+          }
+        ],
+        "output": [
+          {
+            "key": "externalCustomerId",
+            "id": "150"
+          }
+        ]
+      },
+      {
+        "type": "extension",
+        "id": "@shopgate-project/smile-io",
+        "path": "@shopgate-project/smile-io/lib/generateCustomerDigest.js",
+        "input": [
+          {
+            "key": "externalCustomerId",
+            "id": "150",
+            "optional": true
+          }
+        ],
+        "output": [
+          {
+            "key": "customerDigest",
+            "id": "200"
+          }
+        ]
+      }
+    ]
+  }
+}

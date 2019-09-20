@@ -1,7 +1,34 @@
 {
   "version": "1.0.0",
   "id": "@shopgate-project/smile-io",
-  "components": [],
-  "configuration": {},
+  "components": [
+    {
+      "id": "subscriptions",
+      "path": "frontend/subscriptions/index.js",
+      "type": "subscribers"
+    }
+  ],
+  "configuration": {
+    "smileApiSecret": {
+      "type": "admin",
+      "destination": "backend",
+      "default": "",
+      "params": {
+        "label": "Smile api secret",
+        "type": "text",
+        "required": true
+      }
+    },
+    "smileChannelApiKey": {
+      "type": "admin",
+      "destination": "both",
+      "default": "",
+      "params": {
+        "label": "Smile channel API key",
+        "type": "text",
+        "required": true
+      }
+    }
+  },
   "steps": []
 }
