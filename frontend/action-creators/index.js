@@ -39,5 +39,4 @@ export const errorSmileCustomerInfo = () => ({
  */
 export const clearSmileCustomerInfo = () => ({
   type: CLEAR_SMILE_CUSTOMER_INFO,
-
 });
