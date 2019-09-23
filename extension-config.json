@@ -1,7 +1,133 @@
 {
   "version": "1.0.0",
   "id": "@shopgate-project/smile-io",
-  "components": [],
-  "configuration": {},
+  "components": [
+    {
+      "id": "smileLoginRoute",
+      "path": "frontend/pages/smileLoginRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "waysToEarnRoute",
+      "path": "frontend/pages/waysToEarnRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "waysToSpendRoute",
+      "path": "frontend/pages/waysToSpend/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    }
+  ],
+  "configuration": {
+    "shopifyAlias": {
+      "type": "bigApi",
+      "destination": "both",
+      "default": "",
+      "params": {
+        "method": "GET",
+        "service": "config",
+        "path": "/v1/shop/%(shopId)s/checkout_web_checkout_shopify?parsed=true",
+        "key": "value.frontend.alias"
+      }
+    },
+    "imageSrcs": {
+      "type": "admin",
+      "destinatoin": "frontend",
+      "default": {
+        "extendedHand": "https://cdn.sweettooth.io/v1/images/earn-more-points.svg?color=%23000000&theme=light",
+        "box": "https://cdn.sweettooth.io/v1/images/spend-your-points.svg?color=%23000000&theme=light",
+        "dollars": "https://cdn.sweettooth.io/v1/images/rewards/fixed-amount.svg?color=%23000000&theme=light",
+        "purse": "https://cdn.sweettooth.io/v1/images/earning/order-online.svg?color=%23000000&theme=light",
+        "signup": "https://cdn.sweettooth.io/v1/images/earning/signup.svg?color=%23000000&theme=light",
+        "cake": "https://cdn.sweettooth.io/v1/images/earning/birthday.svg?color=%23000000&theme=light"
+      },
+      "params": {
+        "label": "Configuration for image source locations",
+        "type": "json"
+      }
+    },
+    "colorConfig": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "headerBackground": "blue",
+        "headerFontColor": "white",
+        "buttonBackground": "blue",
+        "buttonFontColor": "white",
+        "contentBackground": "white",
+        "svgAccent": "blue"
+      },
+      "params": {
+        "label": "Configuration for colors",
+        "type": "json"
+      }
+    },
+    "loginPageText": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "headerText": {
+          "secondaryText": "Welcome To",
+          "primaryText": "Merlin's magnificent magic shop"
+        },
+        "pointsText": {
+          "header": "Points",
+          "paragraph": "Earn more Points for different actions, and turn those Points into awesome rewards!"
+        },
+        "memberText": {
+          "header": "Become a member",
+          "paragraph": "With more ways to unlock exciting perks, this is your all access pass to exclusive rewards."
+        }
+      },
+      "params": {
+        "label": "Configuration for login page text",
+        "type": "json"
+      }
+    },
+    "waysToSpend": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "appBarTitle": "Ways to Spend",
+        "header": "Ways to spend",
+        "params": {
+          "label": "Configuration for ways to spend page",
+          "type": "json"
+        }
+      }
+    },
+    "waysToEarn": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "appBarTitle": "Ways to Earn",
+        "header": "Ways to earn",
+        "options": [
+          {
+            "img": "purse",
+            "text": "Place an order",
+            "pointsText": "1 Point for every $1 spent"
+          },
+          {
+            "img": "signup",
+            "text": "Signup",
+            "pointsText": "200 points"
+          },
+          {
+            "img": "cake",
+            "text": "Celebrate a birthday",
+            "pointsText": "200 points"
+          }
+        ]
+      },
+      "params": {
+        "label": "Congifuration for ways to earn",
+        "type": "json"
+      }
+    }
+  },
   "steps": []
 }
