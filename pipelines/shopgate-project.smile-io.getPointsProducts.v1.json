@@ -1,0 +1,26 @@
+{
+  "version": "1",
+  "pipeline": {
+    "id": "shopgate-project.smile-io.getPointsProducts.v1",
+    "public": true,
+    "input": [
+      {"key": "sgxsMeta", "id": "1000"}
+    ],
+    "output": [
+      {"key":  "pointsProducts", "id":  "1010"}
+    ],
+    "steps": [
+      {
+        "type": "extension",
+        "id": "@shopgate-project/smile-io",
+        "path": "@shopgate-project/smile-io/steps/getPointsProducts.js",
+        "input": [
+          {"key": "sgxsMeta", "id": "1000"}
+        ],
+        "output": [
+          {"key":  "pointsProducts", "id":  "1010"}
+        ]
+      }
+    ]
+  }
+}

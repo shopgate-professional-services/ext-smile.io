@@ -1,13 +1,14 @@
-class ReChargeApi {
+class SmileApi {
   /**
-   * ReChargeApi Constructor
+   * SmileApi Constructor
    * @param {PipelineContext} context Context object.
    */
   constructor (context) {
-    this.baseUrl = context.config.baseUrl
+    this.baseUrl = context.config.smileApiUrl
     this.request = context.tracedRequest('ShopgateProjectSmileAPI')
     this.logger = context.log
-    this.token = context.config.apiToken
+    this.token = context.config.smileChannelApiKey
+
     this.storage = context.storage
     this.userCacheKey = 'recharge_api_user_cache'
     this.userCacheTTL = 3600000
@@ -68,7 +69,7 @@ class ReChargeApi {
         json: true,
         timeout: 5000,
         headers: {
-          'X-Recharge-Access-Token': this.token
+          'Authorization': `Bearer ${this.token}`,
         }
       }
       if (body) {
@@ -77,18 +78,18 @@ class ReChargeApi {
       if (qs) {
         params.qs = qs
       }
-      this.logger.debug(this.sanitizeForLogging(params), 'Calling RechargeAPI')
+      this.logger.debug(this.sanitizeForLogging(params), 'Calling SmileAPI')
       this.request(params, (err, res, body) => {
         if (err) {
           this.logger.error({
             body,
             qs,
             httpCode: res.statusCode
-          }, 'ReCharge request error')
+          }, 'SmileAPI request error')
           return reject(err)
         }
 
-        this.logger.debug(this.sanitizeForLogging(body), 'Received response from ReChargeAPI')
+        this.logger.debug(this.sanitizeForLogging(body), 'Received response from SmileAPI')
 
         if (this.isErroredCode(res.statusCode)) {
           this.logger.error({
@@ -104,65 +105,16 @@ class ReChargeApi {
   }
 
   /**
-   * Get product subscription data from ReCharge API
-   * @param {Object[]} productIds
+   * Receive a list of all PointsProducts
+   * @see https://docs.smile.io/docs/points-product
    * @return {Promise<any>}
    */
-  async getProducts (productIds = []) {
+  async getPointsProducts (productIds = []) {
     return this.call({
-      path: 'products',
+      path: 'points_products',
       method: 'GET',
-      qs: {
-        shopify_product_ids: productIds.join(',')
-      }
     })
-  }
-
-  async createOrderToken (checkoutParams) {
-    const { lineItems } = checkoutParams
-    return this.call({
-      path: 'checkouts',
-      method: 'POST',
-      body: {
-        'checkout': {
-          'line_items': lineItems
-        }
-      }
-    })
-  }
-
-  /**
-   * Get ReCharge user information
-   * @param {string} id Shopify/Shopgate user id
-   * @param {boolean} useCache When true do use cached user data
-   * @return {Promise<any>}
-   */
-  async getCustomerByShopifyUserId (id, useCache) {
-    if (useCache) {
-      const userCache = await this.storage.user.get(this.userCacheKey)
-      const { userData, timestamp = 0 } = userCache || {}
-      if (userData && timestamp + this.userCacheTTL > Date.now()) {
-        return userData
-      }
-    }
-
-    const newUserData = await this.call({
-      path: 'customers',
-      method: 'GET',
-      qs: {
-        shopify_customer_id: id
-      }
-    })
-    await this.storage.user.set(
-      this.userCacheKey,
-      {
-        userData: newUserData,
-        timestamp: Date.now()
-      }
-    )
-
-    return newUserData
   }
 }
 
-module.exports = ReChargeApi
+module.exports = SmileApi

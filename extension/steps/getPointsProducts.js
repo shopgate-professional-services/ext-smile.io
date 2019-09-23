@@ -2,17 +2,8 @@
 const ReChargeApi = require('../SmileApi')
 
 module.exports = async (context, { useCache = false }) => {
-  const { userId } = context.meta || {}
-  if (!userId) {
-    return { customer: null }
-  }
-
   const api = new ReChargeApi(context)
-  const { customers = [] } = await api.getCustomerByShopifyUserId(userId, useCache)
+  const { points_products = [] } = await api.getPointsProducts()
 
-  if (customers.length < 1) {
-    return { customer: null }
-  }
-
-  return { customer: customers[0] }
+  return { pointsProducts: points_products }
 }
