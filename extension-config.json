@@ -42,8 +42,22 @@
         "label": "Smile Javascript SDK script src",
         "type": "text",
         "required": true
+      },
+      {
+        "id": "smileCustomerInfo",
+        "path": "frontend/reducers/smileCustomerInfo.js",
+        "type": "reducers"
+      },
+      {
+      "id": "subscriptions",
+      "path": "frontend/subscriptions/index.js",
+      "type": "subscribers"
       }
     }
   },
+  "steps": []
+
+  ],
+  "configuration": {},
   "steps": []
 }

@@ -1,5 +1,6 @@
 # Shopgate Connect - Smile.io
 
+This extension integrates a Shopgate app with [Smile.io](https://https://smile.io/). Smile.io loyalty points as well as redemption options will be displayed within the app. Loyalty point redemption will take place with Shopify WebCheckout. 
 
 ## About Shopgate
 
