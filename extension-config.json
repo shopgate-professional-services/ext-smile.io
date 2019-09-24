@@ -19,6 +19,16 @@
       "path": "frontend/pages/waysToSpend/index.jsx",
       "target": "app.routes",
       "type": "portals"
+    },
+    {
+      "id": "pointsProducts",
+      "path": "frontend/reducers/pointsProducts.js",
+      "type": "reducers"
+    },
+    {
+      "id": "subscriptions",
+      "path": "frontend/subscriptions/index.js",
+      "type": "subscribers"
     }
   ],
   "configuration": {
@@ -37,8 +47,8 @@
       "type": "admin",
       "destinatoin": "frontend",
       "default": {
-        "extendedHand": "https://cdn.sweettooth.io/v1/images/earn-more-points.svg?color=%23000000&theme=light",
-        "box": "https://cdn.sweettooth.io/v1/images/spend-your-points.svg?color=%23000000&theme=light"
+        "waysToEarn": "https://cdn.sweettooth.io/v1/images/earn-more-points.svg?color=%23000000&theme=light",
+        "waysToSpend": "https://cdn.sweettooth.io/v1/images/spend-your-points.svg?color=%23000000&theme=light"
       },
       "params": {
         "label": "Configuration for image source locations",
@@ -88,11 +98,11 @@
       "destination": "frontend",
       "default": {
         "appBarTitle": "Ways to Spend",
-        "header": "Ways to spend",
-        "params": {
-          "label": "Configuration for ways to spend page",
-          "type": "json"
-        }
+        "header": "Ways to spend"
+      },
+      "params": {
+        "label": "Configuration for ways to spend page",
+        "type": "json"
       }
     },
     "waysToEarn": {
@@ -122,6 +132,46 @@
       "params": {
         "label": "Congifuration for ways to earn",
         "type": "json"
+      }
+    },
+    "smileApiUrl": {
+      "type": "admin",
+      "destination": "backend",
+      "default": "https://api.sweettooth.io/v1",
+      "params": {
+        "label": "Smile api url endpoint",
+        "type": "text",
+        "required": true
+      }
+    },
+    "smileApiSecret": {
+      "type": "admin",
+      "destination": "backend",
+      "default": "sk_AKsXCa4sWSxdzs9MkixvJAo2",
+      "params": {
+        "label": "Smile api secret",
+        "type": "text",
+        "required": true
+      }
+    },
+    "smileChannelApiKey": {
+      "type": "admin",
+      "destination": "both",
+      "default": "pk_ETsDtPcppst3fQirFGDUy7aE",
+      "params": {
+        "label": "Smile channel API key",
+        "type": "text",
+        "required": true
+      }
+    },
+    "smileJavascriptSdkSrc": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": "https://cdn.sweettooth.io/assets/storefront.js",
+      "params": {
+        "label": "Smile Javascript SDK script src",
+        "type": "text",
+        "required": true
       }
     }
   },

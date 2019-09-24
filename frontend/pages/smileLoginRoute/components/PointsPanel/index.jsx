@@ -14,7 +14,7 @@ const PointsPanel = ({ pointsText, imgSrcs }) => {
     return null;
   }
   const { header, paragraph } = pointsText || {};
-  const { extendedHand, box } = imgSrcs || {};
+  const { waysToEarn, waysToSpend } = imgSrcs || {};
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -24,8 +24,8 @@ const PointsPanel = ({ pointsText, imgSrcs }) => {
         {paragraph}
       </div>
       <div className={styles.listContainer}>
-        <ListItem className={styles.ListItem} img={extendedHand} text="Ways to earn" pathname={WAYS_TO_EARN_ROUTE} />
-        <ListItem img={box} text="Ways to spend" pathname={WAYS_TO_SPEND_ROUTE} />
+        <ListItem className={styles.ListItem} img={waysToEarn} text="Ways to earn" pathname={WAYS_TO_EARN_ROUTE} />
+        <ListItem img={waysToSpend} text="Ways to spend" pathname={WAYS_TO_SPEND_ROUTE} />
       </div>
     </div>
   );
