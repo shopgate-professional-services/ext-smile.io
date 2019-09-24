@@ -38,11 +38,7 @@
       "destinatoin": "frontend",
       "default": {
         "extendedHand": "https://cdn.sweettooth.io/v1/images/earn-more-points.svg?color=%23000000&theme=light",
-        "box": "https://cdn.sweettooth.io/v1/images/spend-your-points.svg?color=%23000000&theme=light",
-        "dollars": "https://cdn.sweettooth.io/v1/images/rewards/fixed-amount.svg?color=%23000000&theme=light",
-        "purse": "https://cdn.sweettooth.io/v1/images/earning/order-online.svg?color=%23000000&theme=light",
-        "signup": "https://cdn.sweettooth.io/v1/images/earning/signup.svg?color=%23000000&theme=light",
-        "cake": "https://cdn.sweettooth.io/v1/images/earning/birthday.svg?color=%23000000&theme=light"
+        "box": "https://cdn.sweettooth.io/v1/images/spend-your-points.svg?color=%23000000&theme=light"
       },
       "params": {
         "label": "Configuration for image source locations",
@@ -103,21 +99,21 @@
       "type": "admin",
       "destination": "frontend",
       "default": {
-        "appBarTitle": "Ways to Earn",
+        "appBarTitle": "Shop title goes here?",
         "header": "Ways to earn",
         "options": [
           {
-            "img": "purse",
+            "img": "https://cdn.sweettooth.io/v1/images/earning/order-online.svg?color=%23000000&theme=light",
             "text": "Place an order",
             "pointsText": "1 Point for every $1 spent"
           },
           {
-            "img": "signup",
+            "img": "https://cdn.sweettooth.io/v1/images/earning/signup.svg?color=%23000000&theme=light",
             "text": "Signup",
             "pointsText": "200 points"
           },
           {
-            "img": "cake",
+            "img": "https://cdn.sweettooth.io/v1/images/earning/birthday.svg?color=%23000000&theme=light",
             "text": "Celebrate a birthday",
             "pointsText": "200 points"
           }

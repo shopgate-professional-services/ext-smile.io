@@ -10,7 +10,7 @@ import { WAYS_TO_SPEND_ROUTE } from '../../constants';
 /**
  * @returns {JSX}
  */
-const waysToSpendRoute = ({ o[topms]}) => {
+const waysToSpendRoute = ({ options }) => {
   const { waysToSpend } = getConfig();
   const { View, AppBar } = useTheme();
   return (
@@ -24,11 +24,11 @@ const waysToSpendRoute = ({ o[topms]}) => {
 
 waysToSpendRoute.propTypes = {
   options: PropTypes.shape(),
-}
+};
 
 waysToSpendRoute.defaultProps = {
   options: null,
-}
+};
 
 export default () => (
   <Route

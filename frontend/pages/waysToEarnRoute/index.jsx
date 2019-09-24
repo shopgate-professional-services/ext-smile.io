@@ -5,7 +5,6 @@ import SmilePanel from '../../components/SmilePanel';
 import SmileJoinFooter from '../../components/SmileJoinFooter';
 import getConfig from '../../helpers/getConfig';
 import { WAYS_TO_EARN_ROUTE } from '../../constants';
-import waysToSpendRoute from '../waysToSpendRoute';
 
 /**
  * @returns {JSX}
@@ -13,6 +12,9 @@ import waysToSpendRoute from '../waysToSpendRoute';
 const waysToEarnRoute = () => {
   const { waysToEarn } = getConfig();
   const { View, AppBar } = useTheme();
+  if (!waysToEarn) {
+    return null;
+  }
   return (
     <View>
       <AppBar title={waysToEarn.appBarTitle} />

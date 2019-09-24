@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './style';
+import getConfig from '../../../../helpers/getConfig';
+
+const { shopifyAlias } = getConfig();
 
 /**
  * Member component Smile Login Panel
@@ -20,10 +23,10 @@ const MemberPanel = ({ memberText }) => {
       <div className={styles.paragraph}>
         {paragraph}
       </div>
-      <a className={styles.joinButton} href="https://merlins-magnificent-magic-shop.myshopify.com/account/register">Join now</a>
+      <a className={styles.joinButton} href={`https://${shopifyAlias}.myshopify.com/account/register`}>Join now</a>
       <div className={styles.signIn}>
         Already have an account?&nbsp
-        <a href="https://merlins-magnificent-magic-shop.myshopify.com/account/login">SignIn</a>
+        <a href={`https://${shopifyAlias}.myshopify.com/account/login`}>SignIn</a>
       </div>
     </div>
   );
