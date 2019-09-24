@@ -1,6 +1,5 @@
 import { userDataReceived$, userDidLogout$ } from '@shopgate/engage/user';
-import { fetchSmileDataDigest } from '../actions';
-import { clearSmileDigestData } from '../action-creators';
+import { fetchSmileDataDigest, logoutSmile } from '../actions';
 
 export default (subscribe) => {
   subscribe(userDataReceived$, ({ dispatch }) => {
@@ -8,6 +7,6 @@ export default (subscribe) => {
   });
 
   subscribe(userDidLogout$, ({ dispatch }) => {
-    dispatch(clearSmileDigestData());
+    dispatch(logoutSmile());
   });
 };

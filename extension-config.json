@@ -49,6 +49,15 @@
         "type": "text",
         "required": true
       }
+    },
+    "isLegacyCheckout": {
+      "type": "admin",
+      "destination": "backend",
+      "default": false,
+      "params": {
+        "label": "true if web checkout not being used",
+        "type": "checkbox"
+      }
     }
   },
   "steps": []

@@ -15,15 +15,14 @@
         "id": "200"
       },
       {
-        "key": "externalCustomerId",
+        "key": "customerId",
         "id": "150"
       }
     ],
     "steps": [
       {
         "type": "pipeline",
-        "id": "shopgate.user.getUserShopAccount.v1",
-        "trusted": "true",
+        "id": "shopgate-project.smile-io.getCustomerId.v1",
         "input": [
           {
             "key": "sgxsMeta",
@@ -32,7 +31,7 @@
         ],
         "output": [
           {
-            "key": "externalCustomerId",
+            "key": "customerId",
             "id": "150"
           }
         ]
@@ -43,9 +42,8 @@
         "path": "@shopgate-project/smile-io/lib/generateCustomerDigest.js",
         "input": [
           {
-            "key": "externalCustomerId",
-            "id": "150",
-            "optional": true
+            "key": "customerId",
+            "id": "150"
           }
         ],
         "output": [
