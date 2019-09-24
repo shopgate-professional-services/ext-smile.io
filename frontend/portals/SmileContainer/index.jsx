@@ -4,6 +4,7 @@ import getConfig from '../../helpers/getConfig';
 import connect from './connector';
 
 const { smileChannelApiKey } = getConfig();
+
 /**
  * SmileContainer component
  * @param {string} digest Smile digest data
@@ -16,6 +17,7 @@ const SmileContainer = ({ digest, externalCustomerId, mountScript }) => {
     if (!(digest && externalCustomerId)) {
       return;
     }
+
     mountScript(externalCustomerId, digest);
   }, [digest]);
 

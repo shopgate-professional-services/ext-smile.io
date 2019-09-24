@@ -9,12 +9,14 @@ import {
 import getConfig from '../helpers/getConfig';
 
 const { smileJavascriptSdkSrc, smileChannelApiKey } = getConfig();
+
 /**
  *
  * @return {Function}
  */
 export const fetchSmileDataDigest = () => (dispatch) => {
   dispatch(requestSmileDigestData());
+
   new PipelineRequest(SMILE_DIGEST_PIPELINE)
     .dispatch()
     .then(({ customerDigest, customerId }) => {
@@ -28,6 +30,7 @@ export const fetchSmileDataDigest = () => (dispatch) => {
 
 export const logoutSmile = () => (dispatch) => {
   dispatch(clearSmileDigestData());
+
   if (window.SmileUI) {
     window.SmileUI.destroy();
   }
@@ -49,14 +52,17 @@ export const mountSmileScript = (externalCustomerId, digest) => async () => {
     parent.appendChild(script);
     return;
   }
+
   try {
-    const response = await fetch(`${SWEETTOOTH_INIT_ENDPOINT}?external_customer_id=${externalCustomerId}&channel_api_key=${smileChannelApiKey}&customer_auth_digest=${digest}`)
+    const response = await fetch(`${SWEETTOOTH_INIT_ENDPOINT}?external_customer_id=${externalCustomerId}&channel_api_key=${smileChannelApiKey}&customer_auth_digest=${digest}`);
     const jsonResponse = await response.json();
+
     window.Smile
       .setIdentifiedCustomer({
         auth_token: jsonResponse.customer_authentication_token,
         customer: jsonResponse.customer,
       });
+
     window.SmileUI.init({ channel_key: smileChannelApiKey });
   } catch (error) {
     logger.error(error);
