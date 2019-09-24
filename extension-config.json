@@ -16,7 +16,7 @@
     },
     {
       "id": "waysToSpendRoute",
-      "path": "frontend/pages/waysToSpend/index.jsx",
+      "path": "frontend/pages/waysToSpendRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
@@ -56,7 +56,7 @@
     },
     "imageSrcs": {
       "type": "admin",
-      "destinatoin": "frontend",
+      "destination": "frontend",
       "default": {
         "waysToEarn": "https://cdn.sweettooth.io/v1/images/earn-more-points.svg?color=%23000000&theme=light",
         "waysToSpend": "https://cdn.sweettooth.io/v1/images/spend-your-points.svg?color=%23000000&theme=light"
@@ -168,7 +168,7 @@
     "smileChannelApiKey": {
       "type": "admin",
       "destination": "both",
-      "default": "",
+      "default": "pk_ETsDtPcppst3fQirFGDUy7aE",
       "params": {
         "label": "Smile channel API key",
         "type": "text",

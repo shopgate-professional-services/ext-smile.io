@@ -11,6 +11,7 @@ import { WAYS_TO_SPEND_ROUTE } from '../../constants';
  * @returns {JSX}
  */
 const waysToSpendRoute = ({ options }) => {
+  console.warn(options);
   const { waysToSpend } = getConfig();
   const { View, AppBar } = useTheme();
   return (
