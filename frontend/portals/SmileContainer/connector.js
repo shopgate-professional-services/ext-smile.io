@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getExternalCustomerId, getSmileDigest } from '../../selectors';
-import { mountSmileScript } from '../../actions';
+import initializeSmileScript from '../../helpers/initializeSmileSdk';
 
 /**
  * @param {Object} state state
@@ -9,16 +9,8 @@ import { mountSmileScript } from '../../actions';
 const mapStateToProps = state => ({
   digest: getSmileDigest(state),
   externalCustomerId: getExternalCustomerId(state),
+  initializeScript: (externalCustomerId, digest) =>
+    initializeSmileScript(externalCustomerId, digest),
 });
 
-/**
- * Connects the dispatch function to a callable function in the props.
- * @param {Function} dispatch The redux dispatch function.
- * @return {Object} The extended component props.
- */
-const mapDispatchToProps = dispatch => ({
-  mountScript: (externalCustomerId, digest) =>
-    dispatch(mountSmileScript(externalCustomerId, digest)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps);
+export default connect(mapStateToProps);

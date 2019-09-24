@@ -1,5 +1,5 @@
 module.exports = async (context) => {
-  const { isLegacyCheckout } = context.config
+  const { webCheckout } = context.config
 
-  return { isLegacyCheckout }
+  return { isLegacyCheckout: !webCheckout }
 }

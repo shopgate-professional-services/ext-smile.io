@@ -2,7 +2,6 @@
   "version": "1",
   "pipeline": {
     "id": "shopgate-project.smile-io.getCustomerId.v1",
-    "public": true,
     "input": [
       {
         "key": "sgxsMeta",

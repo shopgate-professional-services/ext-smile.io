@@ -50,13 +50,25 @@
         "required": true
       }
     },
-    "isLegacyCheckout": {
+    "sweettoothInitEndpoint": {
       "type": "admin",
-      "destination": "backend",
-      "default": false,
+      "destination": "frontend",
+      "default": "https://cdn.sweettooth.io/v1/storefront_js/init",
       "params": {
-        "label": "true if web checkout not being used",
-        "type": "checkbox"
+        "label": "Smile Javascript SDK script src",
+        "type": "text",
+        "required": true
+      }
+    },
+    "webCheckout": {
+      "type": "bigApi",
+      "destination" : "backend",
+      "default": null,
+      "params": {
+        "method":  "GET",
+        "service": "config",
+        "path": "/v1/shop/%(shopId)s/checkout_web_checkout_shopify?parsed=true",
+        "key": "value"
       }
     }
   },

@@ -6,7 +6,7 @@ import {
 } from '../constants';
 
 /**
- * Recharge Customer Hash Reducer
+ * Smile Data Digest Reducer
  * @param {Object} state State.
  * @param {Object} action Action.
  * @returns {Object}
