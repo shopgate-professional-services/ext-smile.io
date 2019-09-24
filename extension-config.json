@@ -1,7 +1,59 @@
 {
   "version": "1.0.0",
   "id": "@shopgate-project/smile-io",
-  "components": [],
-  "configuration": {},
+  "components": [
+    {
+      "id": "pointsProducts",
+      "path": "frontend/reducers/pointsProducts.js",
+      "type": "reducers"
+    },
+    {
+      "id": "subscriptions",
+      "path": "frontend/subscriptions/index.js",
+      "type": "subscribers"
+    }
+  ],
+  "configuration": {
+    "smileApiUrl": {
+      "type": "admin",
+      "destination": "backend",
+      "default": "https://api.sweettooth.io/v1",
+      "params": {
+        "label": "Smile api url endpoint",
+        "type": "text",
+        "required": true
+      }
+    },
+    "smileApiSecret": {
+      "type": "admin",
+      "destination": "backend",
+      "default": "sk_AKsXCa4sWSxdzs9MkixvJAo2",
+      "params": {
+        "label": "Smile api secret",
+        "type": "text",
+        "required": true
+      }
+    },
+    "smileChannelApiKey": {
+      "type": "admin",
+      "destination": "both",
+      "default": "pk_ETsDtPcppst3fQirFGDUy7aE",
+      "params": {
+        "label": "Smile channel API key",
+        "type": "text",
+        "required": true
+      }
+    },
+    "smileJavascriptSdkSrc": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": "https://cdn.sweettooth.io/assets/storefront.js",
+      "params": {
+        "label": "Smile Javascript SDK script src",
+        "type": "text",
+        "required": true
+      }
+    }
+  },
   "steps": []
 }

@@ -6,6 +6,4 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [1.0.0]
 ### Added
-### Changed
-### Fixed
-### Removed
+- Initial release of Smile.io Integration
