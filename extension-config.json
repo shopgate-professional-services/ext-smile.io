@@ -1,7 +1,14 @@
 {
   "version": "1.0.0",
   "id": "@shopgate-project/smile-io",
-  "components": [],
+  "components": [
+    {
+      "id": "DashboardLink",
+      "path": "frontend/portals/DashboardLink/index.jsx",
+      "target": "app.globals",
+      "type": "portals"
+    }
+  ],
   "configuration": {},
   "steps": []
 }
