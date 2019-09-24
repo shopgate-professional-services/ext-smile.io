@@ -105,7 +105,7 @@ class SmileApi {
    * @see https://docs.smile.io/docs/points-product
    * @return {Promise<any>}
    */
-  async getPointsProducts (productIds = []) {
+  async getPointsProducts () {
     return this.call({
       path: 'points_products',
       method: 'GET'

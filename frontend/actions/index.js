@@ -14,7 +14,7 @@ import {
 export const fetchPointsProducts = () => (dispatch, getState) => {
   const pointsProductsState = getSmilePointsProductsState(getState());
 
-  if (pointsProductsState.isFetching || !pointsProductsState.pointsProducts) {
+  if (pointsProductsState.isFetching || pointsProductsState.pointsProducts) {
     return;
   }
 
