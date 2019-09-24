@@ -6,10 +6,11 @@ const container = css({
   color: 'hsla(0,0%,50.2%,.8)',
 }).toString();
 
+// Added svg as a background image like is done in smile i frame
 const image = css({
   height: '21px',
   width: '21px',
-  backgroundImage: 'url(data:image/svg+xml;charset=utf8,%3Csvg height=\'16\' viewBox=\'0 0 17 16\' widt…l=\'%23707070\' fill-opacity=\'.8\' transform=\'translate(.5 -2)\'/%3E%3C/svg%3E)',
+  backgroundImage: '',
   marginRight: '8px !important',
 }).toString();
 
@@ -19,6 +20,5 @@ const text = css({
 
 export default {
   container,
-  image,
   text,
 };

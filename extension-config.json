@@ -124,19 +124,25 @@
         "header": "Ways to earn",
         "options": [
           {
-            "img": "https://cdn.sweettooth.io/v1/images/earning/order-online.svg?color=%23000000&theme=light",
-            "text": "Place an order",
-            "pointsText": "1 Point for every $1 spent"
+            "reward": {
+              "name": "Place an order",
+              "image_url": "https://cdn.sweettooth.io/v1/images/earning/order-online.svg?color=%23000000&theme=light"
+            },
+            "exchange_description": "1 Point for every $1 spent"
           },
           {
-            "img": "https://cdn.sweettooth.io/v1/images/earning/signup.svg?color=%23000000&theme=light",
-            "text": "Signup",
-            "pointsText": "200 points"
+            "reward": {
+              "name": "Signup",
+              "image_url": "https://cdn.sweettooth.io/v1/images/earning/signup.svg?color=%23000000&theme=light"
+            },
+            "exchange_description": "200 points"
           },
           {
-            "img": "https://cdn.sweettooth.io/v1/images/earning/birthday.svg?color=%23000000&theme=light",
-            "text": "Celebrate a birthday",
-            "pointsText": "200 points"
+            "reward": {
+              "name": "Celebrate a birthday",
+              "image_url": "https://cdn.sweettooth.io/v1/images/earning/birthday.svg?color=%23000000&theme=light"
+            },
+            "exchange_description": "200 points"
           }
         ]
       },

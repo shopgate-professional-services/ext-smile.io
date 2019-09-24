@@ -6,12 +6,15 @@ import SmilePanel from '../../components/SmilePanel';
 import SmileJoinFooter from '../../components/SmileJoinFooter';
 import getConfig from '../../helpers/getConfig';
 import { WAYS_TO_SPEND_ROUTE } from '../../constants';
+import connect from './connector';
 
 /**
  * @returns {JSX}
  */
 const waysToSpendRoute = ({ options }) => {
-  console.warn(options);
+  if (!options) {
+    return null;
+  }
   const { waysToSpend } = getConfig();
   const { View, AppBar } = useTheme();
   return (
@@ -24,7 +27,7 @@ const waysToSpendRoute = ({ options }) => {
 };
 
 waysToSpendRoute.propTypes = {
-  options: PropTypes.shape(),
+  options: PropTypes.arrayOf(PropTypes.shape()),
 };
 
 waysToSpendRoute.defaultProps = {
@@ -34,7 +37,7 @@ waysToSpendRoute.defaultProps = {
 export default () => (
   <Route
     pattern={WAYS_TO_SPEND_ROUTE}
-    component={waysToSpendRoute}
+    component={connect(waysToSpendRoute)}
   />
 );
 

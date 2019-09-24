@@ -13,28 +13,35 @@ import styles from './style';
  * @returns {JSX}
  */
 const smileLoginRoute = () => {
-  const { colorConfig, loginPageText, imgSrcs } = getConfig();
+  const { colorConfig, loginPageText, imageSrcs } = getConfig();
   const { headerText, pointsText, memberText } = loginPageText || {};
   const { View, AppBar } = useTheme();
   return (
     <View>
       <AppBar
-        backGroundColor={colorConfig.headerBackground}
+        backgroundColor={colorConfig.headerBackground}
         textColor={colorConfig.headerFontColor}
       />
       <div>
         <div className={styles.container}>
-          <Header headerText={headerText} />
+          <div className={styles.headerContainer}>
+            <Header headerText={headerText} />
+          </div>
           <div className={styles.footerContainer}>
             <div className={styles.pannelContainer}>
-              <MemberPanel className={styles.memberContainer} memberText={memberText} />
-              <PointsPanel
-                className={styles.pointsContainer}
-                pointsText={pointsText}
-                imgSrcs={imgSrcs}
-              />
+              <div className={styles.becomeContainer}>
+                <MemberPanel memberText={memberText} />
+              </div>
+              <div className={styles.pointsContainer}>
+                <PointsPanel
+                  pointsText={pointsText}
+                  imgSrcs={imageSrcs}
+                />
+              </div>
             </div>
-            <Footer className={styles.footer} />
+            <div className={styles.footer}>
+              <Footer />
+            </div>
           </div>
         </div>
       </div>

@@ -12,6 +12,11 @@ const headerContainer = css({
   display: 'block',
 }).toString();
 
+const wrapper = css({
+  opacity: 1,
+  textShadow: '0 0 20px rgba(0,0,0,.1)',
+}).toString();
+
 const secondary = css({
   color: `${colorConfig.headerFontColor}`,
   fontWeight: '500',
@@ -38,6 +43,7 @@ const primary = css({
 
 export default {
   headerContainer,
+  wrapper,
   secondary,
   primary,
 };

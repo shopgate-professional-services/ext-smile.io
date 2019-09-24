@@ -7,46 +7,49 @@ const container = css({
   height: '100%',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
-
 }).toString();
 
+const headerContainer = css({
+  maxHeight: '0',
+  height: '0',
+  width: '100%',
+  overflow: 'visible',
+  color: '#fff',
+  outline: 'none',
+});
+
 const footerContainer = css({
-  fontFamily: 'Proxima Nova,arial,sans-serif!important',
+  paddingTop: '120px',
   height: '100%',
-  paddingTop: '160px',
   paddingLeft: '16px',
   paddingRight: '16px',
   overflowY: 'scroll',
-  overflowX: 'hiddern',
-  boxSizing: 'border-box',
-  lineHeight: 1.5,
-  display: 'block',
-  fontSize: '14px',
-  fontWeight: '400',
+  overflowX: 'hidden',
+  overscrollBehavior: 'contain',
 }).toString();
 
-const panelContainer = css({
+const pannelContainer = css({
   minHeight: 'calc(100% + 36px)',
 });
 
-const memberContainer = css({
+const becomeContainer = css({
   position: 'relative',
-  padding: '16px, 12px',
+  padding: '16px 12px',
+  borderRadius: '10px',
   backgroundColor: `${colorConfig.contentBackground}`,
   marginBottom: '12px',
   boxShadow: '0 0 13px 0 rgba(0,0,0,.09)',
   overflow: 'hidden',
-  opacity: 0,
 }).toString();
 
 const pointsContainer = css({
   position: 'relative',
-  padding: '16px, 12px',
-  marginBottom: '64px',
+  padding: '16px 12px',
+  borderRadius: '10px',
   backgroundColor: `${colorConfig.contentBackground}`,
+  marginBottom: '12px',
   boxShadow: '0 0 13px 0 rgba(0,0,0,.09)',
   overflow: 'hidden',
-  opacity: 0,
 }).toString();
 
 const footer = css({
@@ -66,9 +69,10 @@ const footer = css({
 
 export default {
   container,
-  footer,
+  headerContainer,
   footerContainer,
-  panelContainer,
-  memberContainer,
+  pannelContainer,
+  becomeContainer,
   pointsContainer,
+  footer,
 };

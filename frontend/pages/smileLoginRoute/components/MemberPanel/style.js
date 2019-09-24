@@ -38,14 +38,14 @@ const joinButton = css({
   display: 'inline-block',
   border: '1px solid transparent',
   padding: '15px 32px',
-});
+}).toString();
 
 const signIn = css({
   fontWeight: '400',
   fontSize: '14px',
   lineHeight: '20px',
   marginBottom: '8px !important',
-});
+}).toString();
 
 export default {
   container,

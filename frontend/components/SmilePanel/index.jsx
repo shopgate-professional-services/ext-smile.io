@@ -16,8 +16,13 @@ const SmilePanel = ({ header, options }) => {
     <div className={styles.panelContainer}>
       <div className={styles.headerContainer}>{header}</div>
       <div className={styles.cardList}>
-        {options.map(option => (
-          <Card img={option.img} text={option.text} pointsText={option.pointsText} />
+        {options.map((option, index) => (
+          <Card
+            key={index.toString()}
+            img={option.reward.image_url}
+            text={option.reward.name}
+            pointsText={option.exchange_description}
+          />
         ))}
       </div>
     </div>
@@ -25,8 +30,8 @@ const SmilePanel = ({ header, options }) => {
 };
 
 SmilePanel.propTypes = {
-  header: PropTypes.shape().isRequired,
-  options: PropTypes.shape().isRequired,
+  header: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default SmilePanel;

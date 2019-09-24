@@ -13,11 +13,13 @@ const Header = ({ headerText }) => {
   }
   return (
     <div className={styles.headerContainer}>
-      <div className={styles.secondary}>
-        {headerText.secondary}
-      </div>
-      <div className={styles.primary}>
-        {headerText.primary}
+      <div className={styles.wrapper}>
+        <div className={styles.secondary}>
+          {headerText.secondaryText}
+        </div>
+        <div className={styles.primary}>
+          {headerText.primaryText}
+        </div>
       </div>
     </div>
   );
