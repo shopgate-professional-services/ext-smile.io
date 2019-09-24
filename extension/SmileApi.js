@@ -7,11 +7,7 @@ class SmileApi {
     this.baseUrl = context.config.smileApiUrl
     this.request = context.tracedRequest('ShopgateProjectSmileAPI')
     this.logger = context.log
-    this.token = context.config.smileChannelApiKey
-
-    this.storage = context.storage
-    this.userCacheKey = 'recharge_api_user_cache'
-    this.userCacheTTL = 3600000
+    this.token = context.config.smileApiSecret
   }
 
   /**
@@ -69,7 +65,7 @@ class SmileApi {
         json: true,
         timeout: 5000,
         headers: {
-          'Authorization': `Bearer ${this.token}`,
+          'Authorization': `Bearer ${this.token}`
         }
       }
       if (body) {
@@ -112,7 +108,7 @@ class SmileApi {
   async getPointsProducts (productIds = []) {
     return this.call({
       path: 'points_products',
-      method: 'GET',
+      method: 'GET'
     })
   }
 }

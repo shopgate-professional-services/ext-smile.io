@@ -2,6 +2,16 @@
   "version": "1.0.0",
   "id": "@shopgate-project/smile-io",
   "components": [
+    {
+      "id": "pointsProducts",
+      "path": "frontend/reducers/pointsProducts.js",
+      "type": "reducers"
+    },
+    {
+      "id": "subscriptions",
+      "path": "frontend/subscriptions/index.js",
+      "type": "subscribers"
+    }
   ],
   "configuration": {
     "smileApiUrl": {
@@ -17,7 +27,7 @@
     "smileApiSecret": {
       "type": "admin",
       "destination": "backend",
-      "default": "",
+      "default": "sk_AKsXCa4sWSxdzs9MkixvJAo2",
       "params": {
         "label": "Smile api secret",
         "type": "text",
@@ -42,22 +52,8 @@
         "label": "Smile Javascript SDK script src",
         "type": "text",
         "required": true
-      },
-      {
-        "id": "smileCustomerInfo",
-        "path": "frontend/reducers/smileCustomerInfo.js",
-        "type": "reducers"
-      },
-      {
-      "id": "subscriptions",
-      "path": "frontend/subscriptions/index.js",
-      "type": "subscribers"
       }
     }
   },
-  "steps": []
-
-  ],
-  "configuration": {},
   "steps": []
 }

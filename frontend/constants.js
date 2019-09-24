@@ -1,11 +1,10 @@
-export const RECEIVE_SMILE_CUSTOMER_INFO = 'RECEIVE_SMILE_CUSTOMER_INFO';
-export const REQUEST_SMILE_CUSTOMER_INFO = 'REQUEST_SMILE_CUSTOMER_INFO';
-export const ERROR_SMILE_CUSTOMER_INFO = 'ERROR_SMILE_CUSTOMER_INFO';
-export const CLEAR_SMILE_CUSTOMER_INFO = 'CLEAR_SMILE_CUSTOMER_INFO';
+export const RECEIVE_SMILE_POINTS_PRODUCTS = 'RECEIVE_SMILE_POINTS_PRODUCTS';
+export const REQUEST_SMILE_POINTS_PRODUCTS = 'REQUEST_SMILE_POINTS_PRODUCTS';
+export const ERROR_SMILE_POINTS_PRODUCTS = 'ERROR_SMILE_POINTS_PRODUCTS';
 
 // Redux namespace
 const EXTENSION_NAME = '@shopgate-project/smile-io';
-export const REDUX_NAMESPACE_SMILE_CUSTOMER_INFO = `${EXTENSION_NAME}/smileCustomerInfo`;
+export const REDUX_NAMESPACE_SMILE_POINTS_PRODUCTS = `${EXTENSION_NAME}/pointsProducts`;
 
 // Pipelines
-export const GET_SMILE_CUSTOMER_INFO = 'shopgate-project.smile-io.getSmileCustomerInfo';
+export const GET_SMILE_POINTS_PRODUCTS = 'shopgate-project.smile-io.getPointsProducts';

@@ -1,42 +1,32 @@
 import {
-  REQUEST_SMILE_CUSTOMER_INFO,
-  RECEIVE_SMILE_CUSTOMER_INFO,
-  ERROR_SMILE_CUSTOMER_INFO,
-  CLEAR_SMILE_CUSTOMER_INFO,
+  REQUEST_SMILE_POINTS_PRODUCTS,
+  RECEIVE_SMILE_POINTS_PRODUCTS,
+  ERROR_SMILE_POINTS_PRODUCTS,
 } from '../constants';
 
 /**
- * Request smile customerInfo
+ * Request smile pointsProducts
  * @param {string} id customer id
  * @returns {Object}
  */
-export const requestSmileCustomerInfo = id => ({
-  type: REQUEST_SMILE_CUSTOMER_INFO,
-  id,
+export const requestPointsProducts = () => ({
+  type: REQUEST_SMILE_POINTS_PRODUCTS,
 });
 
 /**
- * Receives smile customerInfo
- * @param {Object} customerInfo customerInfo
+ * Receives smile pointsProducts
+ * @param {Array} pointsProducts pointsProducts
  * @returns {Object }
  */
-export const receiveSmileCustomerInfo = customerInfo => ({
-  type: RECEIVE_SMILE_CUSTOMER_INFO,
-  customerInfo,
+export const receivePointsProducts = pointsProducts => ({
+  type: RECEIVE_SMILE_POINTS_PRODUCTS,
+  pointsProducts,
 });
 
 /**
- * Error requesting smile customerInfo
+ * Error requesting smile pointsProducts
  * @returns {Object}
  */
-export const errorSmileCustomerInfo = () => ({
-  type: ERROR_SMILE_CUSTOMER_INFO,
-});
-
-/**
- * Reset smile customerInfo
- * @returns {Object}
- */
-export const clearSmileCustomerInfo = () => ({
-  type: CLEAR_SMILE_CUSTOMER_INFO,
+export const errorPointsProducts = () => ({
+  type: ERROR_SMILE_POINTS_PRODUCTS,
 });

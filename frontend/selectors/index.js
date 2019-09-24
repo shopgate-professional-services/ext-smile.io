@@ -1,21 +1,19 @@
 import { createSelector } from 'reselect';
-import { REDUX_NAMESPACE_SMILE_CUSTOMER_INFO } from '../constants';
+import { REDUX_NAMESPACE_SMILE_POINTS_PRODUCTS } from '../constants';
 
 /**
- * Gets info from smileCustomerInfo extension reducer
+ * Gets info from pointsProducts extension reducer
  * @param {Object} state state
  * @returns {Object}
  */
-export const getSmileCustomerInfoState = state =>
-  state.extensions[REDUX_NAMESPACE_SMILE_CUSTOMER_INFO];
+export const getSmilePointsProductsState = state =>
+  state.extensions[REDUX_NAMESPACE_SMILE_POINTS_PRODUCTS];
 
-export const getSmileCustomerInfo = createSelector(
-  getSmileCustomerInfoState,
-  (customerInfo) => {
-    if (!customerInfo) {
-      return null;
-    }
-    return customerInfo;
+export const getSmilePointsProducts = createSelector(
+  getSmilePointsProductsState,
+  (pointsProductsState) => {
+
+    return pointsProductsState.pointsProducts;
   }
 );
 

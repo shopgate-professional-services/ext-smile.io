@@ -1,28 +1,33 @@
 import { PipelineRequest, logger } from '@shopgate/engage/core';
-import { GET_SMILE_CUSTOMER_INFO } from '../constants';
+import { GET_SMILE_POINTS_PRODUCTS } from '../constants';
+import { getSmilePointsProductsState } from '../selectors';
 import {
-  requestSmileCustomerInfo,
-  receiveSmileCustomerInfo,
-  errorSmileCustomerInfo,
+  requestPointsProducts,
+  receivePointsProducts,
+  errorPointsProducts,
 } from '../action-creators';
 
 /**
- * Fetches customerInfo from smile
- * @param {string} id customer id
+ * Fetches PointsProducts from smile
  * @returns {Function}
  */
-export const fetchSmileCustomerInfo = id => (dispatch) => {
-  dispatch(requestSmileCustomerInfo(id));
-  new PipelineRequest(GET_SMILE_CUSTOMER_INFO)
-    .setInput({ customerId: id })
+export const fetchPointsProducts = () => (dispatch, getState) => {
+  const pointsProductsState = getSmilePointsProductsState(getState());
+
+  if (pointsProductsState.isFetching || !pointsProductsState.pointsProducts) {
+    return;
+  }
+
+  dispatch(requestPointsProducts());
+  new PipelineRequest(GET_SMILE_POINTS_PRODUCTS)
     .dispatch()
     .then((response) => {
-      const { customerInfo } = response || {};
-      dispatch(receiveSmileCustomerInfo(customerInfo));
+      const { pointsProducts } = response || {};
+      dispatch(receivePointsProducts(pointsProducts));
     })
     .catch((err) => {
       logger.error(err);
-      dispatch(errorSmileCustomerInfo());
+      dispatch(errorPointsProducts());
     });
 };
 
