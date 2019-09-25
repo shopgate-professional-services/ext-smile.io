@@ -25,3 +25,9 @@ export const SMILE_DIGEST_PIPELINE = 'shopgate-project.smile-io.getCustomerDiges
 
 // Redux namespace
 export const REDUX_NAMESPACE_SMILE_DIGEST_DATA = '@shopgate-project/smile-io/smileDataDigest';
+
+export const TAB_BAR_BLACKLIST = [
+  SMILE_LOGIN_ROUTE,
+  WAYS_TO_EARN_ROUTE,
+  WAYS_TO_SPEND_ROUTE,
+];

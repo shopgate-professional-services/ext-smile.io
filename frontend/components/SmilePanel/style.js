@@ -10,7 +10,7 @@ const panelContainer = css({
   paddingRight: '16px',
   overflowY: 'scroll',
   overflowX: 'hidden',
-  paddingTop: '76px',
+  paddingTop: '16px',
   overscrollBehavior: 'contain',
 }).toString();
 

@@ -10,10 +10,10 @@ const { shopifyAlias } = getConfig();
  */
 const SmileJoinFooter = () => (
   <div className={styles.container}>
-    <a className={styles.button} href={`https://${shopifyAlias}.myshopify.com/account/register`}>join now</a>
+    <a className={styles.button} href={`https://${shopifyAlias}.myshopify.com/account/register`}>Join now</a>
     <div className={styles.signIn}>
-      Already have an account?&nbsp
-      <a href={`https://${shopifyAlias}.myshopify.com/account/login`}>SignIn</a>
+      {'Already have an account? '}
+      <a style={{ textDecoration: 'underline' }} href={`https://${shopifyAlias}.myshopify.com/account/login`}>Sign In</a>
     </div>
   </div>
 );

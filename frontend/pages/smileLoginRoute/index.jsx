@@ -27,21 +27,19 @@ const smileLoginRoute = () => {
           <div className={styles.headerContainer}>
             <Header headerText={headerText} />
           </div>
-          <div className={styles.footerContainer}>
-            <div className={styles.pannelContainer}>
-              <div className={styles.becomeContainer}>
-                <MemberPanel memberText={memberText} />
-              </div>
-              <div className={styles.pointsContainer}>
-                <PointsPanel
-                  pointsText={pointsText}
-                  imgSrcs={imageSrcs}
-                />
-              </div>
+          <div className={styles.pannelContainer}>
+            <div className={styles.becomeContainer}>
+              <MemberPanel memberText={memberText} />
             </div>
-            <div className={styles.footer}>
-              <Footer />
+            <div className={styles.pointsContainer}>
+              <PointsPanel
+                pointsText={pointsText}
+                imgSrcs={imageSrcs}
+              />
             </div>
+          </div>
+          <div className={styles.footer}>
+            <Footer />
           </div>
         </div>
       </div>

@@ -4,12 +4,13 @@ import getConfig from '../../../../helpers/getConfig';
 const { colorConfig } = getConfig();
 
 const headerContainer = css({
-  height: '200px',
+  height: '140px',
   padding: '24px',
   position: 'relative',
   background: `${colorConfig.headerBackground}`,
   boxSizing: 'border-box',
   display: 'block',
+  transform: 'translate3d(0px, 0px, 0px)',
 }).toString();
 
 const wrapper = css({

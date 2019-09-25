@@ -18,19 +18,19 @@ const headerContainer = css({
   outline: 'none',
 });
 
-const footerContainer = css({
-  paddingTop: '120px',
+const pannelContainer = css({
+  paddingTop: '100px',
   height: '100%',
   paddingLeft: '16px',
   paddingRight: '16px',
   overflowY: 'scroll',
   overflowX: 'hidden',
   overscrollBehavior: 'contain',
-}).toString();
-
-const pannelContainer = css({
   minHeight: 'calc(100% + 36px)',
-});
+  ':scrollbar': {
+    display: 'none',
+  },
+}).toString();
 
 const becomeContainer = css({
   position: 'relative',
@@ -40,6 +40,7 @@ const becomeContainer = css({
   marginBottom: '12px',
   boxShadow: '0 0 13px 0 rgba(0,0,0,.09)',
   overflow: 'hidden',
+  opacity: 1,
 }).toString();
 
 const pointsContainer = css({
@@ -70,7 +71,6 @@ const footer = css({
 export default {
   container,
   headerContainer,
-  footerContainer,
   pannelContainer,
   becomeContainer,
   pointsContainer,
