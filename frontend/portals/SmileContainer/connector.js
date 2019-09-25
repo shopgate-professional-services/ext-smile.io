@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { getExternalCustomerId, getSmileDigest } from '../../selectors';
-import initializeSmileScript from '../../helpers/initializeSmileSdk';
 
 /**
  * @param {Object} state state
@@ -9,8 +8,6 @@ import initializeSmileScript from '../../helpers/initializeSmileSdk';
 const mapStateToProps = state => ({
   digest: getSmileDigest(state),
   externalCustomerId: getExternalCustomerId(state),
-  initializeScript: (externalCustomerId, digest) =>
-    initializeSmileScript(externalCustomerId, digest),
 });
 
 export default connect(mapStateToProps);

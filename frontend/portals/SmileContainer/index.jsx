@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import initializeSmileScript from '../../helpers/initializeSmileSdk';
 import connect from './connector';
 import { smileChannelApiKey } from '../../config';
 
@@ -7,16 +8,15 @@ import { smileChannelApiKey } from '../../config';
  * SmileContainer component
  * @param {string} digest Smile digest data
  * @param {string} externalCustomerId External Customer Id
- * @param {Function} initializeScript Initialize Smile.io script function
  * @return {JSX}
  */
-const SmileContainer = ({ digest, externalCustomerId, initializeScript }) => {
+const SmileContainer = ({ digest, externalCustomerId }) => {
   useEffect(() => {
     if (!(digest && externalCustomerId)) {
       return;
     }
 
-    initializeScript(externalCustomerId, digest);
+    initializeSmileScript(externalCustomerId, digest);
   }, [digest, externalCustomerId]);
 
   if (!(digest && externalCustomerId)) {
@@ -39,13 +39,11 @@ const SmileContainer = ({ digest, externalCustomerId, initializeScript }) => {
 SmileContainer.propTypes = {
   digest: PropTypes.string,
   externalCustomerId: PropTypes.string,
-  initializeScript: PropTypes.func,
 };
 
 SmileContainer.defaultProps = {
   digest: null,
   externalCustomerId: null,
-  initializeScript: () => {},
 };
 
 export default connect(SmileContainer);
