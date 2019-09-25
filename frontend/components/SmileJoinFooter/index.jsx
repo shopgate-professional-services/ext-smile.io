@@ -14,7 +14,7 @@ const SmileJoinFooter = () => (
     <a className={styles.button} href={`https://${shopifyAlias}.myshopify.com/account/register`}>
       <I18n.Text string="smile.join_button" />
     </a>
-    <div className={styles.signIn}>
+    <div>
       <I18n.Text string="smile.have_account" />
       <a style={{ textDecoration: 'underline' }} href={`https://${shopifyAlias}.myshopify.com/account/login`}>
         <I18n.Text string="smile.sign_in_link" />

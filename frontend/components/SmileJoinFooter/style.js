@@ -51,12 +51,7 @@ const button = css({
   animation: 'fadeIn .2s ease-in-out',
 }).toString();
 
-const signIn = css({
-
-}).toString();
-
 export default {
   button,
   container,
-  signIn,
 };

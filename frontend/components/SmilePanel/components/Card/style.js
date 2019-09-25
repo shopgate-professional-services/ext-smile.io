@@ -40,14 +40,6 @@ const image = css({
   flexShrink: '0',
 }).toString();
 
-const textWrapper = css({
-
-}).toString();
-
-const title = css({
-
-}).toString();
-
 const subtitle = css({
   color: '#707070',
 }).toString();
@@ -57,7 +49,5 @@ export default {
   cardItemContainer,
   cardItemContent,
   image,
-  textWrapper,
-  title,
   subtitle,
 };
