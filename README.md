@@ -16,59 +16,65 @@ The conifguration imageSrcs is required in order to display the ways to earn and
 The configuration colorConfig contains variables for various coloring on these custom pages. Default Values:
 ```json
 "colorConfig":{
-  "headerBackground": "blue",
+  "headerBackground": "black",
   "headerFontColor": "white",
-  "buttonBackground": "blue",
+  "buttonBackground": "black",
   "buttonFontColor": "white",
   "contentBackground": "white",
-  "svgAccent": "blue"
+}
 ```
 
 The configuration loginPageText contains required information that need to be maintained to mimic the logged in smile.io dashboard. Default Values:
 ```json
 "loginPageText": {
-"headerText": {
-  "secondaryText": "Welcome To",
-  "primaryText": "Merlin's magnificent magic shop"
-},
-"pointsText": {
-  "header": "Points",
-  "paragraph": "Earn more Points for different actions, and turn those Points into awesome rewards!"
-},
-"memberText": {
-  "header": "Become a member",
-  "paragraph": "With more ways to unlock exciting perks, this is your all access pass to exclusive rewards."
-}
+  "headerText": {
+    "secondaryText": "Welcome To",
+    "primaryText": "Merlin's magnificent magic shop"
+  },
+  "pointsText": {
+    "header": "Points",
+    "paragraph": "Earn more Points for different actions, and turn those Points into awesome rewards!"
+  },
+  "memberText": {
+    "header": "Become a member",
+    "paragraph": "With more ways to unlock exciting perks, this is your all access pass to exclusive rewards."
+  }
 }
 ```
 The configuration waysToSpend only contains text information since we fetch ways to spend events from the smile.io api. Default Values: 
 ```json
 "waysToSpend":{
-  "appBarTitle": "Ways to Spend",
+  "appBarTitle": "Shop Title",
   "header": "Ways to spend"
 }
 ```
 
-The configuration waysToEarn contains text information and the various activites that are allowed by the merchant to earn rewards. Default Values:
+The configuration waysToEarn contains text information and the various activites that are allowed by the merchant to earn rewards. The options array mimics the layout for waysToSpend options API reponse. Default Values:
 ```json
 "waysToEarn": {
-  "appBarTitle": "Shop title goes here?",
+  "appBarTitle": "Shop Title",
   "header": "Ways to earn",
   "options": [
     {
-      "img": "https://cdn.sweettooth.io/v1/images/earning/order-online.svg?color=%23000000&theme=light",
-      "text": "Place an order",
-      "pointsText": "1 Point for every $1 spent"
+      "reward": {
+        "name": "Place an order",
+        "image_url": "https://cdn.sweettooth.io/v1/images/earning/order-online.svg?color=%23000000&theme=light"
+      },
+      "exchange_description": "1 Point for every $1 spent"
     },
     {
-      "img": "https://cdn.sweettooth.io/v1/images/earning/signup.svg?color=%23000000&theme=light",
-      "text": "Signup",
-      "pointsText": "200 points"
+      "reward": {
+        "name": "Signup",
+        "image_url": "https://cdn.sweettooth.io/v1/images/earning/signup.svg?color=%23000000&theme=light"
+      },
+      "exchange_description": "200 points"
     },
     {
-      "img": "https://cdn.sweettooth.io/v1/images/earning/birthday.svg?color=%23000000&theme=light",
-      "text": "Celebrate a birthday",
-      "pointsText": "200 points"
+      "reward": {
+        "name": "Celebrate a birthday",
+        "image_url": "https://cdn.sweettooth.io/v1/images/earning/birthday.svg?color=%23000000&theme=light"
+      },
+      "exchange_description": "200 points"
     }
   ]
 }
@@ -99,6 +105,13 @@ smileJavascriptSdkSrc Default Value:
 ```json
 {
   "smileJavascriptSdkSrc": "https://cdn.sweettooth.io/assets/storefront.js"
+}
+```
+
+sweettoothInitEndpoint Default Value:
+```json
+{
+  "sweettoothInitEndpoint": "https://cdn.sweettooth.io/v1/storefront_js/init"
 }
 ```
 

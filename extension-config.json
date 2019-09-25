@@ -46,6 +46,11 @@
       "id": "subscriptions",
       "path": "frontend/subscriptions/index.js",
       "type": "subscribers"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/en-US.json",
+      "id": "locale/en-US"
     }
   ],
   "configuration": {
@@ -76,12 +81,11 @@
       "type": "admin",
       "destination": "frontend",
       "default": {
-        "headerBackground": "blue",
+        "headerBackground": "black",
         "headerFontColor": "white",
-        "buttonBackground": "blue",
+        "buttonBackground": "black",
         "buttonFontColor": "white",
-        "contentBackground": "white",
-        "svgAccent": "blue"
+        "contentBackground": "white"
       },
       "params": {
         "label": "Configuration for colors",
@@ -114,7 +118,7 @@
       "type": "admin",
       "destination": "frontend",
       "default": {
-        "appBarTitle": "Ways to Spend",
+        "appBarTitle": "Shop Title",
         "header": "Ways to spend"
       },
       "params": {
@@ -126,7 +130,7 @@
       "type": "admin",
       "destination": "frontend",
       "default": {
-        "appBarTitle": "Shop title goes here?",
+        "appBarTitle": "Shop Title",
         "header": "Ways to earn",
         "options": [
           {
@@ -170,7 +174,7 @@
     "smileApiSecret": {
       "type": "admin",
       "destination": "backend",
-      "default": "sk_AKsXCa4sWSxdzs9MkixvJAo2",
+      "default": "1234example",
       "params": {
         "label": "Smile api secret",
         "type": "text",
@@ -180,7 +184,7 @@
     "smileChannelApiKey": {
       "type": "admin",
       "destination": "both",
-      "default": "pk_ETsDtPcppst3fQirFGDUy7aE",
+      "default": "1234example",
       "params": {
         "label": "Smile channel API key",
         "type": "text",

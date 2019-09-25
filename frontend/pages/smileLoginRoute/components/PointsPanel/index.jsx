@@ -24,8 +24,8 @@ const PointsPanel = ({ pointsText, imgSrcs }) => {
         {paragraph}
       </div>
       <div className={styles.listContainer}>
-        <ListItem className={styles.ListItem} img={waysToEarn} text="Ways to earn" pathname={WAYS_TO_EARN_ROUTE} />
-        <ListItem img={waysToSpend} text="Ways to spend" pathname={WAYS_TO_SPEND_ROUTE} />
+        <ListItem className={styles.ListItem} img={waysToEarn} earn pathname={WAYS_TO_EARN_ROUTE} />
+        <ListItem img={waysToSpend} earn={false} pathname={WAYS_TO_SPEND_ROUTE} />
       </div>
     </div>
   );
