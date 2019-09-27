@@ -2,26 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'glamor';
 import { Link } from '@shopgate/engage/components';
+import { logger } from '@shopgate/engage/core';
 import connect from './connector';
 
 const iconColor = encodeURIComponent('#FFFFFF');
 const bgColor = '#b60000';
 const iconUrl = `https://cdn.sweettooth.io/v1/images/launcher_icons/bag.svg?color=${iconColor}`;
+let position = 'left'; // right
 
-const wrapper = css({
-  position: 'fixed',
-  width: 0,
-  height: 0,
-  bottom: 0,
-  right: 0,
-  zIndex: 9999,
-});
+if (!['left', 'right'].includes(position)) {
+  logger.warn('Fallback to "right". unsupported position:', position);
+  position = 'right';
+}
 
 const buttonWrapper = css({
   width: 60,
   height: 60,
-  bottom: 30,
-  left: 30, // TODO: config
+  bottom: 'calc(30px + var(--tabbar-height, 0px))',
+  [position]: 30,
   borderRadius: 30,
   border: 0,
   outline: 0,
@@ -50,7 +48,14 @@ const icon = css({
 
 const SMILE_LOGIN_ROUTE = '/smile-login'; // TODO: import after merged
 
-const DashboardLink = () => (
+// Do not show on: gallery, login
+
+const DashboardLink = ({ showLink }) => {
+  if (!showLink) {
+    return false;
+  }
+
+  return (
     <div className={buttonWrapper}>
       <Link href={SMILE_LOGIN_ROUTE}>
         <div className={button}>
@@ -58,12 +63,15 @@ const DashboardLink = () => (
         </div>
       </Link>
     </div>
-);
+  );
+};
 
 DashboardLink.propTypes = {
+  showLink: PropTypes.bool,
 };
 
 DashboardLink.defaultProps = {
+  showLink: false,
 };
 
 export default (connect(DashboardLink));

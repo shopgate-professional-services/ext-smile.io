@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
+import { isUserLoggedIn } from '@shopgate/engage/user';
 
 /**
  * @param {Object} state The current application state.
- * @param {Object} props The component props.
  * @return {Object} The extended component props.
  */
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state) => ({
+  showLink: !isUserLoggedIn(state),
 });
 
 export default connect(mapStateToProps);
