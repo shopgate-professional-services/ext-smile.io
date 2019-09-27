@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import config from '../../../../config';
 import { WAYS_TO_EARN_ROUTE, WAYS_TO_SPEND_ROUTE } from '../../../../constants';
 import ListItem from './components/ListItem';
 import styles from './style';
@@ -9,12 +10,14 @@ import styles from './style';
  * @param {Object} memberText Object containing header info
  * @return {JSX}
  */
-const PointsPanel = ({ pointsText, imgSrcs }) => {
+const PointsPanel = ({ pointsText }) => {
   if (!pointsText) {
     return null;
   }
+  const { imageSrcs } = config || {};
   const { header, paragraph } = pointsText || {};
-  const { waysToEarn, waysToSpend } = imgSrcs || {};
+  const { waysToEarn, waysToSpend } = imageSrcs;
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -32,7 +35,6 @@ const PointsPanel = ({ pointsText, imgSrcs }) => {
 };
 
 PointsPanel.propTypes = {
-  imgSrcs: PropTypes.shape().isRequired,
   pointsText: PropTypes.shape().isRequired,
 };
 

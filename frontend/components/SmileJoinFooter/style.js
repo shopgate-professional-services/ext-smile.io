@@ -1,9 +1,10 @@
 import { css } from 'glamor';
-import getConfig from '../../helpers/getConfig';
+import config from '../../config';
 
-const { colorConfig } = getConfig();
+const { colorConfig } = config;
 
 const container = css({
+  color: `${colorConfig.contentFontColor}`,
   position: 'fixed',
   height: '52px',
   fontSize: '14px',
@@ -51,7 +52,26 @@ const button = css({
   animation: 'fadeIn .2s ease-in-out',
 }).toString();
 
+const signIn = css({
+  fontWeight: '400',
+  fontSize: '14px',
+  lineHeight: '20px',
+  marginBottom: '8px !important',
+  display: '-webkit-inline-box',
+}).toString();
+
+const haveAccount = css({
+  marginRight: '5px',
+}).toString();
+
+const underline = css({
+  textDecoration: 'underline',
+}).toString();
+
 export default {
-  button,
   container,
+  button,
+  signIn,
+  haveAccount,
+  underline,
 };

@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import I18n from '@shopgate/pwa-common/components/I18n';
+import Link from '@shopgate/pwa-common/components/Link';
+import { REGISTER_PATH, LOGIN_PATH } from '@shopgate/pwa-common/constants/RoutePaths';
 import styles from './style';
-import getConfig from '../../../../helpers/getConfig';
-
-const { shopifyAlias } = getConfig();
 
 /**
  * Member component Smile Login Panel
@@ -15,7 +14,9 @@ const MemberPanel = ({ memberText }) => {
   if (!memberText) {
     return null;
   }
-  const { header, paragraph } = memberText || {};
+
+  const { header, paragraph } = memberText;
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -24,14 +25,20 @@ const MemberPanel = ({ memberText }) => {
       <div className={styles.paragraph}>
         {paragraph}
       </div>
-      <a className={styles.joinButton} href={`https://${shopifyAlias}.myshopify.com/account/register`}>
+      <Link
+        href={REGISTER_PATH}
+        className={styles.joinButton}
+      >
         <I18n.Text string="smile.join_button" />
-      </a>
+      </Link>
       <div className={styles.signIn}>
-        <I18n.Text string="smile.have_account" />
-        <a style={{ textDecoration: 'underline' }} href={`https://${shopifyAlias}.myshopify.com/account/login`}>
+        <I18n.Text className={styles.haveAccount} string="smile.have_account" />
+        <Link
+          href={LOGIN_PATH}
+          className={styles.underline}
+        >
           <I18n.Text string="smile.sign_in_link" />
-        </a>
+        </Link>
       </div>
     </div>
   );

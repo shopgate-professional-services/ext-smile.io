@@ -1,9 +1,8 @@
 import React from 'react';
 import I18n from '@shopgate/pwa-common/components/I18n';
+import Link from '@shopgate/pwa-common/components/Link';
+import { REGISTER_PATH, LOGIN_PATH } from '@shopgate/pwa-common/constants/RoutePaths';
 import styles from './style';
-import getConfig from '../../helpers/getConfig';
-
-const { shopifyAlias } = getConfig();
 
 /**
  * Smile Footer for ways to earn and ways to spend routes
@@ -11,14 +10,20 @@ const { shopifyAlias } = getConfig();
  */
 const SmileJoinFooter = () => (
   <div className={styles.container}>
-    <a className={styles.button} href={`https://${shopifyAlias}.myshopify.com/account/register`}>
+    <Link
+      href={REGISTER_PATH}
+      className={styles.button}
+    >
       <I18n.Text string="smile.join_button" />
-    </a>
-    <div>
-      <I18n.Text string="smile.have_account" />
-      <a style={{ textDecoration: 'underline' }} href={`https://${shopifyAlias}.myshopify.com/account/login`}>
+    </Link>
+    <div className={styles.signIn}>
+      <I18n.Text className={styles.haveAccount} string="smile.have_account" />
+      <Link
+        href={LOGIN_PATH}
+        className={styles.underline}
+      >
         <I18n.Text string="smile.sign_in_link" />
-      </a>
+      </Link>
     </div>
   </div>
 );

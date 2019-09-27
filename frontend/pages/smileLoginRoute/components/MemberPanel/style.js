@@ -1,7 +1,7 @@
 import { css } from 'glamor';
-import getConfig from '../../../../helpers/getConfig';
+import config from '../../../../config';
 
-const { colorConfig } = getConfig();
+const { colorConfig } = config;
 
 const container = css({
   textAlign: 'center !important',
@@ -38,6 +38,7 @@ const joinButton = css({
   display: 'inline-block',
   border: '1px solid transparent',
   padding: '15px 32px',
+  width: 'inherit !important',
 }).toString();
 
 const signIn = css({
@@ -45,6 +46,15 @@ const signIn = css({
   fontSize: '14px',
   lineHeight: '20px',
   marginBottom: '8px !important',
+  display: '-webkit-inline-box',
+}).toString();
+
+const haveAccount = css({
+  marginRight: '5px',
+}).toString();
+
+const underline = css({
+  textDecoration: 'underline',
 }).toString();
 
 export default {
@@ -53,4 +63,6 @@ export default {
   paragraph,
   joinButton,
   signIn,
+  haveAccount,
+  underline,
 };

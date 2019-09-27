@@ -3,26 +3,26 @@
   "id": "@shopgate-project/smile-io",
   "components": [
     {
-      "id": "tabBar",
-      "path": "frontend/portals/TabBar/index.jsx",
-      "target": "tab-bar",
-      "type": "portals"
+      "id": "CustomFont",
+      "type": "portals",
+      "path": "frontend/portals/CustomFont",
+      "target": "app.globals"
     },
     {
       "id": "smileLoginRoute",
-      "path": "frontend/pages/smileLoginRoute/index.jsx",
+      "path": "frontend/pages/SmileLoginRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
     {
       "id": "waysToEarnRoute",
-      "path": "frontend/pages/waysToEarnRoute/index.jsx",
+      "path": "frontend/pages/WaysToEarnRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
     {
       "id": "waysToSpendRoute",
-      "path": "frontend/pages/waysToSpendRoute/index.jsx",
+      "path": "frontend/pages/WaysToSpendRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
@@ -54,15 +54,18 @@
     }
   ],
   "configuration": {
-    "shopifyAlias": {
-      "type": "bigApi",
-      "destination": "both",
-      "default": "",
+    "fontFamily": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "secondaryFontFamily": "Poppins,arial,sans-serif",
+        "secondaryFontFamilyUrl": "https://fonts.googleapis.com/css?family=Poppins&display=swap",
+        "primaryFontFamily": "Poppins,arial,sans-serif",
+        "primaryFontFamilyUrl": "https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      },
       "params": {
-        "method": "GET",
-        "service": "config",
-        "path": "/v1/shop/%(shopId)s/checkout_web_checkout_shopify?parsed=true",
-        "key": "value.frontend.alias"
+        "label": "Configuration for image source locations",
+        "type": "json"
       }
     },
     "imageSrcs": {
@@ -85,7 +88,9 @@
         "headerFontColor": "white",
         "buttonBackground": "black",
         "buttonFontColor": "white",
-        "contentBackground": "white"
+        "contentBackground": "white",
+        "contentFontColor": "black",
+        "mutedPointsColor": "#707070"
       },
       "params": {
         "label": "Configuration for colors",
@@ -118,7 +123,7 @@
       "type": "admin",
       "destination": "frontend",
       "default": {
-        "appBarTitle": "Shop Title",
+        "appBarTitle": "",
         "header": "Ways to spend"
       },
       "params": {
@@ -130,7 +135,7 @@
       "type": "admin",
       "destination": "frontend",
       "default": {
-        "appBarTitle": "Shop Title",
+        "appBarTitle": "",
         "header": "Ways to earn",
         "options": [
           {
@@ -174,7 +179,7 @@
     "smileApiSecret": {
       "type": "admin",
       "destination": "backend",
-      "default": "1234example",
+      "default": "example1234",
       "params": {
         "label": "Smile api secret",
         "type": "text",
@@ -184,7 +189,7 @@
     "smileChannelApiKey": {
       "type": "admin",
       "destination": "both",
-      "default": "1234example",
+      "default": "example1234",
       "params": {
         "label": "Smile channel API key",
         "type": "text",

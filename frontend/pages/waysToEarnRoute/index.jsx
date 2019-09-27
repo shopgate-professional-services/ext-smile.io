@@ -3,21 +3,27 @@ import { Route } from '@shopgate/pwa-common/components';
 import { useTheme } from '@shopgate/engage/core';
 import SmilePanel from '../../components/SmilePanel';
 import SmileJoinFooter from '../../components/SmileJoinFooter';
-import getConfig from '../../helpers/getConfig';
+import config from '../../config';
 import { WAYS_TO_EARN_ROUTE } from '../../constants';
 
 /**
  * @returns {JSX}
  */
-const waysToEarnRoute = () => {
-  const { waysToEarn } = getConfig();
+const WaysToEarnRoute = () => {
+  const { waysToEarn, colorConfig } = config;
   const { View, AppBar } = useTheme();
+
   if (!waysToEarn) {
     return null;
   }
+
   return (
     <View>
-      <AppBar title={waysToEarn.appBarTitle} />
+      <AppBar
+        title={waysToEarn.appBarTitle}
+        backgroundColor={colorConfig.headerBackground}
+        textColor={colorConfig.headerFontColor}
+      />
       <SmilePanel header={waysToEarn.header} options={waysToEarn.options} />
       <SmileJoinFooter />
     </View>
@@ -27,7 +33,7 @@ const waysToEarnRoute = () => {
 export default () => (
   <Route
     pattern={WAYS_TO_EARN_ROUTE}
-    component={waysToEarnRoute}
+    component={WaysToEarnRoute}
   />
 );
 

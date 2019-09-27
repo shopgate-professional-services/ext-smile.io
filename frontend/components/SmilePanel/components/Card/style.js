@@ -1,4 +1,7 @@
 import { css } from 'glamor';
+import config from '../../../../config';
+
+const { colorConfig } = config;
 
 const cardItemContainer = css({
   position: 'relative',
@@ -41,7 +44,7 @@ const image = css({
 }).toString();
 
 const subtitle = css({
-  color: '#707070',
+  color: `${colorConfig.mutedPointsColor}`,
 }).toString();
 
 export default {

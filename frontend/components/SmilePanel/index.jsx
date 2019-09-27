@@ -12,6 +12,7 @@ const SmilePanel = ({ header, options }) => {
   if (!header || !options) {
     return null;
   }
+
   return (
     <div className={styles.panelContainer}>
       <div className={styles.headerContainer}>{header}</div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from '@shopgate/pwa-common/components';
 import { useTheme } from '@shopgate/engage/core';
-import getConfig from '../../helpers/getConfig';
+import config from '../../config';
 import Header from './components/Header';
 import MemberPanel from './components/MemberPanel';
 import PointsPanel from './components/PointsPanel';
@@ -12,10 +12,11 @@ import styles from './style';
 /**
  * @returns {JSX}
  */
-const smileLoginRoute = () => {
-  const { colorConfig, loginPageText, imageSrcs } = getConfig();
+const SmileLoginRoute = () => {
+  const { colorConfig, loginPageText } = config;
   const { headerText, pointsText, memberText } = loginPageText || {};
   const { View, AppBar } = useTheme();
+
   return (
     <View>
       <AppBar
@@ -34,7 +35,6 @@ const smileLoginRoute = () => {
             <div className={styles.pointsContainer}>
               <PointsPanel
                 pointsText={pointsText}
-                imgSrcs={imageSrcs}
               />
             </div>
           </div>
@@ -50,7 +50,7 @@ const smileLoginRoute = () => {
 export default () => (
   <Route
     pattern={SMILE_LOGIN_ROUTE}
-    component={smileLoginRoute}
+    component={SmileLoginRoute}
   />
 );
 

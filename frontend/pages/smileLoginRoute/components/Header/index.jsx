@@ -11,6 +11,7 @@ const Header = ({ headerText }) => {
   if (!headerText) {
     return null;
   }
+
   return (
     <div className={styles.headerContainer}>
       <div className={styles.wrapper}>

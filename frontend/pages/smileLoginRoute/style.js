@@ -1,7 +1,7 @@
 import { css } from 'glamor';
-import getConfig from '../../helpers/getConfig';
+import config from '../../config';
 
-const { colorConfig } = getConfig();
+const { colorConfig } = config;
 
 const container = css({
   height: '100%',
@@ -19,6 +19,7 @@ const headerContainer = css({
 });
 
 const pannelContainer = css({
+  color: `${colorConfig.contentFontColor}`,
   paddingTop: '100px',
   height: '100%',
   paddingLeft: '16px',

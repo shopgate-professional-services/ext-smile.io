@@ -1,9 +1,10 @@
 import { css } from 'glamor';
-import getConfig from '../../helpers/getConfig';
+import config from '../../config';
 
-const { colorConfig } = getConfig();
+const { colorConfig, fontFamily } = config;
 
 const panelContainer = css({
+  color: `${colorConfig.contentFontColor}`,
   magrinBottom: '126px',
   height: '100%',
   paddingLeft: '16px',
@@ -25,7 +26,7 @@ const header = css({
   fontSize: '16px',
   fontWeight: '500',
   lineHeight: '24px',
-  fontFamily: 'Proxima Nova, arial, sans-serif',
+  fontFamily: `${fontFamily.secondaryFontFamily}`,
   color: '#333',
   paddingRight: '12px',
 });

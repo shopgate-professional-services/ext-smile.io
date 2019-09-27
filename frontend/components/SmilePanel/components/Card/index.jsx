@@ -15,7 +15,7 @@ const Card = ({ img, text, pointsText }) => (
         <img className={styles.image} alt="" src={img} />
         <div>
           <div>{text}</div>
-          <div className={styles.cardItemsubtitle}>{pointsText}</div>
+          <div className={styles.subtitle}>{pointsText}</div>
         </div>
       </div>
     </div>
