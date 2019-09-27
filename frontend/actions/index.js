@@ -1,5 +1,5 @@
-import { PipelineRequest, logger } from '@shopgate/engage/core';
-import { GET_SMILE_POINTS_PRODUCTS, SMILE_DIGEST_PIPELINE } from '../constants';
+import { PipelineRequest, logger, LoadingProvider } from '@shopgate/engage/core';
+import { GET_SMILE_POINTS_PRODUCTS, SMILE_DIGEST_PIPELINE, WAYS_TO_SPEND_ROUTE } from '../constants';
 import { getSmilePointsProductsState } from '../selectors';
 import {
   requestPointsProducts,
@@ -18,7 +18,11 @@ import {
 export const fetchPointsProducts = () => (dispatch, getState) => {
   const pointsProductsState = getSmilePointsProductsState(getState());
 
-  if (pointsProductsState.isFetching || pointsProductsState.pointsProducts) {
+  if (pointsProductsState.isFetching) {
+    LoadingProvider.setLoading(WAYS_TO_SPEND_ROUTE);
+  }
+
+  if (pointsProductsState.pointsProducts) {
     return;
   }
 
@@ -28,10 +32,12 @@ export const fetchPointsProducts = () => (dispatch, getState) => {
     .then((response) => {
       const { pointsProducts } = response || {};
       dispatch(receivePointsProducts(pointsProducts));
+      LoadingProvider.unsetLoading(WAYS_TO_SPEND_ROUTE);
     })
     .catch((err) => {
       logger.error(err);
       dispatch(errorPointsProducts());
+      LoadingProvider.unsetLoading(WAYS_TO_SPEND_ROUTE);
     });
 };
 

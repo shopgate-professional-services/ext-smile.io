@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import I18n from '@shopgate/pwa-common/components/I18n';
 import styles from './style';
 import Card from './components/Card';
 /**
@@ -10,7 +11,11 @@ import Card from './components/Card';
  */
 const SmilePanel = ({ header, options }) => {
   if (!header || !options) {
-    return null;
+    return (
+      <div className={styles.panelContainer}>
+        <I18n.Text string="smile.smile_error" />
+      </div>
+    );
   }
 
   return (
@@ -32,7 +37,11 @@ const SmilePanel = ({ header, options }) => {
 
 SmilePanel.propTypes = {
   header: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape()),
+};
+
+SmilePanel.defaultProps = {
+  options: null,
 };
 
 export default SmilePanel;

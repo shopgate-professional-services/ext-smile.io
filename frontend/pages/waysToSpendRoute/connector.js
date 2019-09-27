@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getSmilePointsProducts } from '../../selectors';
+import { getSmilePointsProducts, getSmilePointsIsFetching } from '../../selectors';
 
 /**
  * Maps state to props.
@@ -8,6 +8,7 @@ import { getSmilePointsProducts } from '../../selectors';
  */
 const mapStateToProps = state => ({
   options: getSmilePointsProducts(state),
+  isFetching: getSmilePointsIsFetching(state),
 });
 
 export default connect(mapStateToProps);

@@ -14,6 +14,11 @@ export const getSmilePointsProducts = createSelector(
   pointsProductsState => pointsProductsState.pointsProducts
 );
 
+export const getSmilePointsIsFetching = createSelector(
+  getSmilePointsProductsState,
+  pointsProductsState => pointsProductsState.isFetching
+);
+
 /**
  * @param {Object} state state
  * @returns {Object}
