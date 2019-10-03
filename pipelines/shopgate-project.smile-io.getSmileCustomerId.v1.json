@@ -4,28 +4,55 @@
     "id": "shopgate-project.smile-io.getSmileCustomerId.v1",
     "public": true,
     "input": [
-      {"key": "sgxsMeta", "id": "100"}
+      {"key": "sgxsMeta", "id": "100"},
+      {"key": "forceRefresh", "id": "150", "optional": true}
     ],
-    "output": [],
+    "output": [
+      {"key": "smileCustomerId", "id": "200"}
+    ],
     "steps": [
       {
         "type": "extension",
         "id": "@shopgate-project/smile-io",
-        "path": "@shopgate-project/smile-io/look.js",
+        "path": "@shopgate-project/smile-io/steps/getStoredSmileCustomerId.js",
+        "input": [],
+        "output": [
+          {"key": "smileCustomerId", "id": "200"}
+        ]
+      },
+      {
+        "type": "conditional",
         "input": [
-          {"key": "sgxsMeta", "id": "100"},
-          {"key": "isLoggedIn", "id": "150"}
+          {"key": "smileCustomerId", "id": "200"},
+          {"key": "forceRefresh", "id": "150", "optional": true}
         ],
-        "output": []
+        "expression": {
+          "any": [
+            {"null": [{"name": "smileCustomerId"}]},
+            {"ok": [{"name": "forceRefresh"}]}
+          ]
+        },
+        "then": {
+          "type": "pipeline",
+          "id": "shopgate-project.smile-io.getSmileCustomer.v1",
+          "input": [
+            {"key": "sgxsMeta", "id": "100"}
+          ],
+          "output": [
+            {"key": "customer", "id": "250"}
+          ]
+        }
       },
       {
         "type": "extension",
         "id": "@shopgate-project/smile-io",
-        "path": "@shopgate-project/smile-io/steps/getPointsProducts.js",
+        "path": "@shopgate-project/smile-io/steps/exposeSmileCustomerId.js",
         "input": [
+          {"key": "smileCustomerId", "id": "200"},
+          {"key": "customer", "id": "250", "optional": true}
         ],
         "output": [
-          {"key":  "pointsProducts", "id":  "1010"}
+          {"key": "smileCustomerId", "id": "200"}
         ]
       }
     ]

@@ -1,5 +1,9 @@
 import { PipelineRequest, logger } from '@shopgate/engage/core';
-import { GET_SMILE_POINTS_PRODUCTS, GET_SMILE_CUSTOMER } from '../constants';
+import {
+  GET_SMILE_POINTS_PRODUCTS,
+  GET_SMILE_CUSTOMER,
+  GET_SMILE_YOUR_REWARDS,
+} from '../constants';
 import { getSmilePointsProductsState, getSmileCustomerState } from '../selectors';
 import {
   requestPointsProducts,
@@ -8,6 +12,9 @@ import {
   requestSmileCustomer,
   receiveSmileCustomer,
   errorSmileCustomer,
+  requestSmileYourRewards,
+  receiveSmileYourRewards,
+  errorSmileYourRewards,
 } from '../action-creators';
 
 /**
@@ -58,3 +65,20 @@ export const fetchSmileCustomer = () => (dispatch, getState) => {
     });
 };
 
+/**
+ * Fetches Smile Your Rewards
+ * @return {Function}
+ */
+export const fetchSmileYourRewards = () => (dispatch) => {
+  dispatch(requestSmileYourRewards());
+  new PipelineRequest(GET_SMILE_YOUR_REWARDS)
+    .dispatch()
+    .then((response) => {
+      const { yourRewards = [] } = response || {};
+      dispatch(receiveSmileYourRewards(yourRewards));
+    })
+    .catch((err) => {
+      logger.error(err);
+      dispatch(errorSmileYourRewards());
+    });
+};

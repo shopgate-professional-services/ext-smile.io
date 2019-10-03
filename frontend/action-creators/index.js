@@ -5,6 +5,10 @@ import {
   REQUEST_SMILE_CUSTOMER,
   RECEIVE_SMILE_CUSTOMER,
   ERROR_SMILE_CUSTOMER,
+  REQUEST_SMILE_YOUR_REWARDS,
+  RECEIVE_SMILE_YOUR_REWARDS,
+  ERROR_SMILE_YOUR_REWARDS,
+  CLEAR_SMILE_YOUR_REWARDS,
 } from '../constants';
 
 /**
@@ -58,4 +62,38 @@ export const receiveSmileCustomer = customer => ({
  */
 export const errorSmileCustomer = () => ({
   type: ERROR_SMILE_CUSTOMER,
+});
+
+/**
+ * Request Smile Your Rewards
+ * @return {Object}
+ */
+export const requestSmileYourRewards = () => ({
+  type: REQUEST_SMILE_YOUR_REWARDS,
+});
+
+/**
+ * Receive Smile Your Rewards
+ * @param {Object[]} rewards Smile rewards that have been purchased
+ * @return {Object}
+ */
+export const receiveSmileYourRewards = rewards => ({
+  type: RECEIVE_SMILE_YOUR_REWARDS,
+  rewards,
+});
+
+/**
+ * Error Smile Your Rewards
+ * @return {Object}
+ */
+export const errorSmileYourRewards = () => ({
+  type: ERROR_SMILE_YOUR_REWARDS,
+});
+
+/**
+ * Clear Smile Your Rewards
+ * @return {Object}
+ */
+export const clearSmileYourRewards = () => ({
+  type: CLEAR_SMILE_YOUR_REWARDS,
 });

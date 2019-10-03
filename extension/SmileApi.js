@@ -127,6 +127,23 @@ class SmileApi {
       }
     })
   }
+
+  /**
+   * Receive a list of rewards by smile customer id
+   * @param {number} smileCustomerId
+   * @return {Promise<any>}
+   */
+  async getYourRewards (smileCustomerId) {
+    return this.call({
+      path: 'reward_fulfillments',
+      method: 'GET',
+      qs: {
+        include: 'image_svg',
+        is_transient: 'false',
+        customer_id: smileCustomerId
+      }
+    })
+  }
 }
 
 module.exports = SmileApi
