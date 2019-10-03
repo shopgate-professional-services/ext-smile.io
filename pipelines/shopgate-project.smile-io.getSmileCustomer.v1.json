@@ -20,16 +20,6 @@
         ]
       },
       {
-        "type": "extension",
-        "id": "@shopgate-project/smile-io",
-        "path": "@shopgate-project/smile-io/look.js",
-        "input": [
-          {"key": "sgxsMeta", "id": "100"},
-          {"key": "isLoggedIn", "id": "150"}
-        ],
-        "output": []
-      },
-      {
         "type": "conditional",
         "input": [
           {"key": "isLoggedIn", "id": "150"}
