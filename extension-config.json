@@ -18,6 +18,11 @@
       "type": "reducers"
     },
     {
+      "id": "smileWaysToEarn",
+      "path": "frontend/reducers/smileWaysToEarn.js",
+      "type": "reducers"
+    },
+    {
       "id": "subscriptions",
       "path": "frontend/subscriptions/index.js",
       "type": "subscribers"
