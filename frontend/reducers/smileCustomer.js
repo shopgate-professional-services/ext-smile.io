@@ -2,6 +2,7 @@ import {
   REQUEST_SMILE_CUSTOMER,
   RECEIVE_SMILE_CUSTOMER,
   ERROR_SMILE_CUSTOMER,
+  CLEAR_SMILE_CUSTOMER
 } from '../constants';
 
 /**
@@ -32,6 +33,12 @@ const smileCustomer = (
     case ERROR_SMILE_CUSTOMER:
       return {
         ...state,
+        isFetching: false,
+      };
+    case CLEAR_SMILE_CUSTOMER:
+      return {
+        ...state,
+        customer: null,
         isFetching: false,
       };
     default:

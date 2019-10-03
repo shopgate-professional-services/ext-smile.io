@@ -5,6 +5,7 @@ import {
   REQUEST_SMILE_CUSTOMER,
   RECEIVE_SMILE_CUSTOMER,
   ERROR_SMILE_CUSTOMER,
+  CLEAR_SMILE_CUSTOMER,
 } from '../constants';
 
 /**
@@ -58,4 +59,12 @@ export const receiveSmileCustomer = customer => ({
  */
 export const errorSmileCustomer = () => ({
   type: ERROR_SMILE_CUSTOMER,
+});
+
+/**
+ * Error requesting smile customer
+ * @return {Object}
+ */
+export const clearSmileCustomer = () => ({
+  type: CLEAR_SMILE_CUSTOMER,
 });
