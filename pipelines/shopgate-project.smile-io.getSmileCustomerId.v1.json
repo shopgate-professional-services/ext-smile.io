@@ -1,0 +1,33 @@
+{
+  "version": "1",
+  "pipeline": {
+    "id": "shopgate-project.smile-io.getSmileCustomerId.v1",
+    "public": true,
+    "input": [
+      {"key": "sgxsMeta", "id": "100"}
+    ],
+    "output": [],
+    "steps": [
+      {
+        "type": "extension",
+        "id": "@shopgate-project/smile-io",
+        "path": "@shopgate-project/smile-io/look.js",
+        "input": [
+          {"key": "sgxsMeta", "id": "100"},
+          {"key": "isLoggedIn", "id": "150"}
+        ],
+        "output": []
+      },
+      {
+        "type": "extension",
+        "id": "@shopgate-project/smile-io",
+        "path": "@shopgate-project/smile-io/steps/getPointsProducts.js",
+        "input": [
+        ],
+        "output": [
+          {"key":  "pointsProducts", "id":  "1010"}
+        ]
+      }
+    ]
+  }
+}
