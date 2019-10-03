@@ -5,6 +5,7 @@ import {
   REQUEST_SMILE_CUSTOMER,
   RECEIVE_SMILE_CUSTOMER,
   ERROR_SMILE_CUSTOMER,
+  CLEAR_SMILE_CUSTOMER,
   REQUEST_SMILE_YOUR_REWARDS,
   RECEIVE_SMILE_YOUR_REWARDS,
   ERROR_SMILE_YOUR_REWARDS,
@@ -62,6 +63,14 @@ export const receiveSmileCustomer = customer => ({
  */
 export const errorSmileCustomer = () => ({
   type: ERROR_SMILE_CUSTOMER,
+});
+
+/**
+ * Error requesting smile customer
+ * @return {Object}
+ */
+export const clearSmileCustomer = () => ({
+  type: CLEAR_SMILE_CUSTOMER,
 });
 
 /**
