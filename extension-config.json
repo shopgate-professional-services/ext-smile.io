@@ -8,6 +8,11 @@
       "type": "reducers"
     },
     {
+      "id": "smileCustomer",
+      "path": "frontend/reducers/smileCustomer.js",
+      "type": "reducers"
+    },
+    {
       "id": "subscriptions",
       "path": "frontend/subscriptions/index.js",
       "type": "subscribers"

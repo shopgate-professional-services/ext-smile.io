@@ -111,6 +111,22 @@ class SmileApi {
       method: 'GET'
     })
   }
+
+  /**
+   * Receive a list of smile customers by email address
+   * @see https://docs.smile.io/docs/customer
+   * @param {string} email
+   * @return {Promise<any>}
+   */
+  async getSmileCustomerByEmail (email) {
+    return this.call({
+      path: 'customers',
+      method: 'GET',
+      qs: {
+        email
+      }
+    })
+  }
 }
 
 module.exports = SmileApi

@@ -1,0 +1,67 @@
+{
+  "version": "1",
+  "pipeline": {
+    "id": "shopgate-project.smile-io.getSmileCustomer.v1",
+    "public": true,
+    "input": [
+      {"key": "sgxsMeta", "id": "100"}
+    ],
+    "output": [
+      {"key":  "customer", "id": "250"}
+    ],
+    "steps": [
+      {
+        "type": "extension",
+        "id": "@shopgate-project/smile-io",
+        "path": "@shopgate-project/smile-io/steps/getIsLoggedIn.js",
+        "input": [],
+        "output": [
+          {"key": "isLoggedIn", "id": "150"}
+        ]
+      },
+      {
+        "type": "extension",
+        "id": "@shopgate-project/smile-io",
+        "path": "@shopgate-project/smile-io/look.js",
+        "input": [
+          {"key": "sgxsMeta", "id": "100"},
+          {"key": "isLoggedIn", "id": "150"}
+        ],
+        "output": []
+      },
+      {
+        "type": "conditional",
+        "input": [
+          {"key": "isLoggedIn", "id": "150"}
+        ],
+        "expression": {
+          "all": [
+            {"ok": [{"name": "isLoggedIn"}]}
+          ]
+        },
+        "then": {
+          "type": "pipeline",
+          "id": "shopgate.user.getUser.v1",
+          "trusted": "true",
+          "input": [
+            {"key": "sgxsMeta", "id": "100"}
+          ],
+          "output": [
+            {"key": "mail", "id": "200"}
+          ]
+        }
+      },
+      {
+        "type": "extension",
+        "id": "@shopgate-project/smile-io",
+        "path": "@shopgate-project/smile-io/steps/getSmileCustomer.js",
+        "input": [
+          {"key": "mail", "id": "200", "optional": true}
+        ],
+        "output": [
+          {"key":  "customer", "id": "250"}
+        ]
+      }
+    ]
+  }
+}
