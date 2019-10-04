@@ -13,6 +13,16 @@
       "type": "reducers"
     },
     {
+      "id": "smileYourRewards",
+      "path": "frontend/reducers/smileYourRewards.js",
+      "type": "reducers"
+    },
+    {
+      "id": "smileWaysToEarn",
+      "path": "frontend/reducers/smileWaysToEarn.js",
+      "type": "reducers"
+    },
+    {
       "id": "subscriptions",
       "path": "frontend/subscriptions/index.js",
       "type": "subscribers"

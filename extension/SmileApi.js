@@ -8,6 +8,7 @@ class SmileApi {
     this.request = context.tracedRequest('ShopgateProjectSmileAPI')
     this.logger = context.log
     this.token = context.config.smileApiSecret
+    this.smileChannelKey = context.config.smileChannelApiKey
   }
 
   /**
@@ -51,13 +52,15 @@ class SmileApi {
 
   /**
    * Make API call
-   * @param {string} path Path to api enpoint
+   * @param {string} path Path to api endpoint
    * @param {string} method Request method
    * @param {[Object]} body Optional request body
    * @param {[Object]} qs Optional query string object
+   * @param {[Object]} headers Optional headers object
    * @return {Promise<any>}
    */
-  async call ({ path, method, body, qs }) {
+  async call ({ path, method, body, qs, headers }) {
+    const additionalHeaders = headers || {}
     return new Promise((resolve, reject) => {
       const params = {
         url: `${this.baseUrl}/${path}`,
@@ -65,7 +68,8 @@ class SmileApi {
         json: true,
         timeout: 5000,
         headers: {
-          'Authorization': `Bearer ${this.token}`
+          'Authorization': `Bearer ${this.token}`,
+          ...additionalHeaders
         }
       }
       if (body) {
@@ -126,6 +130,47 @@ class SmileApi {
         email
       }
     })
+  }
+
+  /**
+   * Receive a list of rewards by smile customer id
+   * @param {number} smileCustomerId
+   * @return {Promise<any>}
+   */
+  async getYourRewards (smileCustomerId) {
+    return this.call({
+      path: 'reward_fulfillments',
+      method: 'GET',
+      qs: {
+        include: 'image_svg',
+        is_transient: 'false',
+        customer_id: smileCustomerId
+      }
+    })
+  }
+
+  /**
+   * Receive ways to earn
+   * @param {[number]} smileCustomerId Smile customer id
+   * @return {Promise<any>}
+   */
+  async getWaysToEarn (smileCustomerId) {
+    const callParams = {
+      path: 'customer_activity_rules',
+      method: 'GET',
+      headers: {
+        'smile-channel-key': this.smileChannelKey
+      },
+      qs: {
+        include: 'activity_rule.image_svg'
+      }
+    }
+
+    if (smileCustomerId) {
+      callParams.qs.customer_id = smileCustomerId
+    }
+
+    return this.call(callParams)
   }
 }
 

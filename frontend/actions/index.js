@@ -1,6 +1,15 @@
 import { PipelineRequest, logger } from '@shopgate/engage/core';
-import { GET_SMILE_POINTS_PRODUCTS, GET_SMILE_CUSTOMER } from '../constants';
-import { getSmilePointsProductsState, getSmileCustomerState } from '../selectors';
+import {
+  GET_SMILE_POINTS_PRODUCTS,
+  GET_SMILE_CUSTOMER,
+  GET_SMILE_YOUR_REWARDS,
+  GET_SMILE_WAYS_TO_EARN,
+} from '../constants';
+import {
+  getSmilePointsProductsState,
+  getSmileCustomerState,
+  getSmileWaysToEarnState,
+} from '../selectors';
 import {
   requestPointsProducts,
   receivePointsProducts,
@@ -8,6 +17,12 @@ import {
   requestSmileCustomer,
   receiveSmileCustomer,
   errorSmileCustomer,
+  requestSmileYourRewards,
+  receiveSmileYourRewards,
+  errorSmileYourRewards,
+  requestSmileWaysToEarn,
+  receiveSmileWaysToEarn,
+  errorSmileWaysToEarn,
 } from '../action-creators';
 
 /**
@@ -58,3 +73,44 @@ export const fetchSmileCustomer = () => (dispatch, getState) => {
     });
 };
 
+/**
+ * Fetches Smile Your Rewards
+ * @return {Function}
+ */
+export const fetchSmileYourRewards = () => (dispatch) => {
+  dispatch(requestSmileYourRewards());
+  new PipelineRequest(GET_SMILE_YOUR_REWARDS)
+    .dispatch()
+    .then((response) => {
+      const { yourRewards = [] } = response || {};
+      dispatch(receiveSmileYourRewards(yourRewards));
+    })
+    .catch((err) => {
+      logger.error(err);
+      dispatch(errorSmileYourRewards());
+    });
+};
+
+/**
+ * Fetches Smile Ways to Earn
+ * @return {Function}
+ */
+export const fetchSmileWaysToEarn = () => (dispatch, getState) => {
+  const smileWaysToEarnState = getSmileWaysToEarnState(getState());
+
+  if (smileWaysToEarnState.isFetching) {
+    return;
+  }
+
+  dispatch(requestSmileWaysToEarn());
+  new PipelineRequest(GET_SMILE_WAYS_TO_EARN)
+    .dispatch()
+    .then((response) => {
+      const { waysToEarn = [] } = response || {};
+      dispatch(receiveSmileWaysToEarn(waysToEarn));
+    })
+    .catch((err) => {
+      logger.error(err);
+      dispatch(errorSmileWaysToEarn());
+    });
+};

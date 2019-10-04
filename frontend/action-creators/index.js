@@ -6,6 +6,13 @@ import {
   RECEIVE_SMILE_CUSTOMER,
   ERROR_SMILE_CUSTOMER,
   CLEAR_SMILE_CUSTOMER,
+  REQUEST_SMILE_YOUR_REWARDS,
+  RECEIVE_SMILE_YOUR_REWARDS,
+  ERROR_SMILE_YOUR_REWARDS,
+  CLEAR_SMILE_YOUR_REWARDS,
+  REQUEST_SMILE_WAYS_TO_EARN,
+  RECEIVE_SMILE_WAYS_TO_EARN,
+  ERROR_SMILE_WAYS_TO_EARN,
 } from '../constants';
 
 /**
@@ -67,4 +74,64 @@ export const errorSmileCustomer = () => ({
  */
 export const clearSmileCustomer = () => ({
   type: CLEAR_SMILE_CUSTOMER,
+});
+
+/**
+ * Request Smile Your Rewards
+ * @return {Object}
+ */
+export const requestSmileYourRewards = () => ({
+  type: REQUEST_SMILE_YOUR_REWARDS,
+});
+
+/**
+ * Receive Smile Your Rewards
+ * @param {Object[]} rewards Smile rewards that have been purchased
+ * @return {Object}
+ */
+export const receiveSmileYourRewards = rewards => ({
+  type: RECEIVE_SMILE_YOUR_REWARDS,
+  rewards,
+});
+
+/**
+ * Error Smile Your Rewards
+ * @return {Object}
+ */
+export const errorSmileYourRewards = () => ({
+  type: ERROR_SMILE_YOUR_REWARDS,
+});
+
+/**
+ * Clear Smile Your Rewards
+ * @return {Object}
+ */
+export const clearSmileYourRewards = () => ({
+  type: CLEAR_SMILE_YOUR_REWARDS,
+});
+
+/**
+ * Request smile ways to earn
+ * @return {Object}
+ */
+export const requestSmileWaysToEarn = () => ({
+  type: REQUEST_SMILE_WAYS_TO_EARN,
+});
+
+/**
+ * Receive smile ways to earn
+ * @param {Object[]} waysToEarn Array of ways to earn objects
+ * @return {Object}
+ */
+export const receiveSmileWaysToEarn = waysToEarn => ({
+  type: RECEIVE_SMILE_WAYS_TO_EARN,
+  waysToEarn,
+});
+
+/**
+ * Error smile ways to earn
+ * @return {Object}
+ */
+export const errorSmileWaysToEarn = () => ({
+  type: ERROR_SMILE_WAYS_TO_EARN,
 });
