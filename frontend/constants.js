@@ -16,15 +16,21 @@ export const RECEIVE_SMILE_WAYS_TO_EARN = 'RECEIVE_SMILE_WAYS_TO_EARN';
 export const REQUEST_SMILE_WAYS_TO_EARN = 'REQUEST_SMILE_WAYS_TO_EARN';
 export const ERROR_SMILE_WAYS_TO_EARN = 'ERROR_SMILE_WAYS_TO_EARN';
 
+export const RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE = 'RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE';
+export const REQUEST_PURCHASE_SMILE_REWARD = 'REQUEST_PURCHASE_SMILE_REWARD';
+export const ERROR_PURCHASE_SMILE_REWARD = 'ERROR_PURCHASE_SMILE_REWARD';
+
 // Redux namespace
 const EXTENSION_NAME = '@shopgate-project/smile-io';
 export const REDUX_NAMESPACE_SMILE_POINTS_PRODUCTS = `${EXTENSION_NAME}/pointsProducts`;
 export const REDUX_NAMESPACE_SMILE_CUSTOMER = `${EXTENSION_NAME}/smileCustomer`;
 export const REDUX_NAMESPACE_SMILE_YOUR_REWARDS = `${EXTENSION_NAME}/smileYourRewards`;
 export const REDUX_NAMESPACE_SMILE_WAYS_TO_EARN = `${EXTENSION_NAME}/smileWaysToEarn`;
+export const REDUX_NAMESPACE_PURCHASE_SMILE_REWARDS = `${EXTENSION_NAME}/purchaseSmileRewards`;
 
 // Pipelines
 export const GET_SMILE_POINTS_PRODUCTS = 'shopgate-project.smile-io.getPointsProducts';
 export const GET_SMILE_CUSTOMER = 'shopgate-project.smile-io.getSmileCustomer';
 export const GET_SMILE_YOUR_REWARDS = 'shopgate-project.smile-io.getSmileYourRewards';
 export const GET_SMILE_WAYS_TO_EARN = 'shopgate-project.smile-io.getSmileWaysToEarn';
+export const PURCHASE_SMILE_REWARDS = 'shopgate-project.smile-io.purchaseSmileReward';

@@ -23,6 +23,11 @@
       "type": "reducers"
     },
     {
+      "id": "purchaseSmileRewards",
+      "path": "frontend/reducers/purchaseSmileRewards.js",
+      "type": "reducers"
+    },
+    {
       "id": "subscriptions",
       "path": "frontend/subscriptions/index.js",
       "type": "subscribers"

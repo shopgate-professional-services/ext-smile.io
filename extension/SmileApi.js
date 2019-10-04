@@ -172,6 +172,30 @@ class SmileApi {
 
     return this.call(callParams)
   }
+
+  /**
+   * Call to purchase a smile reward
+   * @param {number} smileCustomerId
+   * @param {number|string} rewardId
+   * @return {Promise<any>}
+   */
+  async purchaseReward (smileCustomerId, rewardId) {
+    if (!smileCustomerId) {
+      throw new Error('It is not possible to purchase a reward when not logged in')
+    }
+
+    if (!rewardId) {
+      throw new Error('Cannot purchase a reward without a reward ID')
+    }
+
+    return this.call({
+      path: `points_products/${rewardId}/purchase`,
+      method: 'POST',
+      body: {
+        'customer_id': smileCustomerId
+      }
+    })
+  }
 }
 
 module.exports = SmileApi

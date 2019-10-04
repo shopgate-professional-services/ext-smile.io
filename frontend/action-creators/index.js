@@ -13,6 +13,9 @@ import {
   REQUEST_SMILE_WAYS_TO_EARN,
   RECEIVE_SMILE_WAYS_TO_EARN,
   ERROR_SMILE_WAYS_TO_EARN,
+  REQUEST_PURCHASE_SMILE_REWARD,
+  RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE,
+  ERROR_PURCHASE_SMILE_REWARD,
 } from '../constants';
 
 /**
@@ -134,4 +137,36 @@ export const receiveSmileWaysToEarn = waysToEarn => ({
  */
 export const errorSmileWaysToEarn = () => ({
   type: ERROR_SMILE_WAYS_TO_EARN,
+});
+
+/**
+ * Request purchase smile reward
+ * @param {number|string} rewardId Reward Id
+ * @return {Object}
+ */
+export const requestPurchaseSmileReward = rewardId => ({
+  type: REQUEST_PURCHASE_SMILE_REWARD,
+  rewardId,
+});
+
+/**
+ * Receive purchase smile reward response
+ * @param {number|string} rewardId Reward Id
+ * @param {Object} pointsPurchase Record of pointsPurchase
+ * @return {Object}
+ */
+export const receivePurchaseSmileRewardResponse = (rewardId, pointsPurchase) => ({
+  type: RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE,
+  rewardId,
+  pointsPurchase,
+});
+
+/**
+ * Error purchase smile reward
+ * @param {number|string} rewardId Reward Id
+ * @return {Object}
+ */
+export const errorPurchaseSmileReward = rewardId => ({
+  type: ERROR_PURCHASE_SMILE_REWARD,
+  rewardId,
 });
