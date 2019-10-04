@@ -3,8 +3,13 @@ import {
   GET_SMILE_POINTS_PRODUCTS,
   GET_SMILE_CUSTOMER,
   GET_SMILE_YOUR_REWARDS,
+  GET_SMILE_WAYS_TO_EARN,
 } from '../constants';
-import { getSmilePointsProductsState, getSmileCustomerState } from '../selectors';
+import {
+  getSmilePointsProductsState,
+  getSmileCustomerState,
+  getSmileWaysToEarnState,
+} from '../selectors';
 import {
   requestPointsProducts,
   receivePointsProducts,
@@ -15,6 +20,9 @@ import {
   requestSmileYourRewards,
   receiveSmileYourRewards,
   errorSmileYourRewards,
+  requestSmileWaysToEarn,
+  receiveSmileWaysToEarn,
+  errorSmileWaysToEarn,
 } from '../action-creators';
 
 /**
@@ -80,5 +88,29 @@ export const fetchSmileYourRewards = () => (dispatch) => {
     .catch((err) => {
       logger.error(err);
       dispatch(errorSmileYourRewards());
+    });
+};
+
+/**
+ * Fetches Smile Ways to Earn
+ * @return {Function}
+ */
+export const fetchSmileWaysToEarn = () => (dispatch, getState) => {
+  const smileWaysToEarnState = getSmileWaysToEarnState(getState());
+
+  if (smileWaysToEarnState.isFetching) {
+    return;
+  }
+
+  dispatch(requestSmileWaysToEarn());
+  new PipelineRequest(GET_SMILE_WAYS_TO_EARN)
+    .dispatch()
+    .then((response) => {
+      const { waysToEarn = [] } = response || {};
+      dispatch(receiveSmileWaysToEarn(waysToEarn));
+    })
+    .catch((err) => {
+      logger.error(err);
+      dispatch(errorSmileWaysToEarn());
     });
 };

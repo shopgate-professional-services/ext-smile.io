@@ -10,6 +10,9 @@ import {
   RECEIVE_SMILE_YOUR_REWARDS,
   ERROR_SMILE_YOUR_REWARDS,
   CLEAR_SMILE_YOUR_REWARDS,
+  REQUEST_SMILE_WAYS_TO_EARN,
+  RECEIVE_SMILE_WAYS_TO_EARN,
+  ERROR_SMILE_WAYS_TO_EARN,
 } from '../constants';
 
 /**
@@ -105,4 +108,30 @@ export const errorSmileYourRewards = () => ({
  */
 export const clearSmileYourRewards = () => ({
   type: CLEAR_SMILE_YOUR_REWARDS,
+});
+
+/**
+ * Request smile ways to earn
+ * @return {Object}
+ */
+export const requestSmileWaysToEarn = () => ({
+  type: REQUEST_SMILE_WAYS_TO_EARN,
+});
+
+/**
+ * Receive smile ways to earn
+ * @param {Object[]} waysToEarn Array of ways to earn objects
+ * @return {Object}
+ */
+export const receiveSmileWaysToEarn = waysToEarn => ({
+  type: RECEIVE_SMILE_WAYS_TO_EARN,
+  waysToEarn,
+});
+
+/**
+ * Error smile ways to earn
+ * @return {Object}
+ */
+export const errorSmileWaysToEarn = () => ({
+  type: ERROR_SMILE_WAYS_TO_EARN,
 });
