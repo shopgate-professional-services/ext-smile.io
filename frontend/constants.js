@@ -2,6 +2,7 @@
 export const SMILE_LOGIN_ROUTE = '/smile-login';
 export const WAYS_TO_EARN_ROUTE = '/ways-to-earn';
 export const WAYS_TO_SPEND_ROUTE = '/ways-to-spend';
+export const YOUR_REWARDS_ROUTE = '/smile-your-rewards';
 
 // Actions
 export const RECEIVE_SMILE_POINTS_PRODUCTS = 'RECEIVE_SMILE_POINTS_PRODUCTS';

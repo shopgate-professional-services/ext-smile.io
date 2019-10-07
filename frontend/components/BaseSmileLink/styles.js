@@ -9,10 +9,21 @@ const contentWrapper = css({
 }).toString();
 
 const headline = css({
-  fontWeight: 'bold',
-})
+  fontWeight: 500,
+}).toString();
+
+const image = css({
+  height: '40px',
+  width: '40px',
+  padding: '4px',
+  ' img': {
+    height: '100%',
+    width: '100%',
+  },
+}).toString();
 
 export default {
   contentWrapper,
   headline,
+  image,
 };

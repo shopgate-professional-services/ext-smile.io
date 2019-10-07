@@ -6,6 +6,13 @@
     "we_reward": "We reward with Smile.",
     "ways_to_earn": "Ways to earn",
     "ways_to_spend": "Ways to spend",
-    "smile_error": "Sorry! We could not fetch Smile.io info at this time."
+    "smile_error": "Sorry! We could not fetch Smile.io info at this time.",
+    "your_rewards": "Your rewards",
+    "your_latest_reward": "Your latest reward",
+    "points": "{points, plural, =0 {# Punkte} =1 {# Punkt} other {# Punkte}}",
+    "rewards": "rewards",
+    "reward": "reward",
+    "you_have": "You have",
+    "available": "available"
   }
 }
