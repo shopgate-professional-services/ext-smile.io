@@ -38,6 +38,7 @@ const SmileLoginRoute = () => {
                 pointsText={pointsText}
               />
             </div>
+            <YourRewardPanel />
           </div>
           <div className={styles.footer}>
             <Footer />

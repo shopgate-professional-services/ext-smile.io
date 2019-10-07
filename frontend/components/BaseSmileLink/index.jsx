@@ -23,7 +23,7 @@ const BaseSmileLink = ({
   const content = (
     <div className={styles.contentWrapper}>
       {iconImage && (
-        <div>
+        <div className={styles.image}>
           <img src={iconImage} alt={headline || description} />
         </div>
       )}
@@ -64,6 +64,7 @@ BaseSmileLink.defaultProps = {
   headline: null,
   href: null,
   iconImage: null,
-}
+};
+
 export default BaseSmileLink;
 
