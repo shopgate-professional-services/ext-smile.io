@@ -27,12 +27,6 @@
       "type": "portals"
     },
     {
-      "id": "SmileContainer",
-      "type": "portals",
-      "path": "frontend/portals/SmileContainer",
-      "target": "view.content.after"
-    },
-    {
       "id": "pointsProducts",
       "path": "frontend/reducers/pointsProducts.js",
       "type": "reducers"
