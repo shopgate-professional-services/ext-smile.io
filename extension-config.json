@@ -9,8 +9,8 @@
       "target": "app.globals"
     },
     {
-      "id": "smileLoginRoute",
-      "path": "frontend/pages/SmileLoginRoute/index.jsx",
+      "id": "smileDashboardRoute",
+      "path": "frontend/pages/smileDashboardRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
@@ -199,7 +199,7 @@
     "smileApiSecret": {
       "type": "admin",
       "destination": "backend",
-      "default": "example1234",
+      "default": "sk_AKsXCa4sWSxdzs9MkixvJAo2",
       "params": {
         "label": "Smile api secret",
         "type": "text",
@@ -209,7 +209,7 @@
     "smileChannelApiKey": {
       "type": "admin",
       "destination": "both",
-      "default": "example1234",
+      "default": "pk_ETsDtPcppst3fQirFGDUy7aE",
       "params": {
         "label": "Smile channel API key",
         "type": "text",
