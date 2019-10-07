@@ -67,6 +67,16 @@ export const getSmileYourRewardsState = state =>
 export const getSmileWaysToEarnState = state =>
   state.extensions[REDUX_NAMESPACE_SMILE_WAYS_TO_EARN];
 
+export const getSmileWaysToEarn = createSelector(
+  getSmileWaysToEarnState,
+  smileWayToEarnState => smileWayToEarnState.waysToEarn
+);
+
+export const getSmileWaysToEarnIsFetching = createSelector(
+  getSmileWaysToEarnState,
+  smileWayToEarnState => smileWayToEarnState.isFetching
+);
+
 /**
  * Gets info from purchaseSmileReward extension reducer
  * @param {Object} state state

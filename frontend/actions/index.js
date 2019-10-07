@@ -48,7 +48,7 @@ export const fetchPointsProducts = () => (dispatch, getState) => {
     LoadingProvider.setLoading(WAYS_TO_SPEND_ROUTE);
   }
 
-  if (pointsProductsState.pointsProducts) {
+  if (pointsProductsState.pointsProducts.length !== 0) {
     return;
   }
 

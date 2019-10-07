@@ -156,30 +156,7 @@
       "destination": "frontend",
       "default": {
         "appBarTitle": "",
-        "header": "Ways to earn",
-        "options": [
-          {
-            "reward": {
-              "name": "Place an order",
-              "image_url": "https://cdn.sweettooth.io/v1/images/earning/order-online.svg?color=%23000000&theme=light"
-            },
-            "exchange_description": "1 Point for every $1 spent"
-          },
-          {
-            "reward": {
-              "name": "Signup",
-              "image_url": "https://cdn.sweettooth.io/v1/images/earning/signup.svg?color=%23000000&theme=light"
-            },
-            "exchange_description": "200 points"
-          },
-          {
-            "reward": {
-              "name": "Celebrate a birthday",
-              "image_url": "https://cdn.sweettooth.io/v1/images/earning/birthday.svg?color=%23000000&theme=light"
-            },
-            "exchange_description": "200 points"
-          }
-        ]
+        "header": "Ways to earn"
       },
       "params": {
         "label": "Congifuration for ways to earn",
