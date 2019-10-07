@@ -1,10 +1,12 @@
-import { PipelineRequest, logger } from '@shopgate/engage/core';
+import { PipelineRequest, logger, LoadingProvider } from '@shopgate/engage/core';
 import {
   GET_SMILE_POINTS_PRODUCTS,
   GET_SMILE_CUSTOMER,
   GET_SMILE_YOUR_REWARDS,
   GET_SMILE_WAYS_TO_EARN,
   PURCHASE_SMILE_REWARDS,
+  SMILE_DIGEST_PIPELINE,
+  WAYS_TO_SPEND_ROUTE,
 } from '../constants';
 import {
   getSmilePointsProductsState,
@@ -29,6 +31,10 @@ import {
   requestPurchaseSmileReward,
   receivePurchaseSmileRewardResponse,
   errorPurchaseSmileReward,
+  requestSmileDigestData,
+  receiveSmileDigestData,
+  errorSmileDigestData,
+  clearSmileDigestData,
 } from '../action-creators';
 
 /**
@@ -38,7 +44,11 @@ import {
 export const fetchPointsProducts = () => (dispatch, getState) => {
   const pointsProductsState = getSmilePointsProductsState(getState());
 
-  if (pointsProductsState.isFetching || pointsProductsState.pointsProducts) {
+  if (pointsProductsState.isFetching) {
+    LoadingProvider.setLoading(WAYS_TO_SPEND_ROUTE);
+  }
+
+  if (pointsProductsState.pointsProducts) {
     return;
   }
 
@@ -48,10 +58,30 @@ export const fetchPointsProducts = () => (dispatch, getState) => {
     .then((response) => {
       const { pointsProducts } = response || {};
       dispatch(receivePointsProducts(pointsProducts));
+      LoadingProvider.unsetLoading(WAYS_TO_SPEND_ROUTE);
     })
     .catch((err) => {
       logger.error(err);
       dispatch(errorPointsProducts());
+      LoadingProvider.unsetLoading(WAYS_TO_SPEND_ROUTE);
+    });
+};
+
+/**
+ * Fetch Smile Data Digest
+ * @return {Function}
+ */
+export const fetchSmileDataDigest = () => (dispatch) => {
+  dispatch(requestSmileDigestData());
+
+  new PipelineRequest(SMILE_DIGEST_PIPELINE)
+    .dispatch()
+    .then(({ customerDigest, customerId }) => {
+      dispatch(receiveSmileDigestData(customerDigest, customerId));
+    })
+    .catch((error) => {
+      logger.error(error);
+      dispatch(errorSmileDigestData());
     });
 };
 
@@ -152,3 +182,16 @@ export const purchaseSmileRewards = rewardId => (dispatch, getState) => {
       dispatch(errorPurchaseSmileReward(rewardId));
     });
 };
+
+/**
+* Logout Smile user
+* @return {Function}
+*/
+export const logoutSmile = () => (dispatch) => {
+  dispatch(clearSmileDigestData());
+
+  if (window.SmileUI) {
+    window.SmileUI.destroy();
+  }
+};
+

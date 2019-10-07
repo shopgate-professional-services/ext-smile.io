@@ -5,6 +5,7 @@ import {
   REDUX_NAMESPACE_SMILE_YOUR_REWARDS,
   REDUX_NAMESPACE_SMILE_WAYS_TO_EARN,
   REDUX_NAMESPACE_PURCHASE_SMILE_REWARDS,
+  REDUX_NAMESPACE_SMILE_DIGEST_DATA,
 } from '../constants';
 
 /**
@@ -17,9 +18,28 @@ export const getSmilePointsProductsState = state =>
 
 export const getSmilePointsProducts = createSelector(
   getSmilePointsProductsState,
-  (pointsProductsState) => {
+  pointsProductsState => pointsProductsState.pointsProducts
+);
 
-    return pointsProductsState.pointsProducts;
+export const getSmilePointsIsFetching = createSelector(
+  getSmilePointsProductsState,
+  pointsProductsState => pointsProductsState.isFetching
+);
+
+/**
+ * @param {Object} state state
+ * @returns {Object}
+ */
+export const getSmileDigestDataState = state =>
+  state.extensions[REDUX_NAMESPACE_SMILE_DIGEST_DATA];
+
+export const getSmileDigest = createSelector(
+  getSmileDigestDataState,
+  (smileDigestDataState) => {
+    if (!smileDigestDataState) {
+      return null;
+    }
+    return smileDigestDataState.digest || null;
   }
 );
 
@@ -67,5 +87,15 @@ export const getPurchaseSmileReward = createSelector(
   (purchaseSmileRewardSate, props) => {
     const { rewardId } = props || {};
     return purchaseSmileRewardSate[rewardId] || null;
+  }
+);
+
+export const getExternalCustomerId = createSelector(
+  getSmileDigestDataState,
+  (smileDigestDataState) => {
+    if (!smileDigestDataState) {
+      return null;
+    }
+    return smileDigestDataState.externalCustomerId || null;
   }
 );

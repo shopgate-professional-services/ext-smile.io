@@ -1,0 +1,11 @@
+{
+  "smile": {
+    "join_button": "Join now",
+    "sign_in_link": "Sign in",
+    "have_account": "Already have an account?",
+    "we_reward": "We reward with Smile.",
+    "ways_to_earn": "Ways to earn",
+    "ways_to_spend": "Ways to spend",
+    "smile_error": "Sorry! We could not fetch Smile.io info at this time."
+  }
+}

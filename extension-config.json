@@ -3,6 +3,36 @@
   "id": "@shopgate-project/smile-io",
   "components": [
     {
+      "id": "CustomFont",
+      "type": "portals",
+      "path": "frontend/portals/CustomFont",
+      "target": "app.globals"
+    },
+    {
+      "id": "smileLoginRoute",
+      "path": "frontend/pages/SmileLoginRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "waysToEarnRoute",
+      "path": "frontend/pages/WaysToEarnRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "waysToSpendRoute",
+      "path": "frontend/pages/WaysToSpendRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "SmileContainer",
+      "type": "portals",
+      "path": "frontend/portals/SmileContainer",
+      "target": "view.content.after"
+    },
+    {
       "id": "pointsProducts",
       "path": "frontend/reducers/pointsProducts.js",
       "type": "reducers"
@@ -28,12 +58,134 @@
       "type": "reducers"
     },
     {
+      "id": "smileDataDigest",
+      "path": "frontend/reducers/simileDataDigest.js",
+      "type": "reducers"
+    },
+    {
       "id": "subscriptions",
       "path": "frontend/subscriptions/index.js",
       "type": "subscribers"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/en-US.json",
+      "id": "locale/en-US"
     }
   ],
   "configuration": {
+    "fontFamily": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "secondaryFontFamily": "Poppins,arial,sans-serif",
+        "secondaryFontFamilyUrl": "https://fonts.googleapis.com/css?family=Poppins&display=swap",
+        "primaryFontFamily": "Poppins,arial,sans-serif",
+        "primaryFontFamilyUrl": "https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      },
+      "params": {
+        "label": "Configuration for image source locations",
+        "type": "json"
+      }
+    },
+    "imageSrcs": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "waysToEarn": "https://cdn.sweettooth.io/v1/images/earn-more-points.svg?color=%23000000&theme=light",
+        "waysToSpend": "https://cdn.sweettooth.io/v1/images/spend-your-points.svg?color=%23000000&theme=light"
+      },
+      "params": {
+        "label": "Configuration for image source locations",
+        "type": "json"
+      }
+    },
+    "colorConfig": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "headerBackground": "black",
+        "headerFontColor": "white",
+        "buttonBackground": "black",
+        "buttonFontColor": "white",
+        "contentBackground": "white",
+        "contentFontColor": "black",
+        "mutedPointsColor": "#707070"
+      },
+      "params": {
+        "label": "Configuration for colors",
+        "type": "json"
+      }
+    },
+    "loginPageText": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "headerText": {
+          "secondaryText": "Welcome To",
+          "primaryText": "Merlin's magnificent magic shop"
+        },
+        "pointsText": {
+          "header": "Points",
+          "paragraph": "Earn more Points for different actions, and turn those Points into awesome rewards!"
+        },
+        "memberText": {
+          "header": "Become a member",
+          "paragraph": "With more ways to unlock exciting perks, this is your all access pass to exclusive rewards."
+        }
+      },
+      "params": {
+        "label": "Configuration for login page text",
+        "type": "json"
+      }
+    },
+    "waysToSpend": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "appBarTitle": "",
+        "header": "Ways to spend"
+      },
+      "params": {
+        "label": "Configuration for ways to spend page",
+        "type": "json"
+      }
+    },
+    "waysToEarn": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "appBarTitle": "",
+        "header": "Ways to earn",
+        "options": [
+          {
+            "reward": {
+              "name": "Place an order",
+              "image_url": "https://cdn.sweettooth.io/v1/images/earning/order-online.svg?color=%23000000&theme=light"
+            },
+            "exchange_description": "1 Point for every $1 spent"
+          },
+          {
+            "reward": {
+              "name": "Signup",
+              "image_url": "https://cdn.sweettooth.io/v1/images/earning/signup.svg?color=%23000000&theme=light"
+            },
+            "exchange_description": "200 points"
+          },
+          {
+            "reward": {
+              "name": "Celebrate a birthday",
+              "image_url": "https://cdn.sweettooth.io/v1/images/earning/birthday.svg?color=%23000000&theme=light"
+            },
+            "exchange_description": "200 points"
+          }
+        ]
+      },
+      "params": {
+        "label": "Congifuration for ways to earn",
+        "type": "json"
+      }
+    },
     "smileApiUrl": {
       "type": "admin",
       "destination": "backend",
@@ -47,7 +199,7 @@
     "smileApiSecret": {
       "type": "admin",
       "destination": "backend",
-      "default": "sk_AKsXCa4sWSxdzs9MkixvJAo2",
+      "default": "example1234",
       "params": {
         "label": "Smile api secret",
         "type": "text",
@@ -57,7 +209,7 @@
     "smileChannelApiKey": {
       "type": "admin",
       "destination": "both",
-      "default": "pk_ETsDtPcppst3fQirFGDUy7aE",
+      "default": "example1234",
       "params": {
         "label": "Smile channel API key",
         "type": "text",
@@ -72,6 +224,27 @@
         "label": "Smile Javascript SDK script src",
         "type": "text",
         "required": true
+      }
+    },
+    "sweettoothInitEndpoint": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": "https://cdn.sweettooth.io/v1/storefront_js/init",
+      "params": {
+        "label": "Smile Javascript SDK script src",
+        "type": "text",
+        "required": true
+      }
+    },
+    "webCheckout": {
+      "type": "bigApi",
+      "destination": "backend",
+      "default": null,
+      "params": {
+        "method": "GET",
+        "service": "config",
+        "path": "/v1/shop/%(shopId)s/checkout_web_checkout_shopify?parsed=true",
+        "key": "value"
       }
     }
   },
