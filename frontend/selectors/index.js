@@ -100,6 +100,20 @@ export const getPurchaseSmileReward = createSelector(
   }
 );
 
+/**
+ * Get your rewards
+ * @param {Object} state Redux state
+ * @returns {Object[]}
+ */
+export const getSmileYourRewards = createSelector(
+  getSmileYourRewardsState,
+  (yourRewardsState) => {
+    const { rewards = [] } = yourRewardsState || {};
+
+    return rewards;
+  }
+)
+
 export const getExternalCustomerId = createSelector(
   getSmileDigestDataState,
   (smileDigestDataState) => {
