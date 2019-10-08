@@ -49,4 +49,3 @@ export const TAB_BAR_BLACKLIST = [
   WAYS_TO_EARN_ROUTE,
   WAYS_TO_SPEND_ROUTE,
 ];
-

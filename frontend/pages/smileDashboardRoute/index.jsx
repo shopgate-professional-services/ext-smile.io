@@ -6,7 +6,7 @@ import Header from './components/Header';
 import MemberPanel from './components/MemberPanel';
 import PointsPanel from './components/PointsPanel';
 import YourRewardPanel from './components/YourRewardsPanel';
-import Footer from './components/Footer';
+import Footer from '../../components/Footer';
 import { SMILE_LOGIN_ROUTE } from '../../constants';
 import styles from './style';
 
@@ -40,9 +40,7 @@ const SmileLoginRoute = () => {
             </div>
             <YourRewardPanel />
           </div>
-          <div className={styles.footer}>
-            <Footer />
-          </div>
+          <Footer />
         </div>
       </div>
     </View>

@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { Route } from '@shopgate/pwa-common/components';
 import { useTheme } from '@shopgate/engage/core';
 import LoadingIndicator from '@shopgate/pwa-ui-shared/LoadingIndicator';
+import I18n from '@shopgate/pwa-common/components/I18n';
 import SmilePanel from '../../components/SmilePanel';
 import SmileJoinFooter from '../../components/SmileJoinFooter';
 import config from '../../config';
 import { WAYS_TO_SPEND_ROUTE } from '../../constants';
+import styles from './style';
 import connect from './connector';
 
 /**
@@ -20,7 +22,7 @@ const WaysToSpendRoute = ({ options, isFetching }) => {
   const { waysToSpend, colorConfig } = config;
   const { View, AppBar } = useTheme();
 
-  if (!options) {
+  if (!options || options.length < 1) {
     return (
       <View>
         <AppBar
@@ -28,8 +30,9 @@ const WaysToSpendRoute = ({ options, isFetching }) => {
           backgroundColor={colorConfig.headerBackground}
           textColor={colorConfig.headerFontColor}
         />
-        <SmilePanel header={waysToSpend.header} options={options} />
-        <SmileJoinFooter />
+        <div className={styles.panelContainer}>
+          <I18n.Text string="smile.smile_error" />
+        </div>
       </View>
     );
   }
@@ -41,7 +44,7 @@ const WaysToSpendRoute = ({ options, isFetching }) => {
         backgroundColor={colorConfig.headerBackground}
         textColor={colorConfig.headerFontColor}
       />
-      <SmilePanel header={waysToSpend.header} options={options} />
+      <SmilePanel header={waysToSpend.header} options={options} location={WAYS_TO_SPEND_ROUTE} />
       <SmileJoinFooter />
     </View>
   );

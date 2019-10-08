@@ -54,26 +54,10 @@ const pointsContainer = css({
   overflow: 'hidden',
 }).toString();
 
-const footer = css({
-  position: 'fixed',
-  height: '52px',
-  fontSize: '14px',
-  bottom: '0',
-  width: '100%',
-  justifyContent: 'center',
-  alignItems: 'center',
-  display: 'flex',
-  margin: 'auto',
-  backgroundColor: '#fff',
-  boxShadow: '0 -3px 12px 0 rgba(0,0,0,.04)',
-  zIndex: '1',
-}).toString();
-
 export default {
   container,
   headerContainer,
   pannelContainer,
   becomeContainer,
   pointsContainer,
-  footer,
 };
