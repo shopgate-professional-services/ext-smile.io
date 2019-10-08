@@ -1,9 +1,9 @@
 import { css } from 'glamor';
-import config from '../../../../config';
+import config from '../../config';
 
 const { colorConfig } = config;
 
-const yourPointsContainer = css({
+export default css({
   position: 'relative',
   padding: '16px 12px',
   borderRadius: '10px',
@@ -12,5 +12,3 @@ const yourPointsContainer = css({
   boxShadow: '0 0 13px 0 rgba(0,0,0,.09)',
   overflow: 'hidden',
 }).toString();
-
-export default { yourPointsContainer }

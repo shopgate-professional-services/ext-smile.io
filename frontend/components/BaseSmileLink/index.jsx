@@ -74,4 +74,3 @@ BaseSmileLink.defaultProps = {
 };
 
 export default BaseSmileLink;
-

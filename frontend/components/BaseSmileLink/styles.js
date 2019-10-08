@@ -7,18 +7,6 @@ const contentWrapper = css({
   position: 'relative',
   fontSize: '14px',
   lineHeight: '20px',
-  ':after': {
-    height: '1px',
-    width: '100%',
-    content: '""',
-    left: '-12px',
-    position: 'absolute',
-    bottom: '-8px',
-    backgroundColor: '#f5f5f5',
-  },
-  ':last-of-type:not(.with-border-bottom):after': {
-    display: 'none',
-  },
 }).toString();
 
 const contentItem = css({

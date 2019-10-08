@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Route } from '@shopgate/pwa-common/components';
 import { useTheme, i18n } from '@shopgate/engage/core';
 import SmileFooter from '../../components/SmileFooter';
-import YourRewardsList from './components/YourRwardsList';
+import YourRewardDetail from './components/YourRewardDetail';
 import config from '../../config';
-import { YOUR_REWARDS_ROUTE } from '../../constants';
+import { YOUR_REWARD_PATTERN } from '../../constants';
 import connect from '../connector';
 
 /**
- * @param {number} points Smile points
+ * @param {number} points Smile Customer Points
  * @returns {JSX}
  */
 const SmileYourRewardsRoute = ({ points }) => {
@@ -18,7 +18,6 @@ const SmileYourRewardsRoute = ({ points }) => {
   const title = points
     ? `${points} ${i18n.text('smile.points')}`
     : loginPageText.headerText.primaryText;
-
   return (
     <View>
       <AppBar
@@ -27,7 +26,7 @@ const SmileYourRewardsRoute = ({ points }) => {
         textColor={colorConfig.headerFontColor}
         right={null}
       />
-      <YourRewardsList />
+      <YourRewardDetail />
       <SmileFooter />
     </View>
   );
@@ -43,7 +42,7 @@ SmileYourRewardsRoute.defaultProps = {
 
 export default () => (
   <Route
-    pattern={YOUR_REWARDS_ROUTE}
+    pattern={YOUR_REWARD_PATTERN}
     component={connect(SmileYourRewardsRoute)}
   />
 );

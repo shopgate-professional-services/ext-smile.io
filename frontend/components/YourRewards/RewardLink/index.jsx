@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BaseSmileLink from '../../BaseSmileLink';
 import SmileChevron from '../../SmileChevron';
+import { YOUR_REWARD_ROUTE } from '../../../constants';
 
+/**
+ * RewardLink component
+ * @param {Object} reward Smile reward object
+ * @return {JSX}
+ */
 const RewardLink = ({ reward }) => {
   const {
     id,
@@ -16,6 +22,7 @@ const RewardLink = ({ reward }) => {
       description={sourceDescription}
       iconImage={imageUrl}
       CallToAction={<SmileChevron />}
+      href={`${YOUR_REWARD_ROUTE}${id}`}
     />
   );
 };

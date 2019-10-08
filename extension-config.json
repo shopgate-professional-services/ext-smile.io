@@ -33,6 +33,12 @@
       "type": "portals"
     },
     {
+      "id": "smileYourRewardDetailRoute",
+      "path": "frontend/pages/smileYourRewardDetailRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
       "id": "pointsProducts",
       "path": "frontend/reducers/pointsProducts.js",
       "type": "reducers"
@@ -55,11 +61,6 @@
     {
       "id": "purchaseSmileRewards",
       "path": "frontend/reducers/purchaseSmileRewards.js",
-      "type": "reducers"
-    },
-    {
-      "id": "smileDataDigest",
-      "path": "frontend/reducers/simileDataDigest.js",
       "type": "reducers"
     },
     {

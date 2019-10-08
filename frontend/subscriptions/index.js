@@ -18,8 +18,6 @@ import {
   fetchSmileWaysToEarn,
   fetchSmileCustomer,
   fetchSmileYourRewards,
-  fetchSmileDataDigest,
-  logoutSmile,
 } from '../actions';
 import { clearSmileCustomer, clearSmileYourRewards } from '../action-creators';
 import { RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE, TAB_BAR_BLACKLIST } from '../constants';
@@ -65,9 +63,5 @@ export default (subscribe) => {
   subscribe(smilePurchaseRewardReceived$, ({ dispatch }) => {
     dispatch(fetchSmileCustomer());
     dispatch(fetchSmileYourRewards());
-  });
-
-  subscribe(userDataReceived$, ({ dispatch }) => {
-    dispatch(fetchSmileDataDigest());
   });
 };
