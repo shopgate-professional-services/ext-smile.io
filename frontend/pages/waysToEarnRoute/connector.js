@@ -1,5 +1,10 @@
 import { connect } from 'react-redux';
-import { getSmileWaysToEarn, getSmileWaysToEarnIsFetching } from '../../selectors';
+import {
+  getSmileCustomer,
+  getSmileWaysToEarn,
+  getSmileWaysToEarnIsFetching,
+  getSmileCustomerIsFetching,
+} from '../../selectors';
 
 /**
  * Maps state to props.
@@ -7,8 +12,10 @@ import { getSmileWaysToEarn, getSmileWaysToEarnIsFetching } from '../../selector
  * @returns {Object}
  */
 const mapStateToProps = state => ({
+  customer: getSmileCustomer(state),
+  customerIsFetching: getSmileCustomerIsFetching(state),
   options: getSmileWaysToEarn(state),
-  isFetching: getSmileWaysToEarnIsFetching(state),
+  optionsIsFetching: getSmileWaysToEarnIsFetching(state),
 });
 
 export default connect(mapStateToProps);

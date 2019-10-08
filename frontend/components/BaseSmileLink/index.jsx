@@ -29,7 +29,7 @@ const BaseSmileLink = ({
       )}
       <div>
         {headline && <div className={styles.headline}>{headline}</div>}
-        {description && <div>{description}</div>}
+        {description && <div className={styles.subtitle}>{description}</div>}
       </div>
       {CallToAction && (
         <div>

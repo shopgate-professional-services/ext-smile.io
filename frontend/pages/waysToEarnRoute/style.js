@@ -5,7 +5,7 @@ const { colorConfig } = config;
 
 const panelContainer = css({
   color: `${colorConfig.contentFontColor}`,
-  magrinBottom: '126px',
+  margin: '126px',
   height: '100%',
   paddingLeft: '16px',
   paddingRight: '16px',

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import BaseSmileLink from '../BaseSmileLink';
 import { WAYS_TO_EARN_ROUTE } from '../../constants';
 import styles from './style';
 import Card from './components/Card';
@@ -16,22 +17,22 @@ const SmilePanel = ({ header, options, location }) => {
       const { activity_rule } = option || {};
 
       return (
-        <Card
+        <BaseSmileLink
           key={index.toString()}
-          img={activity_rule.image_url}
-          text={activity_rule.name}
-          pointsText={activity_rule.value_description}
+          iconImage={activity_rule.image_url}
+          headline={activity_rule.name}
+          description={activity_rule.value_description}
         />
       );
     })
   ) :
     (
       options.map((option, index) => (
-        <Card
+        <BaseSmileLink
           key={index.toString()}
-          img={option.reward.image_url}
-          text={option.reward.name}
-          pointsText={option.exchange_description}
+          iconImage={option.reward.image_url}
+          headline={option.reward.name}
+          description={option.exchange_description}
         />
       ))
     );

@@ -51,6 +51,16 @@ export const getSmileDigest = createSelector(
 export const getSmileCustomerState = state =>
   state.extensions[REDUX_NAMESPACE_SMILE_CUSTOMER];
 
+export const getSmileCustomer = createSelector(
+  getSmileCustomerState,
+  smileCustomerState => smileCustomerState.customer
+);
+
+export const getSmileCustomerIsFetching = createSelector(
+  getSmileCustomerState,
+  smileCustomerState => smileCustomerState.isFetching
+);
+
 /**
  * Gets info from smileYourRewards state extension reducer
  * @param {Object} state state
@@ -112,7 +122,7 @@ export const getSmileYourRewards = createSelector(
 
     return rewards;
   }
-)
+);
 
 export const getExternalCustomerId = createSelector(
   getSmileDigestDataState,

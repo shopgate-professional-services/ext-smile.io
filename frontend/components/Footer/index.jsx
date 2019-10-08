@@ -1,7 +1,7 @@
 import React from 'react';
 import I18n from '@shopgate/pwa-common/components/I18n';
 import styles from './style';
-import config from '../../../../config';
+import config from '../../config';
 
 const { shopifyAlias } = config;
 
