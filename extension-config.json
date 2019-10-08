@@ -8,6 +8,26 @@
       "type": "reducers"
     },
     {
+      "id": "smileCustomer",
+      "path": "frontend/reducers/smileCustomer.js",
+      "type": "reducers"
+    },
+    {
+      "id": "smileYourRewards",
+      "path": "frontend/reducers/smileYourRewards.js",
+      "type": "reducers"
+    },
+    {
+      "id": "smileWaysToEarn",
+      "path": "frontend/reducers/smileWaysToEarn.js",
+      "type": "reducers"
+    },
+    {
+      "id": "purchaseSmileRewards",
+      "path": "frontend/reducers/purchaseSmileRewards.js",
+      "type": "reducers"
+    },
+    {
       "id": "subscriptions",
       "path": "frontend/subscriptions/index.js",
       "type": "subscribers"
