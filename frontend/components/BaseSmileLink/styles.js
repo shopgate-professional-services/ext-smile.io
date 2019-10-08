@@ -5,14 +5,19 @@ const { colorConfig } = config;
 
 const contentWrapper = css({
   position: 'relative',
+  fontSize: '14px',
+  lineHeight: '20px',
   ':after': {
     height: '1px',
     width: '100%',
-    content: '',
-    left: '64px',
+    content: '""',
+    left: '-12px',
     position: 'absolute',
     bottom: '-8px',
     backgroundColor: '#f5f5f5',
+  },
+  ':last-of-type:not(.with-border-bottom):after': {
+    display: 'none',
   },
 }).toString();
 
@@ -23,11 +28,15 @@ const contentItem = css({
   textAlign: 'left',
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center',
   padding: '8px 12px',
   marginBottom: '16px',
   width: '100%',
   transition: 'background-color .15s ease-in-out',
+}).toString();
+
+const muteWrapper = css({
+  opacity: '.5 !important',
+  color: 'black !important',
 }).toString();
 
 const baseContent = css({
@@ -35,11 +44,7 @@ const baseContent = css({
   alignItems: 'center',
 }).toString();
 
-const headline = css({
-  fontWeight: 500,
-}).toString();
-
-const subtitle = css({
+const muted = css({
   color: `${colorConfig.mutedPointsColor}`,
 }).toString();
 
@@ -55,7 +60,7 @@ export default {
   contentWrapper,
   contentItem,
   baseContent,
-  headline,
-  subtitle,
+  muteWrapper,
+  muted,
   image,
 };

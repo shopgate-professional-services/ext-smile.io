@@ -53,11 +53,13 @@ export default (subscribe) => {
   subscribe(userDataReceived$, ({ dispatch }) => {
     dispatch(fetchSmileCustomer());
     dispatch(fetchSmileYourRewards());
+    dispatch(fetchSmileWaysToEarn());
   });
 
   subscribe(userDidLogout$, ({ dispatch }) => {
     dispatch(clearSmileCustomer());
     dispatch(clearSmileYourRewards());
+    dispatch(fetchSmileWaysToEarn());
   });
 
   subscribe(smilePurchaseRewardReceived$, ({ dispatch }) => {
@@ -67,9 +69,5 @@ export default (subscribe) => {
 
   subscribe(userDataReceived$, ({ dispatch }) => {
     dispatch(fetchSmileDataDigest());
-  });
-
-  subscribe(userDidLogout$, ({ dispatch }) => {
-    dispatch(logoutSmile());
   });
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+import classNames from 'classnames';
 import { Link } from '@shopgate/engage/components';
 import styles from './styles';
 
@@ -19,9 +20,15 @@ const BaseSmileLink = ({
   description,
   href,
   CallToAction,
+  muted,
 }) => {
+  const isMuted = classNames(
+    styles.contentWrapper,
+    { [styles.muteWrapper]: muted }
+  );
+
   const content = (
-    <div className={styles.contentWrapper}>
+    <div className={isMuted}>
       <div className={styles.contentItem}>
         <div className={styles.baseContent}>
           {iconImage && (
@@ -31,14 +38,12 @@ const BaseSmileLink = ({
           )}
           <div>
             {headline && <div className={styles.headline}>{headline}</div>}
-            {description && <div className={styles.subtitle}>{description}</div>}
+            {description && <div className={styles.muted}>{description}</div>}
           </div>
-          {CallToAction && (
-            <div>
-              <CallToAction />
-            </div>
-          )}
         </div>
+        {CallToAction && (
+          CallToAction
+        )}
       </div>
     </div>
   );

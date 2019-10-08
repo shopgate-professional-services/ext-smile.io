@@ -51,9 +51,17 @@ const cardListContainer = css({
   },
 }).toString();
 
+const check = css({
+  display: 'flex',
+  justifyContent: 'flex-end',
+  height: '20px',
+  width: '20px',
+}).toString();
+
 export default {
   cardListContainer,
   header,
   headerContainer,
   panelContainer,
+  check,
 };

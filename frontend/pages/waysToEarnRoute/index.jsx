@@ -30,7 +30,8 @@ const WaysToEarnRoute = ({
   let title = '';
 
   if (points_balance) {
-    title = points_balance.toString();
+    const value = points_balance.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    title = `${value} Points`;
   }
 
   const { waysToEarn, colorConfig } = config;

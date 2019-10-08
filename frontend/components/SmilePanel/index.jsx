@@ -1,9 +1,10 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CheckIcon } from '@shopgate/engage/components';
 import BaseSmileLink from '../BaseSmileLink';
 import { WAYS_TO_EARN_ROUTE } from '../../constants';
 import styles from './style';
-import Card from './components/Card';
 /**
  * Panel information for waysToEarn and waysToSpend routes
  * @param {Object} header header info
@@ -13,15 +14,16 @@ import Card from './components/Card';
 const SmilePanel = ({ header, options, location }) => {
   const cards = location === WAYS_TO_EARN_ROUTE ? (
     options.map((option, index) => {
-      // eslint-disable-next-line camelcase
-      const { activity_rule } = option || {};
-
+      const { is_available, activity_rule } = option || {};
+      const cta = is_available ? null : (<CheckIcon className={styles.check} />);
       return (
         <BaseSmileLink
           key={index.toString()}
+          muted={!is_available}
           iconImage={activity_rule.image_url}
           headline={activity_rule.name}
           description={activity_rule.value_description}
+          CallToAction={cta}
         />
       );
     })
