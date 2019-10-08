@@ -22,20 +22,24 @@ const BaseSmileLink = ({
 }) => {
   const content = (
     <div className={styles.contentWrapper}>
-      {iconImage && (
-        <div className={styles.image}>
-          <img src={iconImage} alt={headline || description} />
+      <div className={styles.contentItem}>
+        <div className={styles.baseContent}>
+          {iconImage && (
+            <div className={styles.image}>
+              <img src={iconImage} alt={headline || description} />
+            </div>
+          )}
+          <div>
+            {headline && <div className={styles.headline}>{headline}</div>}
+            {description && <div className={styles.subtitle}>{description}</div>}
+          </div>
+          {CallToAction && (
+            <div>
+              <CallToAction />
+            </div>
+          )}
         </div>
-      )}
-      <div>
-        {headline && <div className={styles.headline}>{headline}</div>}
-        {description && <div className={styles.subtitle}>{description}</div>}
       </div>
-      {CallToAction && (
-        <div>
-          <CallToAction />
-        </div>
-      )}
     </div>
   );
 

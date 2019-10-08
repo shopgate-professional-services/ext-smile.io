@@ -5,6 +5,19 @@ const { colorConfig } = config;
 
 const contentWrapper = css({
   position: 'relative',
+  ':after': {
+    height: '1px',
+    width: '100%',
+    content: '',
+    left: '64px',
+    position: 'absolute',
+    bottom: '-8px',
+    backgroundColor: '#f5f5f5',
+  },
+}).toString();
+
+const contentItem = css({
+  position: 'relative',
   backgroundColor: 'transparent',
   border: 'none',
   textAlign: 'left',
@@ -15,15 +28,6 @@ const contentWrapper = css({
   marginBottom: '16px',
   width: '100%',
   transition: 'background-color .15s ease-in-out',
-  ':after': {
-    height: '1px',
-    width: '100%',
-    content: '',
-    left: '64px',
-    position: 'absolute',
-    bottom: '-8px',
-    backgroundColor: '#f5f5f5',
-  },
 }).toString();
 
 const baseContent = css({
@@ -45,14 +49,11 @@ const image = css({
   padding: '4px',
   marginRight: '12px',
   flexShrink: '0',
-  ' img': {
-    height: '100%',
-    width: '100%',
-  },
 }).toString();
 
 export default {
   contentWrapper,
+  contentItem,
   baseContent,
   headline,
   subtitle,
