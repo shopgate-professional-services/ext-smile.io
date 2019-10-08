@@ -41,9 +41,7 @@ const BaseSmileLink = ({
             {description && <div className={styles.muted}>{description}</div>}
           </div>
         </div>
-        {CallToAction && (
-          CallToAction
-        )}
+        {CallToAction}
       </div>
     </div>
   );

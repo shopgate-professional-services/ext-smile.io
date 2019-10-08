@@ -16,6 +16,7 @@ const SmilePanel = ({ header, options, location }) => {
     options.map((option, index) => {
       const { is_available, activity_rule } = option || {};
       const cta = is_available ? null : (<CheckIcon className={styles.check} />);
+
       return (
         <BaseSmileLink
           key={index.toString()}

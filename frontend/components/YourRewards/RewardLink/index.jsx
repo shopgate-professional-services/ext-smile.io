@@ -8,14 +8,14 @@ const RewardLink = ({ reward }) => {
     id,
     name,
     image_url: imageUrl,
-    source_description: sourceDescription
+    source_description: sourceDescription,
   } = reward;
   return (
     <BaseSmileLink
       headline={name}
       description={sourceDescription}
       iconImage={imageUrl}
-      CallToAction={SmileChevron}
+      CallToAction={<SmileChevron />}
     />
   );
 };
