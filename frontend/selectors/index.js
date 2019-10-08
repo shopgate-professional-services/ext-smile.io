@@ -7,6 +7,7 @@ import {
   REDUX_NAMESPACE_SMILE_WAYS_TO_EARN,
   REDUX_NAMESPACE_PURCHASE_SMILE_REWARDS,
 } from '../constants';
+import smileCustomer from "../reducers/smileCustomer";
 
 /**
  * Gets info from pointsProducts extension reducer
@@ -33,6 +34,25 @@ export const getSmilePointsIsFetching = createSelector(
  */
 export const getSmileCustomerState = state =>
   state.extensions[REDUX_NAMESPACE_SMILE_CUSTOMER];
+
+export const getSmileCustomer = createSelector(
+  getSmileCustomerState,
+  smileCustomerState => smileCustomerState.customer
+);
+
+export const getSmileCustomerIsFetching = createSelector(
+  getSmileCustomerState,
+  smileCustomerState => smileCustomerState.isFetching
+);
+
+export const getSmileCustomerPoints = createSelector(
+  getSmileCustomer,
+  (customer) => {
+    const { points_balance: points = null } = customer || {};
+
+    return points;
+  }
+);
 
 /**
  * Gets info from smileYourRewards state extension reducer

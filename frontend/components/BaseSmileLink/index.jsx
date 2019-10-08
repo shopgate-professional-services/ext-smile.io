@@ -26,7 +26,7 @@ const BaseSmileLink = ({
     styles.contentWrapper,
     { [styles.muteWrapper]: muted }
   );
-  console.log('call to action', CallToAction);
+
   const content = (
     <div className={isMuted}>
       <div className={styles.contentItem}>

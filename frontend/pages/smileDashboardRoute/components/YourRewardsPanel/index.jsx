@@ -19,7 +19,9 @@ const YourRewardPanel = ({ rewards }) => {
 
   return (
     <PanelContainer>
-      <YourRewardsLink rewardCount={rewards.length} />
+      {rewards.length > 1 && (
+        <YourRewardsLink rewardCount={rewards.length} />
+      )}
       <BaseSmileLink headline={i18n.text('smile.your_latest_reward')} />
       <RewardLink reward={rewards[0]} />
     </PanelContainer>
@@ -30,7 +32,7 @@ YourRewardPanel.propTypes = {
   rewards: PropTypes.arrayOf(PropTypes.shape()),
 };
 
-YourRewardsLink.defaultProps = {
+YourRewardPanel.defaultProps = {
   rewards: [],
 };
 
