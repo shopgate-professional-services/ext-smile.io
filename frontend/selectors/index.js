@@ -1,11 +1,11 @@
 import { createSelector } from 'reselect';
+import { getCurrentParams } from '@shopgate/engage/core';
 import {
   REDUX_NAMESPACE_SMILE_POINTS_PRODUCTS,
   REDUX_NAMESPACE_SMILE_CUSTOMER,
   REDUX_NAMESPACE_SMILE_YOUR_REWARDS,
   REDUX_NAMESPACE_SMILE_WAYS_TO_EARN,
   REDUX_NAMESPACE_PURCHASE_SMILE_REWARDS,
-  REDUX_NAMESPACE_SMILE_DIGEST_DATA,
 } from '../constants';
 
 /**
@@ -24,23 +24,6 @@ export const getSmilePointsProducts = createSelector(
 export const getSmilePointsIsFetching = createSelector(
   getSmilePointsProductsState,
   pointsProductsState => pointsProductsState.isFetching
-);
-
-/**
- * @param {Object} state state
- * @returns {Object}
- */
-export const getSmileDigestDataState = state =>
-  state.extensions[REDUX_NAMESPACE_SMILE_DIGEST_DATA];
-
-export const getSmileDigest = createSelector(
-  getSmileDigestDataState,
-  (smileDigestDataState) => {
-    if (!smileDigestDataState) {
-      return null;
-    }
-    return smileDigestDataState.digest || null;
-  }
 );
 
 /**
@@ -102,14 +85,35 @@ export const getSmileYourRewards = createSelector(
 
     return rewards;
   }
-)
+);
 
-export const getExternalCustomerId = createSelector(
-  getSmileDigestDataState,
-  (smileDigestDataState) => {
-    if (!smileDigestDataState) {
+/**
+ * Get rewardId from route params
+ * @param {Object} state Redux state
+ * @returns {Object[]}
+ */
+export const getRewardIdFromRoute = createSelector(
+  getCurrentParams,
+  (params) => {
+    const { rewardId = null } = params || {};
+
+    return rewardId;
+  }
+);
+
+/**
+ * Get reward using rewardId from route
+ * @param {Object} state Redux state
+ * @returns {Object[]}
+ */
+export const getRewardFromRoute = createSelector(
+  getRewardIdFromRoute,
+  getSmileYourRewards,
+  (rewardId, rewards) => {
+    if (!(rewardId && rewards.length)) {
       return null;
     }
-    return smileDigestDataState.externalCustomerId || null;
+
+    return rewards.find(reward => `${reward.id}` === `${rewardId}`) || null;
   }
 );

@@ -13,6 +13,8 @@
     "rewards": "rewards",
     "reward": "reward",
     "you_have": "You have",
-    "available": "available"
+    "available": "available",
+    "use_this_discount_code": "Use this discount code on your next order!",
+    "copy_code": "Copy code"
   }
 }

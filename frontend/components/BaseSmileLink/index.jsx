@@ -1,5 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+import classNames from 'classnames';
 import { Link } from '@shopgate/engage/components';
 import styles from './styles';
 
@@ -19,23 +20,29 @@ const BaseSmileLink = ({
   description,
   href,
   CallToAction,
+  muted,
 }) => {
+  const isMuted = classNames(
+    styles.contentWrapper,
+    { [styles.muteWrapper]: muted }
+  );
+  console.log('call to action', CallToAction);
   const content = (
-    <div className={styles.contentWrapper}>
-      {iconImage && (
-        <div className={styles.image}>
-          <img src={iconImage} alt={headline || description} />
+    <div className={isMuted}>
+      <div className={styles.contentItem}>
+        <div className={styles.baseContent}>
+          {iconImage && (
+            <div className={styles.image}>
+              <img src={iconImage} alt={headline || description} />
+            </div>
+          )}
+          <div>
+            {headline && <div className={styles.headline}>{headline}</div>}
+            {description && <div className={styles.muted}>{description}</div>}
+          </div>
         </div>
-      )}
-      <div>
-        {headline && <div className={styles.headline}>{headline}</div>}
-        {description && <div>{description}</div>}
+        {CallToAction}
       </div>
-      {CallToAction && (
-        <div>
-          <CallToAction />
-        </div>
-      )}
     </div>
   );
 
@@ -67,4 +74,3 @@ BaseSmileLink.defaultProps = {
 };
 
 export default BaseSmileLink;
-
