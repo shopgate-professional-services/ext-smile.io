@@ -1,8 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { i18n } from '@shopgate/engage/core';
+import CheckMarkIcon from '../../../../icons/CheckMarkIcon';
 import PanelContainer from '../../../../components/PanelContainer';
 import BaseSmileLink from '../../../../components/BaseSmileLink';
+import CopyButton from './components/CopyButton';
 import connect from './connector';
 import styles from './styles';
 
@@ -23,30 +25,13 @@ const YourRewardDetail = ({ reward }) => {
   if (!code) {
     return null;
   }
-  let indicationTimeout;
-  const [copying, setCopying] = useState(false);
-  useEffect(() => (
-    () => {
-      if (indicationTimeout) {
-        clearTimeout(indicationTimeout);
-      }
-    }
-  ), [reward]);
   const inputRef = useRef(null);
-  /**
-   * Manipulate copying state
-   */
-  const indicateCopying = () => {
-    setCopying(true);
-    indicationTimeout = setTimeout(() => setCopying(false), 2000);
-  };
 
   /**
    * Copy text from input to clipboard
    * @param {Event} event Event
    */
   const copyToClipboard = (event) => {
-    indicateCopying();
     inputRef.current.select();
     inputRef.current.setSelectionRange(0, 99999);
     document.execCommand('copy');
@@ -75,12 +60,7 @@ const YourRewardDetail = ({ reward }) => {
           />
         </div>
         <div>
-          <button
-            className={styles.copyButton}
-            onClick={copyToClipboard}
-          >
-            {copying ? <span>&#10003;</span> : <span>{i18n.text('smile.copy_code')}</span>}
-          </button>
+          <CopyButton onClick={copyToClipboard} />
         </div>
       </PanelContainer>
     </div>

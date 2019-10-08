@@ -10,7 +10,6 @@ import connect from './connector';
  * @return {JSX}
  */
 const SmileFooter = ({ smileCustomer }) => {
-  console.log('smileCustomer smileFooter', smileCustomer);
   if (smileCustomer) {
     return <SmileDefaultFooter />;
   }

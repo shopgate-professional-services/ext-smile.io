@@ -7,44 +7,68 @@ import {
   REDUX_NAMESPACE_SMILE_WAYS_TO_EARN,
   REDUX_NAMESPACE_PURCHASE_SMILE_REWARDS,
 } from '../constants';
-import smileCustomer from "../reducers/smileCustomer";
 
 /**
- * Gets info from pointsProducts extension reducer
+ * Gets info from pointsProducts state extension reducer
  * @param {Object} state state
  * @returns {Object}
  */
 export const getSmilePointsProductsState = state =>
   state.extensions[REDUX_NAMESPACE_SMILE_POINTS_PRODUCTS];
 
+/**
+ * Gets info from pointsProducts extension reducer
+ * @param {Object} state state
+ * @returns {Object}
+ */
 export const getSmilePointsProducts = createSelector(
   getSmilePointsProductsState,
   pointsProductsState => pointsProductsState.pointsProducts
 );
 
+/**
+ * Gets info from pointsProducts is fetching extension reducer
+ * @param {Object} state state
+ * @returns {Object}
+ */
 export const getSmilePointsIsFetching = createSelector(
   getSmilePointsProductsState,
   pointsProductsState => pointsProductsState.isFetching
 );
 
 /**
- * Gets info from smileCustomer extension reducer
+ * Gets info from smileCustomer state extension reducer
  * @param {Object} state state
  * @returns {Object}
  */
 export const getSmileCustomerState = state =>
   state.extensions[REDUX_NAMESPACE_SMILE_CUSTOMER];
 
+/**
+ * Gets info from smileCustomer extension reducer
+ * @param {Object} state state
+ * @returns {Object}
+ */
 export const getSmileCustomer = createSelector(
   getSmileCustomerState,
   smileCustomerState => smileCustomerState.customer
 );
 
+/**
+ * Gets info from smileCustomer is fetching extension reducer
+ * @param {Object} state state
+ * @returns {Object}
+ */
 export const getSmileCustomerIsFetching = createSelector(
   getSmileCustomerState,
   smileCustomerState => smileCustomerState.isFetching
 );
 
+/**
+ * Gets info from smileCustomer points extension reducer
+ * @param {Object} state state
+ * @returns {number|null}
+ */
 export const getSmileCustomerPoints = createSelector(
   getSmileCustomer,
   (customer) => {
