@@ -1,9 +1,11 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from '@shopgate/pwa-common/components';
 import { useTheme } from '@shopgate/engage/core';
 import LoadingIndicator from '@shopgate/pwa-ui-shared/LoadingIndicator';
 import I18n from '@shopgate/pwa-common/components/I18n';
+import Footer from '../../components/Footer';
 import SmilePanel from '../../components/SmilePanel';
 import SmileJoinFooter from '../../components/SmileJoinFooter';
 import config from '../../config';
@@ -14,19 +16,38 @@ import connect from './connector';
 /**
  * @returns {JSX}
  */
-const WaysToSpendRoute = ({ options, isFetching }) => {
-  if (isFetching) {
+const WaysToSpendRoute = ({
+  customer,
+  customerIsFetching,
+  options,
+  optionsIsFetching,
+}) => {
+  if (customerIsFetching || optionsIsFetching) {
     return <LoadingIndicator />;
+  }
+
+  const { points_balance } = customer || {};
+  let title = '';
+
+  if (points_balance) {
+    const value = points_balance.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    title = `${value} Points`;
   }
 
   const { waysToSpend, colorConfig } = config;
   const { View, AppBar } = useTheme();
 
+  const footer = customer ? (
+    <Footer />
+  ) : (
+    <SmileJoinFooter />
+  );
+
   if (!options || options.length < 1) {
     return (
       <View>
         <AppBar
-          title={waysToSpend.appBarTitle}
+          title={title}
           backgroundColor={colorConfig.headerBackground}
           textColor={colorConfig.headerFontColor}
         />
@@ -44,20 +65,29 @@ const WaysToSpendRoute = ({ options, isFetching }) => {
         backgroundColor={colorConfig.headerBackground}
         textColor={colorConfig.headerFontColor}
       />
-      <SmilePanel header={waysToSpend.header} options={options} location={WAYS_TO_SPEND_ROUTE} />
-      <SmileJoinFooter />
+      <SmilePanel
+        userPoints={points_balance}
+        header={waysToSpend.header}
+        options={options}
+        location={WAYS_TO_SPEND_ROUTE}
+      />
+      {footer}
     </View>
   );
 };
 
 WaysToSpendRoute.propTypes = {
-  isFetching: PropTypes.bool,
+  customer: PropTypes.shape(),
+  customerIsFetching: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.shape()),
+  optionsIsFetching: PropTypes.bool,
 };
 
 WaysToSpendRoute.defaultProps = {
-  isFetching: true,
+  customer: null,
+  customerIsFetching: true,
   options: null,
+  optionsIsFetching: true,
 };
 
 export default () => (

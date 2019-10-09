@@ -1,3 +1,5 @@
+export const DASH_ARRAY_VALUE = 51.1503;
+
 // Paths
 export const SMILE_LOGIN_ROUTE = '/smile-login';
 export const WAYS_TO_EARN_ROUTE = '/ways-to-earn';
