@@ -6,8 +6,7 @@ import { useTheme } from '@shopgate/engage/core';
 import LoadingIndicator from '@shopgate/pwa-ui-shared/LoadingIndicator';
 import I18n from '@shopgate/pwa-common/components/I18n';
 import SmilePanel from '../../components/SmilePanel';
-import Footer from '../../components/Footer';
-import SmileJoinFooter from '../../components/SmileJoinFooter';
+import SmileFooter from '../../components/SmileFooter';
 import config from '../../config';
 import { WAYS_TO_EARN_ROUTE } from '../../constants';
 import styles from './style';
@@ -37,12 +36,6 @@ const WaysToEarnRoute = ({
   const { waysToEarn, colorConfig } = config;
   const { View, AppBar } = useTheme();
 
-  const footer = customer ? (
-    <Footer />
-  ) : (
-    <SmileJoinFooter />
-  );
-
   if (!options || options.length < 1) {
     return (
       <View>
@@ -66,7 +59,7 @@ const WaysToEarnRoute = ({
         textColor={colorConfig.headerFontColor}
       />
       <SmilePanel header={waysToEarn.header} options={options} location={WAYS_TO_EARN_ROUTE} />
-      {footer}
+      <SmileFooter />
     </View>
   );
 };

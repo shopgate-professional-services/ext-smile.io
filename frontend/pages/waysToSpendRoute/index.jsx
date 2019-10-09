@@ -5,9 +5,8 @@ import { Route } from '@shopgate/pwa-common/components';
 import { useTheme } from '@shopgate/engage/core';
 import LoadingIndicator from '@shopgate/pwa-ui-shared/LoadingIndicator';
 import I18n from '@shopgate/pwa-common/components/I18n';
-import Footer from '../../components/Footer';
+import SmileFooter from '../../components/SmileFooter';
 import SmilePanel from '../../components/SmilePanel';
-import SmileJoinFooter from '../../components/SmileJoinFooter';
 import config from '../../config';
 import { WAYS_TO_SPEND_ROUTE } from '../../constants';
 import styles from './style';
@@ -37,12 +36,6 @@ const WaysToSpendRoute = ({
   const { waysToSpend, colorConfig } = config;
   const { View, AppBar } = useTheme();
 
-  const footer = customer ? (
-    <Footer />
-  ) : (
-    <SmileJoinFooter />
-  );
-
   if (!options || options.length < 1) {
     return (
       <View>
@@ -61,7 +54,7 @@ const WaysToSpendRoute = ({
   return (
     <View>
       <AppBar
-        title={waysToSpend.appBarTitle}
+        title={title}
         backgroundColor={colorConfig.headerBackground}
         textColor={colorConfig.headerFontColor}
       />
@@ -71,7 +64,7 @@ const WaysToSpendRoute = ({
         options={options}
         location={WAYS_TO_SPEND_ROUTE}
       />
-      {footer}
+      <SmileFooter />
     </View>
   );
 };

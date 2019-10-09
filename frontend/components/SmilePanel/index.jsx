@@ -2,12 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CheckIcon } from '@shopgate/engage/components';
-import I18n from '@shopgate/pwa-common/components/I18n';
-import Link from '@shopgate/pwa-common/components/Link';
+import RedeemButton from './components/RedeemButton';
 import ProgressMeter from './icons/ProgressMeter';
 import BaseSmileLink from '../BaseSmileLink';
-import { WAYS_TO_EARN_ROUTE, SMILE_LOGIN_ROUTE } from '../../constants';
+import { WAYS_TO_EARN_ROUTE } from '../../constants';
 import styles from './style';
+
 /**
  * Panel information for waysToEarn and waysToSpend routes
  * @param {Object} header header info
@@ -39,7 +39,12 @@ const SmilePanel = ({
   ) :
     (
       options.map((option, index) => {
-        const { reward, exchange_description, points_price } = option || {};
+        const {
+          reward,
+          exchange_description,
+          points_price,
+          id,
+        } = option || {};
         if (!userPoints) {
           return (
             <BaseSmileLink
@@ -51,12 +56,29 @@ const SmilePanel = ({
           );
         }
 
-        const cta = userPoints > points_price ?
+        if (!(userPoints > points_price)) {
+          const cta = (
+            <ProgressMeter
+              className={styles.progressBar}
+              percentage={(userPoints / points_price)}
+            />
+          );
+
+          return (
+            <BaseSmileLink
+              key={index.toString()}
+              iconImage={reward.image_url}
+              headline={reward.name}
+              description={exchange_description}
+              CallToAction={cta}
+            />
+          );
+        }
+
+        const cta =
           (
-            <Link href={SMILE_LOGIN_ROUTE} className={styles.button}>
-              <I18n.Text string="smile.redeem" />
-            </Link>
-          ) : (<ProgressMeter className={styles.progressBar} percentage={(userPoints / points_price)} />);
+            <RedeemButton rewardId={id} />
+          );
 
         return (
           <BaseSmileLink
