@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { i18n } from '@shopgate/engage/core';
 import RewardLink from '../../../../components/YourRewards/RewardLink';
@@ -14,7 +14,11 @@ const YourRewardList = ({ rewards }) => (
   <div className={styles.container}>
     <h1>{i18n.text('smile.your_rewards')}</h1>
     {
-      rewards.map(reward => <RewardLink reward={reward} />)
+      rewards.map(reward => (
+        <Fragment key={`your-reward-${reward.id}`}>
+          <RewardLink reward={reward} />
+        </Fragment>
+        ))
     }
   </div>
 );

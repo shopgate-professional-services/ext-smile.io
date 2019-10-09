@@ -26,7 +26,7 @@ const YourRewardsLink = ({ rewardCount }) => (
   <BaseSmileLink
     headline={i18n.text('smile.your_rewards')}
     description={`${i18n.text('smile.you_have')} ${rewardCount} ${getRewardLabel(rewardCount)} ${i18n.text('smile.available')}`}
-    CallToAction={SmileChevron}
+    CallToAction={<SmileChevron />}
     href={YOUR_REWARDS_ROUTE}
   />
 );

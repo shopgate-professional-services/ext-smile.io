@@ -9,11 +9,13 @@
     "smile_error": "Sorry! We could not fetch Smile.io info at this time.",
     "your_rewards": "Your rewards",
     "your_latest_reward": "Your latest reward",
-    "points": "{points, plural, =0 {# Punkte} =1 {# Punkt} other {# Punkte}}",
+    "points": "Points",
     "rewards": "rewards",
     "reward": "reward",
     "you_have": "You have",
     "available": "available",
-    "redeem": "Redeem"
+    "redeem": "Redeem",
+    "use_this_discount_code": "Use this discount code on your next order!",
+    "copy_code": "Copy code"
   }
 }
