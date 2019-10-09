@@ -76,5 +76,5 @@ export const getPurchaseSmileReward = createSelector(
  */
 export const shouldShowButton = createSelector(
   getCurrentRoute,
-  route => showFixedDashboardButton && route.pattern !== fixedDashboardButtonUrlBlacklist
+  route => showFixedDashboardButton && !fixedDashboardButtonUrlBlacklist.includes(route.pattern)
 );

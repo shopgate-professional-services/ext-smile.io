@@ -19,7 +19,7 @@ const DashboardIcon = ({ isHighlighted, isTabBar, className }) => {
 };
 
 DashboardIcon.propTypes = {
-  className: PropTypes.string,
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.shape()]),
   isHighlighted: PropTypes.bool,
   isTabBar: PropTypes.bool,
 };

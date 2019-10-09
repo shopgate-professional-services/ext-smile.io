@@ -111,7 +111,7 @@
       "destination": "frontend",
       "default": [
         "/item/:productId/gallery/:slide",
-        "login"
+        "/login"
       ],
       "params": {
         "label": "Blacklist for urls where the button should not been shown",

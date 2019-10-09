@@ -46,6 +46,8 @@ const TabBarItem = ({ TabBarAction, path }) => {
       icon={<Icon isHighlighted={isHighlighted} className={tabItemIconStyle} isTabBar />}
       isHighlighted={isHighlighted}
       onClick={handleClick}
+      aria-hidden
+      tabIndex={-1}
     />
   );
 };
