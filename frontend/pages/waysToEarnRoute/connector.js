@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import {
-  getSmileCustomer,
+  getSmileCustomerPoints,
   getSmileWaysToEarn,
   getSmileWaysToEarnIsFetching,
   getSmileCustomerIsFetching,
@@ -12,7 +12,7 @@ import {
  * @returns {Object}
  */
 const mapStateToProps = state => ({
-  customer: getSmileCustomer(state),
+  points: getSmileCustomerPoints(state),
   customerIsFetching: getSmileCustomerIsFetching(state),
   options: getSmileWaysToEarn(state),
   optionsIsFetching: getSmileWaysToEarnIsFetching(state),

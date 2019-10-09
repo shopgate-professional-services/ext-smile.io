@@ -3,6 +3,18 @@ import config from '../../../../config';
 
 const { colorConfig, fontFamily } = config;
 
+const defaultPrimary = {
+  color: `${colorConfig.headerFontColor}`,
+  fontWeight: '600',
+  fontFamily: `${fontFamily.secondaryFontFamily}`,
+  fontSize: '20px',
+  lineHeight: '39px',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  boxSizing: 'border-box',
+};
+
 const headerContainer = css({
   height: '140px',
   padding: '24px',
@@ -30,16 +42,11 @@ const secondary = css({
   boxSizing: 'border-box',
 }).toString();
 
-const primary = css({
-  color: `${colorConfig.headerFontColor}`,
-  fontWeight: '600',
-  fontFamily: `${fontFamily.secondaryFontFamily}`,
-  fontSize: '20px',
-  lineHeight: '39px',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
-  boxSizing: 'border-box',
+const primary = css(defaultPrimary).toString();
+
+const primaryPoints = css({
+  ...defaultPrimary,
+  fontSize: '32px',
 }).toString();
 
 export default {
@@ -47,4 +54,5 @@ export default {
   wrapper,
   secondary,
   primary,
+  primaryPoints,
 };
