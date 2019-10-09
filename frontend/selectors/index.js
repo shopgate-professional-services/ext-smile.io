@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { getCurrentRoute } from '@shopgate/pwa-common/selectors/router';
 import {
   REDUX_NAMESPACE_SMILE_POINTS_PRODUCTS,
   REDUX_NAMESPACE_SMILE_CUSTOMER,
@@ -6,6 +7,7 @@ import {
   REDUX_NAMESPACE_SMILE_WAYS_TO_EARN,
   REDUX_NAMESPACE_PURCHASE_SMILE_REWARDS,
 } from '../constants';
+import { fixedDashboardButtonUrlBlacklist, showFixedDashboardButton } from '../config';
 
 /**
  * Gets info from pointsProducts extension reducer
@@ -17,10 +19,7 @@ export const getSmilePointsProductsState = state =>
 
 export const getSmilePointsProducts = createSelector(
   getSmilePointsProductsState,
-  (pointsProductsState) => {
-
-    return pointsProductsState.pointsProducts;
-  }
+  pointsProductsState => pointsProductsState.pointsProducts
 );
 
 /**
@@ -68,4 +67,14 @@ export const getPurchaseSmileReward = createSelector(
     const { rewardId } = props || {};
     return purchaseSmileRewardSate[rewardId] || null;
   }
+);
+
+/**
+ * Determines if button should be shown
+ * @param {Object} state Redux state
+ * @returns {Object}
+ */
+export const shouldShowButton = createSelector(
+  getCurrentRoute,
+  route => showFixedDashboardButton && route.pattern !== fixedDashboardButtonUrlBlacklist
 );

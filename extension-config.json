@@ -3,9 +3,21 @@
   "id": "@shopgate-project/smile-io",
   "components": [
     {
-      "id": "DashboardLink",
-      "path": "frontend/portals/DashboardLink/index.jsx",
+      "id": "DashboardLinkButton",
+      "path": "frontend/portals/DashboardLinkButton/index.jsx",
       "target": "app.globals",
+      "type": "portals"
+    },
+    {
+      "id": "NavDrawerItem",
+      "path": "frontend/portals/NavDrawer/index.jsx",
+      "target": "nav-menu.home.before",
+      "type": "portals"
+    },
+    {
+      "id": "TabBarItem",
+      "path": "frontend/portals/TabBarItem/index.jsx",
+      "target": "tab-bar.cart.after",
       "type": "portals"
     },
     {
@@ -37,6 +49,11 @@
       "id": "subscriptions",
       "path": "frontend/subscriptions/index.js",
       "type": "subscribers"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/en-US.json",
+      "id": "locale/en-US"
     }
   ],
   "configuration": {
@@ -78,6 +95,50 @@
         "label": "Smile Javascript SDK script src",
         "type": "text",
         "required": true
+      }
+    },
+    "showFixedDashboardButton": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": true,
+      "params": {
+        "label": "Should the fixed dashboard button shown at the bottom",
+        "type": "checkbox"
+      }
+    },
+    "fixedDashboardButtonUrlBlacklist": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": [
+        "/item/:productId/gallery/:slide",
+        "login"
+      ],
+      "params": {
+        "label": "Blacklist for urls where the button should not been shown",
+        "type": "json"
+      }
+    },
+    "fixedDashboardButtonStyling": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "bgColor": "#000000",
+        "iconUrl": "https://cdn.sweettooth.io/v1/images/launcher_icons/bag.svg?color=",
+        "iconColor": "#FFFFFF",
+        "position": "right"
+      },
+      "params": {
+        "label": "Styling for the fixed dashboard button at the bottom",
+        "type": "json"
+      }
+    },
+    "addLinksToMenu": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": true,
+      "params": {
+        "label": "Adds links to the dashboard to navdrawer/tabbar",
+        "type": "checkbox"
       }
     }
   },

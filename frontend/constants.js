@@ -34,3 +34,5 @@ export const GET_SMILE_CUSTOMER = 'shopgate-project.smile-io.getSmileCustomer';
 export const GET_SMILE_YOUR_REWARDS = 'shopgate-project.smile-io.getSmileYourRewards';
 export const GET_SMILE_WAYS_TO_EARN = 'shopgate-project.smile-io.getSmileWaysToEarn';
 export const PURCHASE_SMILE_REWARDS = 'shopgate-project.smile-io.purchaseSmileReward';
+
+export const SMILE_DASHBOARD_ROUTE = '/smile'; // update after merge
