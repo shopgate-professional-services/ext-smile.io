@@ -1,0 +1,38 @@
+{
+  "version": "1",
+  "pipeline": {
+    "id": "shopgate-project.smile-io.getSmileYourRewards.v1",
+    "public": true,
+    "input": [
+      {"key": "sgxsMeta", "id": "100"},
+      {"key": "forceRefresh", "id": "150", "optional": true}
+    ],
+    "output": [
+      {"key": "yourRewards", "id": "200"}
+    ],
+    "steps": [
+      {
+        "type": "pipeline",
+        "id": "shopgate-project.smile-io.getSmileCustomerId.v1",
+        "input": [
+          {"key": "sgxsMeta", "id": "100"},
+          {"key": "forceRefresh", "id": "150", "optional": true}
+        ],
+        "output": [
+          {"key": "smileCustomerId", "id": "250"}
+        ]
+      },
+      {
+        "type": "extension",
+        "id": "@shopgate-project/smile-io",
+        "path": "@shopgate-project/smile-io/steps/getYourRewards.js",
+        "input": [
+          {"key": "smileCustomerId", "id": "250"}
+        ],
+        "output": [
+          {"key": "yourRewards", "id": "200"}
+        ]
+      }
+    ]
+  }
+}
