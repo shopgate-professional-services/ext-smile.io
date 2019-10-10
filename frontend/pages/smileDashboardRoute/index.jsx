@@ -8,7 +8,7 @@ import MemberPanel from './components/MemberPanel';
 import PointsPanel from './components/PointsPanel';
 import YourRewardPanel from './components/YourRewardsPanel';
 import SmileDefaultFooter from '../../components/SmileFooter/components/SmileDefaultFooter';
-import { SMILE_LOGIN_ROUTE } from '../../constants';
+import { SMILE_DASHBOARD_ROUTE } from '../../constants';
 import styles from './style';
 import connect from '../connector';
 
@@ -55,7 +55,7 @@ SmileLoginRoute.defaultProps = {
 
 export default () => (
   <Route
-    pattern={SMILE_LOGIN_ROUTE}
+    pattern={SMILE_DASHBOARD_ROUTE}
     component={connect(SmileLoginRoute)}
   />
 );
