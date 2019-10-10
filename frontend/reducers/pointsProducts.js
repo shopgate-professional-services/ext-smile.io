@@ -12,7 +12,7 @@ import {
  */
 const pointsProducts = (
   state = {
-    pointsProducts: null,
+    pointsProducts: [],
     isFetching: false,
   },
   action

@@ -1,10 +1,11 @@
-import { PipelineRequest, logger } from '@shopgate/engage/core';
+import { PipelineRequest, logger, LoadingProvider } from '@shopgate/engage/core';
 import {
   GET_SMILE_POINTS_PRODUCTS,
   GET_SMILE_CUSTOMER,
   GET_SMILE_YOUR_REWARDS,
   GET_SMILE_WAYS_TO_EARN,
   PURCHASE_SMILE_REWARDS,
+  WAYS_TO_SPEND_ROUTE,
 } from '../constants';
 import {
   getSmilePointsProductsState,
@@ -38,7 +39,11 @@ import {
 export const fetchPointsProducts = () => (dispatch, getState) => {
   const pointsProductsState = getSmilePointsProductsState(getState());
 
-  if (pointsProductsState.isFetching || pointsProductsState.pointsProducts) {
+  if (pointsProductsState.isFetching) {
+    LoadingProvider.setLoading(WAYS_TO_SPEND_ROUTE);
+  }
+
+  if (pointsProductsState.pointsProducts.length !== 0) {
     return;
   }
 
@@ -48,10 +53,12 @@ export const fetchPointsProducts = () => (dispatch, getState) => {
     .then((response) => {
       const { pointsProducts } = response || {};
       dispatch(receivePointsProducts(pointsProducts));
+      LoadingProvider.unsetLoading(WAYS_TO_SPEND_ROUTE);
     })
     .catch((err) => {
       logger.error(err);
       dispatch(errorPointsProducts());
+      LoadingProvider.unsetLoading(WAYS_TO_SPEND_ROUTE);
     });
 };
 
@@ -152,3 +159,4 @@ export const purchaseSmileRewards = rewardId => (dispatch, getState) => {
       dispatch(errorPurchaseSmileReward(rewardId));
     });
 };
+

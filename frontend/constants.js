@@ -1,3 +1,14 @@
+export const DASH_ARRAY_VALUE = 51.1503;
+
+// Paths
+export const SMILE_LOGIN_ROUTE = '/smile-login';
+export const WAYS_TO_EARN_ROUTE = '/ways-to-earn';
+export const WAYS_TO_SPEND_ROUTE = '/ways-to-spend';
+export const YOUR_REWARDS_ROUTE = '/smile-your-rewards';
+export const YOUR_REWARD_ROUTE = '/smile-your-reward/';
+export const YOUR_REWARD_PATTERN = `${YOUR_REWARD_ROUTE}:rewardId`;
+
+// Actions
 export const RECEIVE_SMILE_POINTS_PRODUCTS = 'RECEIVE_SMILE_POINTS_PRODUCTS';
 export const REQUEST_SMILE_POINTS_PRODUCTS = 'REQUEST_SMILE_POINTS_PRODUCTS';
 export const ERROR_SMILE_POINTS_PRODUCTS = 'ERROR_SMILE_POINTS_PRODUCTS';
@@ -35,4 +46,10 @@ export const GET_SMILE_YOUR_REWARDS = 'shopgate-project.smile-io.getSmileYourRew
 export const GET_SMILE_WAYS_TO_EARN = 'shopgate-project.smile-io.getSmileWaysToEarn';
 export const PURCHASE_SMILE_REWARDS = 'shopgate-project.smile-io.purchaseSmileReward';
 
-export const SMILE_DASHBOARD_ROUTE = '/smile'; // update after merge
+export const TAB_BAR_BLACKLIST = [
+  SMILE_LOGIN_ROUTE,
+  WAYS_TO_EARN_ROUTE,
+  WAYS_TO_SPEND_ROUTE,
+  YOUR_REWARDS_ROUTE,
+  YOUR_REWARD_PATTERN,
+];
