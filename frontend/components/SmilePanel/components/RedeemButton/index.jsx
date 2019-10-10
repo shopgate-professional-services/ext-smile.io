@@ -11,7 +11,6 @@ import styles from './style';
  */
 const RedeemButton = ({ rewardId, redeemReward, reward }) => {
   const { isFetching } = reward || {};
-
   /**
    * Dispatches redemptions
    */

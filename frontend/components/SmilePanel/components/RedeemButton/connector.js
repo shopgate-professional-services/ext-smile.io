@@ -4,10 +4,11 @@ import { getPurchaseSmileReward } from '../../../../selectors';
 
 /**
  * @param {Object} state Redux state
+ * @param {Object} props Component props.
  * @return {Object}
  */
-const mapStateToProps = state => ({
-  reward: getPurchaseSmileReward(state),
+const mapStateToProps = (state, props) => ({
+  reward: getPurchaseSmileReward(state, props),
 });
 
 /**
