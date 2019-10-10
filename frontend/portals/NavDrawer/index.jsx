@@ -20,7 +20,7 @@ const NavDrawerItem = ({ Item }) => {
 
   return (
     <Item
-      label="smile-io.rewards"
+      label="smile.c_rewards"
       icon={props => <Icon {...props} />}
       onClick={() => push({ pathname: SMILE_DASHBOARD_ROUTE })}
     />

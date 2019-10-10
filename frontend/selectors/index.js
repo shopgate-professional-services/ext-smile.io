@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect';
-import { getCurrentParams } from '@shopgate/engage/core';
-import { getCurrentRoute } from '@shopgate/pwa-common/selectors/router';
+import { getCurrentParams, getCurrentRoute } from '@shopgate/engage/core';
 import {
   REDUX_NAMESPACE_SMILE_POINTS_PRODUCTS,
   REDUX_NAMESPACE_SMILE_CUSTOMER,
   REDUX_NAMESPACE_SMILE_YOUR_REWARDS,
   REDUX_NAMESPACE_SMILE_WAYS_TO_EARN,
   REDUX_NAMESPACE_PURCHASE_SMILE_REWARDS,
+  TAB_BAR_BLACKLIST
 } from '../constants';
 import { fixedDashboardButtonUrlBlacklist, showFixedDashboardButton } from '../config';
 
@@ -205,5 +205,8 @@ export const getRewardFromRoute = createSelector(
  */
 export const shouldShowButton = createSelector(
   getCurrentRoute,
-  route => showFixedDashboardButton && !fixedDashboardButtonUrlBlacklist.includes(route.pattern)
+  route => (
+    showFixedDashboardButton
+    && ![...fixedDashboardButtonUrlBlacklist, ...TAB_BAR_BLACKLIST].includes(route.pattern)
+  )
 );

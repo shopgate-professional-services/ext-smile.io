@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'glamor';
 import { useNavigation } from '@shopgate/engage/core';
-import { SMILE_DASHBOARD_ROUTE } from '../../constants';
+import { SMILE_DASHBOARD_ROUTE, TAB_BAR_BLACKLIST } from '../../constants';
 import Icon from '../../components/DashboardIcon';
 import { addLinksToMenu } from '../../config';
 
@@ -27,8 +27,7 @@ const TabBarItem = ({ TabBarAction, path }) => {
   const { push } = useNavigation();
 
   const isHighlighted = [
-    SMILE_DASHBOARD_ROUTE,
-    // TODO: add all the other routes here too
+    ...TAB_BAR_BLACKLIST,
   ].includes(path);
 
   /**
@@ -42,7 +41,7 @@ const TabBarItem = ({ TabBarAction, path }) => {
 
   return (
     <TabBarAction
-      label="smile-io.rewards"
+      label="smile.c_rewards"
       icon={<Icon isHighlighted={isHighlighted} className={tabItemIconStyle} isTabBar />}
       isHighlighted={isHighlighted}
       onClick={handleClick}

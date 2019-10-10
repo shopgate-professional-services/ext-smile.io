@@ -1,7 +1,7 @@
 export const DASH_ARRAY_VALUE = 51.1503;
 
 // Paths
-export const SMILE_LOGIN_ROUTE = '/smile-login';
+export const SMILE_DASHBOARD_ROUTE = '/smile';
 export const WAYS_TO_EARN_ROUTE = '/ways-to-earn';
 export const WAYS_TO_SPEND_ROUTE = '/ways-to-spend';
 export const YOUR_REWARDS_ROUTE = '/smile-your-rewards';
@@ -47,7 +47,7 @@ export const GET_SMILE_WAYS_TO_EARN = 'shopgate-project.smile-io.getSmileWaysToE
 export const PURCHASE_SMILE_REWARDS = 'shopgate-project.smile-io.purchaseSmileReward';
 
 export const TAB_BAR_BLACKLIST = [
-  SMILE_LOGIN_ROUTE,
+  SMILE_DASHBOARD_ROUTE,
   WAYS_TO_EARN_ROUTE,
   WAYS_TO_SPEND_ROUTE,
   YOUR_REWARDS_ROUTE,
