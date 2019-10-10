@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BaseSmileLink from '../../BaseSmileLink';
-import SmileChevron from '../../SmileChevron';
-import { YOUR_REWARD_ROUTE } from '../../../constants';
+import BaseSmileLink from '../BaseSmileLink';
+import SmileChevron from '../SmileChevron';
+import { YOUR_REWARD_ROUTE } from '../../constants';
 
 /**
  * RewardLink component
  * @param {Object} reward Smile reward object
  * @return {JSX}
  */
-const RewardLink = ({ reward }) => {
+const YourRewardLink = ({ reward }) => {
   const {
     id,
     name,
@@ -27,12 +27,12 @@ const RewardLink = ({ reward }) => {
   );
 };
 
-RewardLink.propTypes = {
+YourRewardLink.propTypes = {
   reward: PropTypes.shape(),
 };
 
-RewardLink.defaultProps = {
+YourRewardLink.defaultProps = {
   reward: {},
 };
 
-export default RewardLink;
+export default YourRewardLink;

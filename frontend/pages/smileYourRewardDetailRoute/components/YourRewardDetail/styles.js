@@ -8,6 +8,7 @@ const codeInput = css({
   outline: 'none',
   border: '1px solid #E6E6E6',
   width: '100%',
+  textAlign: 'center',
 }).toString();
 
 const pageContainer = css({

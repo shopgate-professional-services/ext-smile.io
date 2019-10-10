@@ -5,6 +5,7 @@ import { WAYS_TO_EARN_ROUTE, WAYS_TO_SPEND_ROUTE } from '../../../../constants';
 import PanelContainer from '../../../../components/PanelContainer';
 import ListItem from './components/ListItem';
 import PointsPanelHeader from './components/PointsPanelHeader';
+import NextReward from './components/NextReward';
 import styles from './style';
 
 /**
@@ -23,7 +24,7 @@ const PointsPanel = ({ pointsText, points }) => {
     <PanelContainer>
       <div className={styles.container}>
         <PointsPanelHeader pointsText={pointsText} points={points} />
-        {/* Todo add next reward section */}
+        <NextReward points={points} />
         <div className={styles.listContainer}>
           <ListItem
             img={waysToEarn}
