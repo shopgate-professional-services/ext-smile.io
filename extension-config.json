@@ -1,7 +1,43 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.0-rc.1",
   "id": "@shopgate-project/smile-io",
   "components": [
+    {
+      "id": "CustomFont",
+      "type": "portals",
+      "path": "frontend/portals/CustomFont",
+      "target": "app.globals"
+    },
+    {
+      "id": "smileDashboardRoute",
+      "path": "frontend/pages/smileDashboardRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "waysToEarnRoute",
+      "path": "frontend/pages/WaysToEarnRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "waysToSpendRoute",
+      "path": "frontend/pages/WaysToSpendRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "smileYourRewardsRoute",
+      "path": "frontend/pages/smileYourRewardsRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "smileYourRewardDetailRoute",
+      "path": "frontend/pages/smileYourRewardDetailRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
     {
       "id": "pointsProducts",
       "path": "frontend/reducers/pointsProducts.js",
@@ -31,9 +67,101 @@
       "id": "subscriptions",
       "path": "frontend/subscriptions/index.js",
       "type": "subscribers"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/en-US.json",
+      "id": "locale/en-US"
     }
   ],
   "configuration": {
+    "fontFamily": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "secondaryFontFamily": "Poppins,arial,sans-serif",
+        "secondaryFontFamilyUrl": "https://fonts.googleapis.com/css?family=Poppins&display=swap",
+        "primaryFontFamily": "Poppins,arial,sans-serif",
+        "primaryFontFamilyUrl": "https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      },
+      "params": {
+        "label": "Configuration for image source locations",
+        "type": "json"
+      }
+    },
+    "imageSrcs": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "waysToEarn": "https://cdn.sweettooth.io/v1/images/earn-more-points.svg?color=%23000000&theme=light",
+        "waysToSpend": "https://cdn.sweettooth.io/v1/images/spend-your-points.svg?color=%23000000&theme=light"
+      },
+      "params": {
+        "label": "Configuration for image source locations",
+        "type": "json"
+      }
+    },
+    "colorConfig": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "headerBackground": "black",
+        "headerFontColor": "white",
+        "buttonBackground": "black",
+        "buttonFontColor": "white",
+        "contentBackground": "white",
+        "contentFontColor": "black",
+        "mutedPointsColor": "#707070"
+      },
+      "params": {
+        "label": "Configuration for colors",
+        "type": "json"
+      }
+    },
+    "loginPageText": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "headerText": {
+          "secondaryText": "Welcome To",
+          "primaryText": "Merlin's magnificent magic shop"
+        },
+        "pointsText": {
+          "header": "Points",
+          "paragraph": "Earn more Points for different actions, and turn those Points into awesome rewards!"
+        },
+        "memberText": {
+          "header": "Become a member",
+          "paragraph": "With more ways to unlock exciting perks, this is your all access pass to exclusive rewards."
+        }
+      },
+      "params": {
+        "label": "Configuration for login page text",
+        "type": "json"
+      }
+    },
+    "waysToSpend": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "header": "Ways to spend"
+      },
+      "params": {
+        "label": "Configuration for ways to spend page",
+        "type": "json"
+      }
+    },
+    "waysToEarn": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "header": "Ways to earn"
+      },
+      "params": {
+        "label": "Congifuration for ways to earn",
+        "type": "json"
+      }
+    },
     "smileApiUrl": {
       "type": "admin",
       "destination": "backend",
@@ -60,16 +188,6 @@
       "default": "pk_ETsDtPcppst3fQirFGDUy7aE",
       "params": {
         "label": "Smile channel API key",
-        "type": "text",
-        "required": true
-      }
-    },
-    "smileJavascriptSdkSrc": {
-      "type": "admin",
-      "destination": "frontend",
-      "default": "https://cdn.sweettooth.io/assets/storefront.js",
-      "params": {
-        "label": "Smile Javascript SDK script src",
         "type": "text",
         "required": true
       }
