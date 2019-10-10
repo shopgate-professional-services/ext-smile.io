@@ -5,5 +5,6 @@ export default css({
   lineHeight: 1.5,
   fontSize: '14px',
   paddingLeft: '12px',
+  marginBottom: '8px',
 }).toString();
 

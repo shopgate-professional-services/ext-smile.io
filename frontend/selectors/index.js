@@ -37,6 +37,30 @@ export const getSmilePointsIsFetching = createSelector(
 );
 
 /**
+ * Gets info for next pointsProducts
+ * @param {Object} state state
+ * @returns {Object}
+ */
+export const getNextPointsProduct = createSelector(
+  getSmilePointsProducts,
+  (pointsProducts) => {
+    if (!(Array.isArray(pointsProducts) && pointsProducts.length)) {
+      return null;
+    }
+
+    const sortedPointsProducts = pointsProducts
+      .filter(pointsProduct => (
+        !!pointsProduct && typeof pointsProduct === 'object' && pointsProduct.points_price
+      ))
+      .sort((first, second) => (
+        first.points_price - second.points_price
+      ));
+
+    return sortedPointsProducts[0] || null;
+  }
+);
+
+/**
  * Gets info from smileCustomer state extension reducer
  * @param {Object} state state
  * @returns {Object}
