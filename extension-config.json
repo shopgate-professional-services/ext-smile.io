@@ -34,7 +34,7 @@
     },
     {
       "id": "waysToEarnRoute",
-      "path": "frontend/pages/WaysToEarnRoute/index.jsx",
+      "path": "frontend/pages/waysToEarnRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
