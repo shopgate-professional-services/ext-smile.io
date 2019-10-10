@@ -100,7 +100,7 @@
     "showFixedDashboardButton": {
       "type": "admin",
       "destination": "frontend",
-      "default": true,
+      "default": false,
       "params": {
         "label": "Should the fixed dashboard button shown at the bottom",
         "type": "checkbox"
