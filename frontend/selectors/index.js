@@ -37,7 +37,7 @@ export const getSmilePointsIsFetching = createSelector(
 );
 
 /**
- * Gets info for next pointsProducts
+ * Gets info for next pointsProduct
  * @param {Object} state state
  * @returns {Object}
  */
