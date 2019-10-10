@@ -1,5 +1,5 @@
 import { css } from 'glamor';
-import config from '../../config';
+import config from '../../../../config';
 
 const { colorConfig } = config;
 

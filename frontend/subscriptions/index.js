@@ -1,4 +1,4 @@
-import { appDidStart$, main$ } from '@shopgate/engage/core';
+import { appDidStart$, main$, historyPush } from '@shopgate/engage/core';
 import { userDataReceived$, userDidLogout$ } from '@shopgate/engage/user';
 import {
   ITEM_PATTERN,
@@ -20,7 +20,7 @@ import {
   fetchSmileYourRewards,
 } from '../actions';
 import { clearSmileCustomer, clearSmileYourRewards } from '../action-creators';
-import { RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE, TAB_BAR_BLACKLIST } from '../constants';
+import { RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE, TAB_BAR_BLACKLIST, YOUR_REWARD_ROUTE } from '../constants';
 
 const smilePurchaseRewardReceived$ = main$
   .filter(({ action }) => action.type === RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE);
@@ -60,8 +60,11 @@ export default (subscribe) => {
     dispatch(fetchSmileWaysToEarn());
   });
 
-  subscribe(smilePurchaseRewardReceived$, ({ dispatch }) => {
+  subscribe(smilePurchaseRewardReceived$, ({ dispatch, action }) => {
     dispatch(fetchSmileCustomer());
     dispatch(fetchSmileYourRewards());
+    const { pointsPurchase } = action || {};
+    if (!pointsPurchase) { return; }
+    dispatch(historyPush({ pathname: `${YOUR_REWARD_ROUTE}${pointsPurchase.fulfilled_reward.id}` }));
   });
 };

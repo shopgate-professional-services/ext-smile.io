@@ -144,7 +144,6 @@
       "type": "admin",
       "destination": "frontend",
       "default": {
-        "appBarTitle": null,
         "header": "Ways to spend"
       },
       "params": {
@@ -156,7 +155,6 @@
       "type": "admin",
       "destination": "frontend",
       "default": {
-        "appBarTitle": null,
         "header": "Ways to earn"
       },
       "params": {

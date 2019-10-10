@@ -5,7 +5,6 @@ import {
   GET_SMILE_YOUR_REWARDS,
   GET_SMILE_WAYS_TO_EARN,
   PURCHASE_SMILE_REWARDS,
-  SMILE_DIGEST_PIPELINE,
   WAYS_TO_SPEND_ROUTE,
 } from '../constants';
 import {
@@ -31,10 +30,6 @@ import {
   requestPurchaseSmileReward,
   receivePurchaseSmileRewardResponse,
   errorPurchaseSmileReward,
-  requestSmileDigestData,
-  receiveSmileDigestData,
-  errorSmileDigestData,
-  clearSmileDigestData,
 } from '../action-creators';
 
 /**
@@ -164,5 +159,4 @@ export const purchaseSmileRewards = rewardId => (dispatch, getState) => {
       dispatch(errorPurchaseSmileReward(rewardId));
     });
 };
-
 
