@@ -20,6 +20,7 @@ const contentItem = css({
   marginBottom: '16px',
   width: '100%',
   transition: 'background-color .15s ease-in-out',
+  alignItems: 'center',
 }).toString();
 
 const muteWrapper = css({
