@@ -193,7 +193,7 @@
     "smileApiSecret": {
       "type": "admin",
       "destination": "backend",
-      "default": "sk_AKsXCa4sWSxdzs9MkixvJAo2",
+      "default": "",
       "params": {
         "label": "Smile api secret",
         "type": "text",
@@ -202,8 +202,8 @@
     },
     "smileChannelApiKey": {
       "type": "admin",
-      "destination": "both",
-      "default": "pk_ETsDtPcppst3fQirFGDUy7aE",
+      "destination": "backend",
+      "default": "",
       "params": {
         "label": "Smile channel API key",
         "type": "text",
