@@ -7,7 +7,7 @@ import Header from './components/Header';
 import MemberPanel from './components/MemberPanel';
 import PointsPanel from './components/PointsPanel';
 import YourRewardPanel from './components/YourRewardsPanel';
-import SmileDefaultFooter from '../../components/SmileDefaultFooter';
+import SmileDefaultFooter from '../../components/SmileFooter/components/SmileDefaultFooter';
 import { SMILE_LOGIN_ROUTE } from '../../constants';
 import styles from './style';
 import connect from '../connector';

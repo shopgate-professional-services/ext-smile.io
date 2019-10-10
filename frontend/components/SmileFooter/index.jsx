@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SmileJoinFooter from '../SmileJoinFooter';
-import SmileDefaultFooter from '../SmileDefaultFooter';
+import SmileJoinFooter from './components/SmileJoinFooter';
+import SmileDefaultFooter from './components/SmileDefaultFooter';
 import connect from './connector';
 
 /**

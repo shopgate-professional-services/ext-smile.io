@@ -51,23 +51,9 @@ const cardListContainer = css({
   },
 }).toString();
 
-const progressBar = css({
-  width: '22px',
-  height: '21px',
-}).toString();
-
-const check = css({
-  display: 'flex',
-  justifyContent: 'flex-end',
-  height: '20px',
-  width: '20px',
-}).toString();
-
 export default {
   cardListContainer,
   header,
   headerContainer,
   panelContainer,
-  check,
-  progressBar,
 };

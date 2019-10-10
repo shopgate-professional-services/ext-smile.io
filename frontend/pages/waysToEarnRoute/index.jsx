@@ -30,11 +30,12 @@ const WaysToEarnRoute = ({
 
   const body = options.length ? (
     <SmilePanel header={waysToEarn.header} options={options} location={WAYS_TO_EARN_ROUTE} />
-  ) : (
-    <div className={styles.panelContainer}>
+  ) :
+    (
+      <div className={styles.panelContainer}>
         <I18n.Text string="smile.smile_error" />
       </div>
-  );
+    );
 
   return (
     <View>

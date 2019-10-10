@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getSmileCustomer, getSmileCustomerIsFetching, getSmilePointsProducts, getSmilePointsIsFetching } from '../../selectors';
+import { getSmileCustomerPoints, getSmileCustomerIsFetching, getSmilePointsProducts, getSmilePointsIsFetching } from '../../selectors';
 
 /**
  * Maps state to props.
@@ -7,7 +7,7 @@ import { getSmileCustomer, getSmileCustomerIsFetching, getSmilePointsProducts, g
  * @returns {Object}
  */
 const mapStateToProps = state => ({
-  customer: getSmileCustomer(state),
+  points: getSmileCustomerPoints(state),
   customerIsFetching: getSmileCustomerIsFetching(state),
   options: getSmilePointsProducts(state),
   optionsIsFetching: getSmilePointsIsFetching(state),

@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ActionButton } from '@shopgate/engage/components';
 import I18n from '@shopgate/pwa-common/components/I18n';
-import { useNavigation } from '@shopgate/engage/core';
 import connect from './connector';
 import styles from './style';
-import { YOUR_REWARD_ROUTE } from '../../../../constants';
 
 /**
  * @param {string} rewardId rewardId
@@ -27,7 +25,7 @@ const RedeemButton = ({ rewardId, redeemReward, reward }) => {
       className={styles.button}
       loading={isFetching}
     >
-      <I18n.Text string="smile.redeem" />
+      <I18n.Text className={styles.text} string="smile.redeem" />
     </ActionButton>
   );
 };

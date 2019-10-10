@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '@shopgate/pwa-common/components/Icon';
-import config from '../../../../config';
-import { DASH_ARRAY_VALUE } from '../../../../constants';
+import config from '../../config';
+import { DASH_ARRAY_VALUE } from '../../constants';
 
 const { colorConfig } = config;
 
