@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.0-rc.1",
   "id": "@shopgate-project/smile-io",
   "components": [
     {
@@ -190,37 +190,6 @@
         "label": "Smile channel API key",
         "type": "text",
         "required": true
-      }
-    },
-    "smileJavascriptSdkSrc": {
-      "type": "admin",
-      "destination": "frontend",
-      "default": "https://cdn.sweettooth.io/assets/storefront.js",
-      "params": {
-        "label": "Smile Javascript SDK script src",
-        "type": "text",
-        "required": true
-      }
-    },
-    "sweettoothInitEndpoint": {
-      "type": "admin",
-      "destination": "frontend",
-      "default": "https://cdn.sweettooth.io/v1/storefront_js/init",
-      "params": {
-        "label": "Smile Javascript SDK script src",
-        "type": "text",
-        "required": true
-      }
-    },
-    "webCheckout": {
-      "type": "bigApi",
-      "destination": "backend",
-      "default": null,
-      "params": {
-        "method": "GET",
-        "service": "config",
-        "path": "/v1/shop/%(shopId)s/checkout_web_checkout_shopify?parsed=true",
-        "key": "value"
       }
     }
   },
