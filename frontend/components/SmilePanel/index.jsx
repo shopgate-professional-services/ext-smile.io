@@ -21,7 +21,6 @@ const SmilePanel = ({
   haveSmileCustomer,
   userPoints,
 }) => {
-  console.log('smile panel haveSmileCustomer', haveSmileCustomer);
   const cards = location === WAYS_TO_EARN_ROUTE ? (
     options.map((option, index) => (
       <WaysToEarnCard key={index.toString()} option={option} />
