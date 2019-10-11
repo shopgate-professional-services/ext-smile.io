@@ -9,13 +9,14 @@ import { YOUR_REWARD_PATTERN } from '../../constants';
 import connect from '../connector';
 
 /**
+ * @param {boolean} haveSmileCustomer Smile customer exists
  * @param {number} points Smile Customer Points
  * @returns {JSX}
  */
-const SmileYourRewardsRoute = ({ points }) => {
+const SmileYourRewardsRoute = ({ haveSmileCustomer, points = 0 }) => {
   const { colorConfig, loginPageText } = config;
   const { View, AppBar } = useTheme();
-  const title = points
+  const title = haveSmileCustomer
     ? `${points} ${i18n.text('smile.points')}`
     : loginPageText.headerText.primaryText;
   return (
@@ -33,10 +34,12 @@ const SmileYourRewardsRoute = ({ points }) => {
 };
 
 SmileYourRewardsRoute.propTypes = {
+  haveSmileCustomer: PropTypes.bool,
   points: PropTypes.number,
 };
 
 SmileYourRewardsRoute.defaultProps = {
+  haveSmileCustomer: false,
   points: null,
 };
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getSmileCustomerPoints } from '../selectors';
+import { getSmileCustomerPoints, getSmileCustomer } from '../selectors';
 
 /**
  * @param {Object} state Redux state
@@ -7,6 +7,7 @@ import { getSmileCustomerPoints } from '../selectors';
  */
 const mapStateToProps = state => ({
   points: getSmileCustomerPoints(state),
+  haveSmileCustomer: !!getSmileCustomer(state),
 });
 
 export default connect(mapStateToProps);

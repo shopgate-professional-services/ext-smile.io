@@ -14,9 +14,10 @@ import connect from '../connector';
 
 /**
  * @param {number|null} points Smile points
+ * @param {boolean} haveSmileCustomer Smile customer exists
  * @returns {JSX}
  */
-const SmileLoginRoute = ({ points }) => {
+const SmileLoginRoute = ({ points, haveSmileCustomer }) => {
   const { colorConfig, loginPageText } = config;
   const { headerText, pointsText, memberText } = loginPageText || {};
   const { View, AppBar } = useTheme();
@@ -31,11 +32,18 @@ const SmileLoginRoute = ({ points }) => {
       <div>
         <div className={styles.container}>
           <div className={styles.headerContainer}>
-            <Header headerText={headerText} points={points} />
+            <Header headerText={headerText} points={points} haveSmileCustomer={haveSmileCustomer} />
           </div>
           <div className={styles.panelContainer}>
-            <MemberPanel memberText={memberText} points={points} />
-            <PointsPanel pointsText={pointsText} points={points} />
+            <MemberPanel
+              memberText={memberText}
+              haveSmileCustomer={haveSmileCustomer}
+            />
+            <PointsPanel
+              pointsText={pointsText}
+              points={points}
+              haveSmileCustomer={haveSmileCustomer}
+            />
             <YourRewardPanel />
           </div>
         </div>
@@ -46,10 +54,12 @@ const SmileLoginRoute = ({ points }) => {
 };
 
 SmileLoginRoute.propTypes = {
+  haveSmileCustomer: PropTypes.bool,
   points: PropTypes.number,
 };
 
 SmileLoginRoute.defaultProps = {
+  haveSmileCustomer: false,
   points: null,
 };
 
