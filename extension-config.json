@@ -40,7 +40,7 @@
     },
     {
       "id": "waysToSpendRoute",
-      "path": "frontend/pages/WaysToSpendRoute/index.jsx",
+      "path": "frontend/pages/waysToSpendRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
