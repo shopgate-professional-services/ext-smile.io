@@ -12,6 +12,7 @@ const tabItemIconStyle = css({
   flexGrow: 1,
   marginRight: 'auto',
   marginLeft: 'auto',
+  marginBottom: '2px',
 });
 
 /**

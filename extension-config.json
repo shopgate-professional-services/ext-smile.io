@@ -158,28 +158,6 @@
         "type": "json"
       }
     },
-    "waysToSpend": {
-      "type": "admin",
-      "destination": "frontend",
-      "default": {
-        "header": "Ways to spend"
-      },
-      "params": {
-        "label": "Configuration for ways to spend page",
-        "type": "json"
-      }
-    },
-    "waysToEarn": {
-      "type": "admin",
-      "destination": "frontend",
-      "default": {
-        "header": "Ways to earn"
-      },
-      "params": {
-        "label": "Congifuration for ways to earn",
-        "type": "json"
-      }
-    },
     "smileApiUrl": {
       "type": "admin",
       "destination": "backend",
