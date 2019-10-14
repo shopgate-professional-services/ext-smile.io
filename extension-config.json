@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0",
   "id": "@shopgate-project/smile-io",
   "components": [
     {
@@ -155,28 +155,6 @@
       },
       "params": {
         "label": "Configuration for login page text",
-        "type": "json"
-      }
-    },
-    "waysToSpend": {
-      "type": "admin",
-      "destination": "frontend",
-      "default": {
-        "header": "Ways to spend"
-      },
-      "params": {
-        "label": "Configuration for ways to spend page",
-        "type": "json"
-      }
-    },
-    "waysToEarn": {
-      "type": "admin",
-      "destination": "frontend",
-      "default": {
-        "header": "Ways to earn"
-      },
-      "params": {
-        "label": "Congifuration for ways to earn",
         "type": "json"
       }
     },

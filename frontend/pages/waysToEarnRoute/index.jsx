@@ -28,7 +28,7 @@ const WaysToEarnRoute = ({
     return <LoadingIndicator />;
   }
 
-  const { waysToEarn, colorConfig, loginPageText } = config;
+  const { colorConfig, loginPageText } = config;
   const { View, AppBar } = useTheme();
   const title = haveSmileCustomer
     ? `${points || 0} ${i18n.text('smile.points')}`
@@ -36,7 +36,7 @@ const WaysToEarnRoute = ({
 
   const body = options.length ? (
     <SmilePanel
-      header={waysToEarn.header}
+      header={`${i18n.text('smile.ways_to_earn')}`}
       options={options}
       location={WAYS_TO_EARN_ROUTE}
       haveSmileCustomer={haveSmileCustomer}

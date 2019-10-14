@@ -31,7 +31,7 @@ const WaysToSpendRoute = ({
     return <LoadingIndicator />;
   }
 
-  const { waysToSpend, colorConfig } = config;
+  const { colorConfig } = config;
   const { View, AppBar } = useTheme();
 
   const title = haveSmileCustomer
@@ -40,7 +40,7 @@ const WaysToSpendRoute = ({
 
   const header = points
     ? `${i18n.text('smile.all_rewards')}`
-    : waysToSpend.header;
+    : `${i18n.text('smile.ways_to_spend')}`;
 
   const body = options.length ? (
     <SmilePanel
