@@ -1,5 +1,6 @@
-import { appDidStart$, main$, historyPush } from '@shopgate/engage/core';
+import { isUserLoggedIn, appDidStart$, main$, historyPush } from '@shopgate/engage/core';
 import { userDataReceived$, userDidLogout$ } from '@shopgate/engage/user';
+import { checkoutSucceeded$ } from '@shopgate/engage/checkout';
 import {
   ITEM_PATTERN,
   ITEM_GALLERY_PATTERN,
@@ -66,5 +67,14 @@ export default (subscribe) => {
     const { pointsPurchase } = action || {};
     if (!pointsPurchase) { return; }
     dispatch(historyPush({ pathname: `${YOUR_REWARD_ROUTE}${pointsPurchase.fulfilled_reward.id}` }));
+  });
+
+  subscribe(checkoutSucceeded$, ({ dispatch, state }) => {
+    const isLoggedIn = isUserLoggedIn(state);
+    if (isLoggedIn) {
+      dispatch(fetchSmileCustomer());
+      dispatch(fetchSmileYourRewards());
+      dispatch(fetchSmileWaysToEarn());
+    }
   });
 };
