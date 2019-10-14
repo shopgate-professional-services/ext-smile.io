@@ -13,9 +13,15 @@ import styles from './style';
 import connect from './connector';
 
 /**
+ * @param {boolean} haveSmileCustomer Smile customer exists
+ * @param {number|null} points Smile points
+ * @param {boolean} customerIsFetching Smile customer is fetching
+ * @param {Object[]} options Smile ways to spend objects
+ * @param {boolean} optionsIsFetching Smile ways to spend are fetching
  * @returns {JSX}
  */
 const WaysToSpendRoute = ({
+  haveSmileCustomer,
   points,
   customerIsFetching,
   options,
@@ -28,8 +34,8 @@ const WaysToSpendRoute = ({
   const { colorConfig } = config;
   const { View, AppBar } = useTheme();
 
-  const title = points
-    ? `${points} ${i18n.text('smile.points')}`
+  const title = haveSmileCustomer
+    ? `${points || 0} ${i18n.text('smile.points')}`
     : '';
 
   const header = points
@@ -42,6 +48,7 @@ const WaysToSpendRoute = ({
       header={header}
       options={options}
       location={WAYS_TO_SPEND_ROUTE}
+      haveSmileCustomer={haveSmileCustomer}
     />
   ) :
     (
@@ -65,6 +72,7 @@ const WaysToSpendRoute = ({
 
 WaysToSpendRoute.propTypes = {
   customerIsFetching: PropTypes.bool,
+  haveSmileCustomer: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.shape()),
   optionsIsFetching: PropTypes.bool,
   points: PropTypes.number,
@@ -72,6 +80,7 @@ WaysToSpendRoute.propTypes = {
 
 WaysToSpendRoute.defaultProps = {
   customerIsFetching: true,
+  haveSmileCustomer: false,
   options: null,
   optionsIsFetching: true,
   points: null,

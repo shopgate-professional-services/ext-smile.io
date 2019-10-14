@@ -11,19 +11,25 @@ import styles from './style';
 /**
  * Member component Smile Login Panel
  * @param {Object} memberText Object containing header info
+ * @param {boolean} haveSmileCustomer Smile customer exists
+ * @param {number|null} points Smile points
  * @return {JSX}
  */
-const PointsPanel = ({ pointsText, points }) => {
+const PointsPanel = ({ pointsText, haveSmileCustomer, points = 0 }) => {
   if (!pointsText) {
     return null;
   }
   const { imageSrcs } = config || {};
   const { waysToEarn, waysToSpend } = imageSrcs;
-  const waysToSpendText = points ? 'smile.all_rewards' : 'smile.ways_to_spend';
+  const waysToSpendText = haveSmileCustomer ? 'smile.all_rewards' : 'smile.ways_to_spend';
   return (
     <PanelContainer>
       <div className={styles.container}>
-        <PointsPanelHeader pointsText={pointsText} points={points} />
+        <PointsPanelHeader
+          pointsText={pointsText}
+          points={points}
+          haveSmileCustomer={haveSmileCustomer}
+        />
         <NextReward points={points} />
         <div className={styles.listContainer}>
           <ListItem
@@ -44,10 +50,12 @@ const PointsPanel = ({ pointsText, points }) => {
 
 PointsPanel.propTypes = {
   pointsText: PropTypes.shape().isRequired,
+  haveSmileCustomer: PropTypes.bool,
   points: PropTypes.number,
 };
 
 PointsPanel.defaultProps = {
+  haveSmileCustomer: false,
   points: null,
 };
 

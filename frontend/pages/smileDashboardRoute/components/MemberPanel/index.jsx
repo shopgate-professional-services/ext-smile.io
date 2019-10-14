@@ -9,11 +9,12 @@ import styles from './style';
 /**
  * Member component Smile Login Panel
  * @param {Object} memberText Object containing header info
- * @param {number|null} points Smile points
+ * @param {boolean} haveSmileCustomer Smile customer exists
  * @return {JSX}
  */
-const MemberPanel = ({ memberText, points }) => {
-  if (!memberText || points) {
+const MemberPanel = ({ memberText, haveSmileCustomer }) => {
+  // prevent rendering if there isn't text to show or if the smile customer exists
+  if (!memberText || haveSmileCustomer) {
     return null;
   }
 
@@ -38,7 +39,7 @@ const MemberPanel = ({ memberText, points }) => {
           <I18n.Text className={styles.haveAccount} string="smile.have_account" />
           <Link
             href={LOGIN_PATH}
-            className={styles.underline}
+            className={styles.signInLink}
           >
             <I18n.Text string="smile.sign_in_link" />
           </Link>
@@ -50,11 +51,11 @@ const MemberPanel = ({ memberText, points }) => {
 
 MemberPanel.propTypes = {
   memberText: PropTypes.shape().isRequired,
-  points: PropTypes.number,
+  haveSmileCustomer: PropTypes.bool,
 };
 
 MemberPanel.defaultProps = {
-  points: null,
+  haveSmileCustomer: false,
 };
 
 export default MemberPanel;

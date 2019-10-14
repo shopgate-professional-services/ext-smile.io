@@ -46,15 +46,15 @@ const signIn = css({
   fontSize: '14px',
   lineHeight: '20px',
   marginBottom: '8px !important',
-  display: '-webkit-inline-box',
+}).toString();
+
+const signInLink = css({
+  display: 'inline',
+  textDecoration: 'underline',
 }).toString();
 
 const haveAccount = css({
   marginRight: '5px',
-}).toString();
-
-const underline = css({
-  textDecoration: 'underline',
 }).toString();
 
 export default {
@@ -64,5 +64,5 @@ export default {
   joinButton,
   signIn,
   haveAccount,
-  underline,
+  signInLink,
 };

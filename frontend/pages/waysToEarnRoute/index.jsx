@@ -10,9 +10,15 @@ import styles from './style';
 import connect from './connector';
 
 /**
+ * @param {boolean} haveSmileCustomer Smile customer exists
+ * @param {number|null} points Smile points
+ * @param {boolean} customerIsFetching Is smile customer fetching
+ * @param {Object[]} options Ways to earn objects
+ * @param {boolean} optionsIsFetching Are options fetching
  * @returns {JSX}
  */
 const WaysToEarnRoute = ({
+  haveSmileCustomer,
   points,
   customerIsFetching,
   options,
@@ -24,12 +30,17 @@ const WaysToEarnRoute = ({
 
   const { colorConfig, loginPageText } = config;
   const { View, AppBar } = useTheme();
-  const title = points
-    ? `${points} ${i18n.text('smile.points')}`
+  const title = haveSmileCustomer
+    ? `${points || 0} ${i18n.text('smile.points')}`
     : loginPageText.headerText.primaryText;
 
   const body = options.length ? (
-    <SmilePanel header={`${i18n.text('smile.ways_to_earn')}`} options={options} location={WAYS_TO_EARN_ROUTE} />
+    <SmilePanel
+      header={`${i18n.text('smile.ways_to_earn')}`}
+      options={options}
+      location={WAYS_TO_EARN_ROUTE}
+      haveSmileCustomer={haveSmileCustomer}
+    />
   ) :
     (
       <div className={styles.panelContainer}>
@@ -52,6 +63,7 @@ const WaysToEarnRoute = ({
 
 WaysToEarnRoute.propTypes = {
   customerIsFetching: PropTypes.bool,
+  haveSmileCustomer: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.shape()),
   optionsIsFetching: PropTypes.bool,
   points: PropTypes.number,
@@ -59,6 +71,7 @@ WaysToEarnRoute.propTypes = {
 
 WaysToEarnRoute.defaultProps = {
   customerIsFetching: true,
+  haveSmileCustomer: false,
   options: null,
   optionsIsFetching: true,
   points: null,

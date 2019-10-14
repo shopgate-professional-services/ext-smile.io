@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import RedeemButton from '../RedeemButton';
@@ -6,34 +5,36 @@ import ProgressMeter from '../../../../icons/ProgressMeter';
 import BaseSmileLink from '../../../BaseSmileLink';
 import styles from './style';
 /**
+ * @param {Object} option Smile way to spend object
+ * @param {boolean} haveSmileCustomer Smile customer exists
+ * @param {number|null} points Smile points
  * @returns {JSX}
  */
-const WaysToSpendCard = ({ option, points }) => {
+const WaysToSpendCard = ({ option, haveSmileCustomer, points = 0 }) => {
   const {
     reward,
-    exchange_description,
-    points_price,
+    exchange_description: exchangeDescription,
+    points_price: pointsPrice,
     id,
   } = option || {};
-
-  if (!points) {
+  if (!haveSmileCustomer || !pointsPrice) {
     return (
       <BaseSmileLink
         iconImage={reward.image_url}
         headline={reward.name}
-        description={exchange_description}
+        description={exchangeDescription}
       />
     );
   }
 
-  const cta = points > points_price ?
+  const cta = points > pointsPrice ?
     (
       <RedeemButton rewardId={id} />
     ) :
     (
       <ProgressMeter
         className={styles.progressBar}
-        percentage={(points / points_price)}
+        percentage={(points / pointsPrice)}
       />
     );
 
@@ -41,7 +42,7 @@ const WaysToSpendCard = ({ option, points }) => {
     <BaseSmileLink
       iconImage={reward.image_url}
       headline={reward.name}
-      description={exchange_description}
+      description={exchangeDescription}
       CallToAction={cta}
     />
   );
@@ -49,10 +50,12 @@ const WaysToSpendCard = ({ option, points }) => {
 
 WaysToSpendCard.propTypes = {
   option: PropTypes.shape().isRequired,
+  haveSmileCustomer: PropTypes.bool,
   points: PropTypes.number,
 };
 
 WaysToSpendCard.defaultProps = {
+  haveSmileCustomer: false,
   points: null,
 };
 

@@ -8,23 +8,18 @@ import style from './style'
  * @param {number|null} points Smile points
  * @return {JSX}
  */
-const PointsHeaderLoggedIn = ({ points }) => {
-  if (!points) {
-    return null;
-  }
-  return (
-    <div className={style}>
-      {`${points} ${i18n.text('smile.points')}`}
-    </div>
-  );
-};
+const PointsHeaderLoggedIn = ({ points = 0 }) => (
+  <div className={style}>
+    {`${points} ${i18n.text('smile.points')}`}
+  </div>
+);
 
 PointsHeaderLoggedIn.propTypes = {
   points: PropTypes.number,
 };
 
 PointsHeaderLoggedIn.defaultProps = {
-  points: null,
+  points: 0,
 };
 
 export default PointsHeaderLoggedIn;

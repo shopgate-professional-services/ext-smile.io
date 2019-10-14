@@ -9,12 +9,16 @@ import styles from './style';
  * Panel information for waysToEarn and waysToSpend routes
  * @param {Object} header header info
  * @param {Object} options card options
+ * @param {string} location Location string
+ * @param {boolean} haveSmileCustomer Smile customer exists
+ * @param {number| null} userPoints Smile points
  * @returns {JSX}
  */
 const SmilePanel = ({
   header,
   options,
   location,
+  haveSmileCustomer,
   userPoints,
 }) => {
   const cards = location === WAYS_TO_EARN_ROUTE ? (
@@ -23,7 +27,12 @@ const SmilePanel = ({
     ))) :
     (
       options.map((option, index) => (
-        <WaysToSpendCard key={index.toString()} option={option} points={userPoints} />
+        <WaysToSpendCard
+          key={index.toString()}
+          option={option}
+          points={userPoints}
+          haveSmileCustomer={haveSmileCustomer}
+        />
       )));
 
   return (
@@ -38,11 +47,13 @@ const SmilePanel = ({
 SmilePanel.propTypes = {
   header: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  haveSmileCustomer: PropTypes.bool,
   location: PropTypes.string,
   userPoints: PropTypes.number,
 };
 
 SmilePanel.defaultProps = {
+  haveSmileCustomer: false,
   location: null,
   userPoints: null,
 };
