@@ -69,7 +69,7 @@ export const fetchPointsProducts = () => (dispatch, getState) => {
 export const fetchSmileCustomer = () => (dispatch, getState) => {
   const smileCustomerState = getSmileCustomerState(getState()) || {};
 
-  if (smileCustomerState.isFetching) {
+  if (smileCustomerState.isFetching || smileCustomerState.expires <= Date.now()) {
     return;
   }
 
@@ -93,7 +93,7 @@ export const fetchSmileCustomer = () => (dispatch, getState) => {
 export const fetchSmileYourRewards = () => (dispatch, getState) => {
   const yourRewardsState = getSmileYourRewardsState(getState());
 
-  if (yourRewardsState.isFetching) {
+  if (yourRewardsState.isFetching || yourRewardsState.expires <= Date.now()) {
     return;
   }
 

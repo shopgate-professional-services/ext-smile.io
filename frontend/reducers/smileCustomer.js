@@ -4,6 +4,7 @@ import {
   ERROR_SMILE_CUSTOMER,
   CLEAR_SMILE_CUSTOMER,
 } from '../constants';
+import { smileTTL } from '../config';
 
 /**
  * Reducer to hold Smile Customer.
@@ -29,17 +30,20 @@ const smileCustomer = (
         ...state,
         customer: action.customer,
         isFetching: false,
+        expires: Date.now() + smileTTL,
       };
     case ERROR_SMILE_CUSTOMER:
       return {
         ...state,
         isFetching: false,
+        expires: 0,
       };
     case CLEAR_SMILE_CUSTOMER:
       return {
         ...state,
         customer: null,
         isFetching: false,
+        expires: 0,
       };
     default:
       return state;
