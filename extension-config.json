@@ -231,6 +231,15 @@
         "label": "Adds links to the dashboard to navdrawer/tabbar",
         "type": "checkbox"
       }
+    },
+    "smileTTL": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": 60000,
+      "params": {
+        "label": "Value for caching smile info.",
+        "type": "number"
+      }
     }
   },
   "steps": []

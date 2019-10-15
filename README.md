@@ -151,6 +151,14 @@ In order to integrate with smile.io we had to mimic the complete smile dashboard
 }
 ```
 
+- `smileTTL` (number): Value for caching smile info.
+#### Default Value:
+```json
+{
+  "smileTTL": 60000
+}
+```
+
 ## About Shopgate
 
 Shopgate is the leading mobile commerce platform.

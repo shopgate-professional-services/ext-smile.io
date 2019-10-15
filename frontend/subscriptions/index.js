@@ -1,4 +1,4 @@
-import { isUserLoggedIn, appDidStart$, main$, historyPush } from '@shopgate/engage/core';
+import { appDidStart$, main$, historyPush, routeWillEnter$ } from '@shopgate/engage/core';
 import { userDataReceived$, userDidLogout$ } from '@shopgate/engage/user';
 import { checkoutSucceeded$ } from '@shopgate/engage/checkout';
 import {
@@ -21,10 +21,18 @@ import {
   fetchSmileYourRewards,
 } from '../actions';
 import { clearSmileCustomer, clearSmileYourRewards } from '../action-creators';
-import { RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE, TAB_BAR_BLACKLIST, YOUR_REWARD_ROUTE } from '../constants';
+import {
+  RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE,
+  TAB_BAR_BLACKLIST,
+  YOUR_REWARD_ROUTE,
+  SMILE_DASHBOARD_ROUTE,
+} from '../constants';
 
 const smilePurchaseRewardReceived$ = main$
   .filter(({ action }) => action.type === RECEIVE_PURCHASE_SMILE_REWARD_RESPONSE);
+
+const smileWillEnter$ = routeWillEnter$.filter(({ action }) =>
+  action.route.pathname === SMILE_DASHBOARD_ROUTE);
 
 const copiedBlacklist = [
   ITEM_PATTERN,
@@ -69,12 +77,8 @@ export default (subscribe) => {
     dispatch(historyPush({ pathname: `${YOUR_REWARD_ROUTE}${pointsPurchase.fulfilled_reward.id}` }));
   });
 
-  subscribe(checkoutSucceeded$, ({ dispatch, state }) => {
-    const isLoggedIn = isUserLoggedIn(state);
-    if (isLoggedIn) {
-      dispatch(fetchSmileCustomer());
-      dispatch(fetchSmileYourRewards());
-      dispatch(fetchSmileWaysToEarn());
-    }
+  subscribe(smileWillEnter$, ({ dispatch }) => {
+    dispatch(fetchSmileCustomer());
+    dispatch(fetchSmileYourRewards());
   });
 };
