@@ -59,8 +59,7 @@ class SmileApi {
    * @param {[Object]} headers Optional headers object
    * @return {Promise<any>}
    */
-  async call ({ path, method, body, qs, headers }) {
-    const additionalHeaders = headers || {}
+  async call ({ path, method, body, qs, headers = {} }) {
     return new Promise((resolve, reject) => {
       const params = {
         url: `${this.baseUrl}/${path}`,
@@ -69,7 +68,7 @@ class SmileApi {
         timeout: 5000,
         headers: {
           'Authorization': `Bearer ${this.token}`,
-          ...additionalHeaders
+          ...headers
         }
       }
       if (body) {

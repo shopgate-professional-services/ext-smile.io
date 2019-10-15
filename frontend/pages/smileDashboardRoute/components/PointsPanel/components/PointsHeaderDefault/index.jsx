@@ -6,7 +6,6 @@ import styles from './styles';
  * PointsHeaderDefault component
  * @param {Object} pointsText Points text object
  * @return {JSX}
- * @constructor
  */
 const PointsHeaderDefault = ({ pointsText }) => {
   const { header, paragraph } = pointsText || {};

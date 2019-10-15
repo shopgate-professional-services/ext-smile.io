@@ -75,4 +75,4 @@ DashboardLinkButton.defaultProps = {
   show: false,
 };
 
-export default (connect(DashboardLinkButton));
+export default connect(DashboardLinkButton);

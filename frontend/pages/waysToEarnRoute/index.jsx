@@ -54,6 +54,7 @@ const WaysToEarnRoute = ({
         title={title}
         backgroundColor={colorConfig.headerBackground}
         textColor={colorConfig.headerFontColor}
+        right={null}
       />
       {body}
       <SmileFooter />

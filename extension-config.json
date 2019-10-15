@@ -240,6 +240,15 @@
         "label": "Value for caching smile info.",
         "type": "number"
       }
+    },
+    "smileDataTTL": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": 604800000,
+      "params": {
+        "label": "Value for caching smile data info.",
+        "type": "number"
+      }
     }
   },
   "steps": []

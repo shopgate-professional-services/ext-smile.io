@@ -3,6 +3,7 @@ import {
   RECEIVE_SMILE_WAYS_TO_EARN,
   ERROR_SMILE_WAYS_TO_EARN,
 } from '../constants';
+import { smileDataTTL } from '../config';
 
 /**
  * Reducer to hold Smile Ways to Earn.
@@ -28,11 +29,13 @@ const smileWaysToEarn = (
         ...state,
         waysToEarn: action.waysToEarn,
         isFetching: false,
+        expires: Date.now() + smileDataTTL,
       };
     case ERROR_SMILE_WAYS_TO_EARN:
       return {
         ...state,
         isFetching: false,
+        expires: 0,
       };
     default:
       return state;

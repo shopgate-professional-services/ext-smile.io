@@ -6,12 +6,6 @@ const container = css({
 
 const listContainer = css({
   position: 'relative',
-  ':last-of-type:not(.with-border-bottom)': {
-    marginBottom: 0,
-  },
-  ':last-of-type:not(.with-border-bottom):after': {
-    display: 'none',
-  },
   ':after': {
     height: '1px',
     width: 'calc(100% + 24px)',

@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from '@shopgate/pwa-common/components';
@@ -63,6 +62,7 @@ const WaysToSpendRoute = ({
         title={title}
         backgroundColor={colorConfig.headerBackground}
         textColor={colorConfig.headerFontColor}
+        right={null}
       />
       {body}
       <SmileFooter />

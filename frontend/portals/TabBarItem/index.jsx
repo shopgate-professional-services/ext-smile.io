@@ -17,7 +17,8 @@ const tabItemIconStyle = css({
 
 /**
  * TabBarItem.
- * @param {Object} props Props.
+ * @param {Function} TabBarAction Tab Bar Action function.
+ * @param {string} path path to navigate to.
  * @returns {JSX}
  */
 const TabBarItem = ({ TabBarAction, path }) => {
@@ -55,9 +56,6 @@ const TabBarItem = ({ TabBarAction, path }) => {
 TabBarItem.propTypes = {
   path: PropTypes.string.isRequired,
   TabBarAction: PropTypes.func.isRequired,
-};
-
-TabBarItem.defaultProps = {
 };
 
 export default TabBarItem;

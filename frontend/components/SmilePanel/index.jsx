@@ -38,7 +38,7 @@ const SmilePanel = ({
   return (
     <div className={styles.panelContainer}>
       <div className={styles.headerContainer}>{header}</div>
-      <div className={styles.cardList}>
+      <div className={styles.cardListContainer}>
         {cards}
       </div>
     </div>

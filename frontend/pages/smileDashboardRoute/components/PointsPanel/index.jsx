@@ -51,7 +51,7 @@ const PointsPanel = ({ pointsText, haveSmileCustomer, points = 0 }) => {
 PointsPanel.propTypes = {
   pointsText: PropTypes.shape().isRequired,
   haveSmileCustomer: PropTypes.bool,
-  points: PropTypes.number,
+  points: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 PointsPanel.defaultProps = {

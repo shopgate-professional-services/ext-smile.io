@@ -4,6 +4,7 @@ import RedeemButton from '../RedeemButton';
 import ProgressMeter from '../../../../icons/ProgressMeter';
 import BaseSmileLink from '../../../BaseSmileLink';
 import styles from './style';
+
 /**
  * @param {Object} option Smile way to spend object
  * @param {boolean} haveSmileCustomer Smile customer exists
