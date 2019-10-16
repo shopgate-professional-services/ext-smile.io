@@ -57,12 +57,16 @@ export const fetchPointsProducts = () => (dispatch, getState) => {
 
 /**
  * Fetches Smile Customer from smile
+ * @param {[boolean]} force Boolean to bypass TTL value
  * @returns {Function}
  */
-export const fetchSmileCustomer = () => (dispatch, getState) => {
+export const fetchSmileCustomer = (force = false) => (dispatch, getState) => {
   const smileCustomerState = getSmileCustomerState(getState()) || {};
 
-  if (smileCustomerState.isFetching || smileCustomerState.expires <= Date.now()) {
+  if (!force && (
+    smileCustomerState.isFetching ||
+    (smileCustomerState.customer && smileCustomerState.expires >= Date.now())
+  )) {
     return;
   }
 
@@ -81,15 +85,18 @@ export const fetchSmileCustomer = () => (dispatch, getState) => {
 
 /**
  * Fetches Smile Your Rewards
+ * @param {[boolean]} force Boolean to bypass TTL value
  * @return {Function}
  */
-export const fetchSmileYourRewards = () => (dispatch, getState) => {
+export const fetchSmileYourRewards = (force = false) => (dispatch, getState) => {
   const yourRewardsState = getSmileYourRewardsState(getState());
 
-  if (yourRewardsState.isFetching || yourRewardsState.expires <= Date.now()) {
+  if (!force && (
+    yourRewardsState.isFetching ||
+    (yourRewardsState.rewards && yourRewardsState.expires >= Date.now())
+  )) {
     return;
   }
-
   dispatch(requestSmileYourRewards());
   new PipelineRequest(GET_SMILE_YOUR_REWARDS)
     .dispatch()

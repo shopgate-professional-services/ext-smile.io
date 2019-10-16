@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getSmileCustomerPoints, getSmileCustomer } from '../selectors';
+import { getSmileCustomerPoints, getSmileCustomer, getSmileCustomerIsFetching } from '../selectors';
 
 /**
  * @param {Object} state Redux state
@@ -7,6 +7,7 @@ import { getSmileCustomerPoints, getSmileCustomer } from '../selectors';
  */
 const mapStateToProps = state => ({
   points: getSmileCustomerPoints(state),
+  smileCustomerIsFetching: getSmileCustomerIsFetching(state),
   haveSmileCustomer: !!getSmileCustomer(state),
 });
 

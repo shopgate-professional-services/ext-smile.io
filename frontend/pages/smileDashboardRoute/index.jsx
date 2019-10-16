@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route } from '@shopgate/engage/components';
+import { LoadingIndicator, Route } from '@shopgate/engage/components';
 import { useTheme } from '@shopgate/engage/core';
 import config from '../../config';
 import Header from './components/Header';
@@ -17,7 +17,7 @@ import connect from '../connector';
  * @param {boolean} haveSmileCustomer Smile customer exists
  * @returns {JSX}
  */
-const SmileLoginRoute = ({ points, haveSmileCustomer }) => {
+const SmileLoginRoute = ({ points, haveSmileCustomer, smileCustomerIsFetching }) => {
   const { colorConfig, loginPageText } = config;
   const { headerText, pointsText, memberText } = loginPageText || {};
   const { View, AppBar } = useTheme();
@@ -29,26 +29,34 @@ const SmileLoginRoute = ({ points, haveSmileCustomer }) => {
         textColor={colorConfig.headerFontColor}
         right={null}
       />
-      <div>
-        <div className={styles.container}>
-          <div className={styles.headerContainer}>
-            <Header headerText={headerText} points={points} haveSmileCustomer={haveSmileCustomer} />
+      {smileCustomerIsFetching ? (<LoadingIndicator />) :
+        (
+          <div >
+            <div className={styles.container}>
+              <div className={styles.headerContainer}>
+                <Header
+                  headerText={headerText}
+                  points={points}
+                  haveSmileCustomer={haveSmileCustomer}
+                />
+              </div>
+              <div className={styles.panelContainer}>
+                <MemberPanel
+                  memberText={memberText}
+                  haveSmileCustomer={haveSmileCustomer}
+                />
+                <PointsPanel
+                  pointsText={pointsText}
+                  points={points}
+                  haveSmileCustomer={haveSmileCustomer}
+                />
+                <YourRewardPanel />
+              </div>
+            </div>
+            <SmileDefaultFooter />
           </div>
-          <div className={styles.panelContainer}>
-            <MemberPanel
-              memberText={memberText}
-              haveSmileCustomer={haveSmileCustomer}
-            />
-            <PointsPanel
-              pointsText={pointsText}
-              points={points}
-              haveSmileCustomer={haveSmileCustomer}
-            />
-            <YourRewardPanel />
-          </div>
-        </div>
-        <SmileDefaultFooter />
-      </div>
+        )
+      }
     </View>
   );
 };
@@ -56,11 +64,13 @@ const SmileLoginRoute = ({ points, haveSmileCustomer }) => {
 SmileLoginRoute.propTypes = {
   haveSmileCustomer: PropTypes.bool,
   points: PropTypes.number,
+  smileCustomerIsFetching: PropTypes.bool,
 };
 
 SmileLoginRoute.defaultProps = {
   haveSmileCustomer: false,
   points: null,
+  smileCustomerIsFetching: false,
 };
 
 export default () => (

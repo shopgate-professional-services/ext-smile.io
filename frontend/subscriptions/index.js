@@ -58,8 +58,8 @@ export default (subscribe) => {
   });
 
   subscribe(userDataReceived$, ({ dispatch }) => {
-    dispatch(fetchSmileCustomer());
-    dispatch(fetchSmileYourRewards());
+    dispatch(fetchSmileCustomer(true));
+    dispatch(fetchSmileYourRewards(true));
     dispatch(fetchSmileWaysToEarn());
   });
 
@@ -70,8 +70,8 @@ export default (subscribe) => {
   });
 
   subscribe(smilePurchaseRewardReceived$, ({ dispatch, action }) => {
-    dispatch(fetchSmileCustomer());
-    dispatch(fetchSmileYourRewards());
+    dispatch(fetchSmileCustomer(true));
+    dispatch(fetchSmileYourRewards(true));
     const { pointsPurchase } = action || {};
     if (!pointsPurchase) { return; }
     dispatch(historyPush({ pathname: `${YOUR_REWARD_ROUTE}${pointsPurchase.fulfilled_reward.id}` }));

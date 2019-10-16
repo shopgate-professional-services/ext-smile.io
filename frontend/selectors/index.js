@@ -6,7 +6,7 @@ import {
   REDUX_NAMESPACE_SMILE_YOUR_REWARDS,
   REDUX_NAMESPACE_SMILE_WAYS_TO_EARN,
   REDUX_NAMESPACE_PURCHASE_SMILE_REWARDS,
-  TAB_BAR_BLACKLIST
+  TAB_BAR_BLACKLIST,
 } from '../constants';
 import { fixedDashboardButtonUrlBlacklist, showFixedDashboardButton } from '../config';
 
