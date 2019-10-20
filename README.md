@@ -51,7 +51,9 @@ In order to integrate with smile.io we had to mimic the complete smile dashboard
   "buttonFontColor": "white",
   "contentBackground": "white",
   "contentFontColor": "black",
-  "mutedPointsColor": "#707070"
+  "mutedPointsColor": "#707070",
+  "chevronColor": "#BCBCBD",
+  "dividerColor": "#F5F5F5"
 }
 ```
 

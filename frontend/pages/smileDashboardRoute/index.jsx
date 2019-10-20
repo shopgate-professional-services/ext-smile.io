@@ -15,6 +15,7 @@ import connect from '../connector';
 /**
  * @param {number|null} points Smile points
  * @param {boolean} haveSmileCustomer Smile customer exists
+ * @param {boolean} smileCustomerIsFetching Smile customer is fetching
  * @returns {JSX}
  */
 const SmileLoginRoute = ({ points, haveSmileCustomer, smileCustomerIsFetching }) => {

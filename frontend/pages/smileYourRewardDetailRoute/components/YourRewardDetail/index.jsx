@@ -1,7 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { i18n } from '@shopgate/engage/core';
-import CheckMarkIcon from '../../../../icons/CheckMarkIcon';
 import PanelContainer from '../../../../components/PanelContainer';
 import BaseSmileLink from '../../../../components/BaseSmileLink';
 import CopyButton from './components/CopyButton';

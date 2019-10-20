@@ -4,7 +4,7 @@ import {
   getSmileCustomerPoints,
   getSmileCustomerIsFetching,
   getSmilePointsProducts,
-  getSmilePointsIsFetching
+  getSmilePointsIsFetching,
 } from '../../selectors';
 
 /**

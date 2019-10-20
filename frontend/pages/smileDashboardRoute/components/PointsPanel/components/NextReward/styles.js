@@ -1,4 +1,7 @@
 import { css } from 'glamor';
+import config from '../../../../../../config';
+
+const { colorConfig } = config;
 
 const title = css({
   textAlign: 'left',
@@ -9,7 +12,7 @@ const title = css({
 
 const divider = css({
   height: '1px',
-  backgroundColor: '#f5f5f5',
+  backgroundColor: `${colorConfig.dividerColor}`,
 }).toString();
 
 export default {

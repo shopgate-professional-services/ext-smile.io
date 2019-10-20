@@ -6,7 +6,7 @@ import { getSmileCustomer } from '../../selectors';
  * @return {Object}
  */
 const mapStateToProps = state => ({
-  smileCustomer: getSmileCustomer(state),
+  smileCustomerAvailable: !!getSmileCustomer(state),
 });
 
 export default connect(mapStateToProps);

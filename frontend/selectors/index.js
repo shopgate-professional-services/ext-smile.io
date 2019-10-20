@@ -146,11 +146,8 @@ export const getPurchaseSmileRewardsState = state =>
  */
 export const getPurchaseSmileReward = createSelector(
   getPurchaseSmileRewardsState,
-  (_, props) => props,
-  (purchaseSmileRewardSate, props) => {
-    const { rewardId } = props || {};
-    return purchaseSmileRewardSate[rewardId] || null;
-  }
+  (_, { rewardId }) => rewardId,
+  (purchaseSmileRewardSate, rewardId) => purchaseSmileRewardSate[rewardId] || null
 );
 
 /**
@@ -162,8 +159,7 @@ export const getSmileYourRewards = createSelector(
   getSmileYourRewardsState,
   (yourRewardsState) => {
     const { rewards = [] } = yourRewardsState || {};
-
-    return rewards;
+    return rewards.filter(reward => !reward.used_at);
   }
 );
 

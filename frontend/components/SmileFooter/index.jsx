@@ -9,8 +9,8 @@ import connect from './connector';
  * @param {Object} smileCustomer Smile customer object
  * @return {JSX}
  */
-const SmileFooter = ({ smileCustomer }) => {
-  if (smileCustomer) {
+const SmileFooter = ({ smileCustomerAvailable }) => {
+  if (smileCustomerAvailable) {
     return <SmileDefaultFooter />;
   }
 
@@ -18,11 +18,11 @@ const SmileFooter = ({ smileCustomer }) => {
 };
 
 SmileFooter.propTypes = {
-  smileCustomer: PropTypes.shape(),
+  smileCustomerAvailable: PropTypes.bool,
 };
 
 SmileFooter.defaultProps = {
-  smileCustomer: null,
+  smileCustomerAvailable: false,
 };
 
 export default connect(SmileFooter);

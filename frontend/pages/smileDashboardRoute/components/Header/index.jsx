@@ -10,10 +10,11 @@ import styles from './style';
  * @param {number|null} points Smile points
  * @return {JSX}
  */
-const Header = ({ headerText, haveSmileCustomer, points = 0 }) => {
+const Header = ({ headerText, haveSmileCustomer, points }) => {
   if (!headerText) {
     return null;
   }
+
   let { primaryText, secondaryText } = headerText;
   let primaryStyle = styles.primary;
 
@@ -45,7 +46,7 @@ Header.propTypes = {
 
 Header.defaultProps = {
   haveSmileCustomer: false,
-  points: null,
+  points: 0,
 };
 
 export default Header;

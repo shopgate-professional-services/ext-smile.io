@@ -96,7 +96,9 @@ The logged out dashboard view utilizes the `colorConfig` and `loginPageText` con
     "buttonFontColor": "white",
     "contentBackground": "white",
     "contentFontColor": "black",
-    "mutedPointsColor": "#707070"
+    "mutedPointsColor": "#707070",
+    "chevronColor": "BCBCBD",
+    "dividerColor": "#F5F5F5"
   },
   "loginPageText": {
     "headerText": {
@@ -129,7 +131,9 @@ Merchant can configure`colorConfig`  and `loginPageText.headerText.primaryText` 
     "buttonFontColor": "white",
     "contentBackground": "white",
     "contentFontColor": "black",
-    "mutedPointsColor": "#707070"
+    "mutedPointsColor": "#707070",
+    "chevronColor": "#BCBCBD",
+    "dividerColor": "#F5F5F5"
   },
   "loginPageText": {
     "headerText": {
@@ -153,7 +157,9 @@ Merchant can configure`colorConfig` configurations for Ways To Spend Page. Trans
     "buttonFontColor": "white",
     "contentBackground": "white",
     "contentFontColor": "black",
-    "mutedPointsColor": "#707070"
+    "mutedPointsColor": "#707070",
+    "chevronColor": "#BCBCBD",
+    "dividerColor": "#F5F5F5"
   }
 }
 
@@ -175,7 +181,9 @@ The logged in dashboard view utilizes the `colorConfig` configuration and API ca
     "buttonFontColor": "white",
     "contentBackground": "white",
     "contentFontColor": "black",
-    "mutedPointsColor": "#707070"
+    "mutedPointsColor": "#707070",
+    "chevronColor": "#BCBCBD",
+    "dividerColor": "#F5F5F5"
   }
 }
 ```
@@ -194,7 +202,9 @@ Merchant can configure`colorConfig` configuration and this page use the `smile.p
     "buttonFontColor": "white",
     "contentBackground": "white",
     "contentFontColor": "black",
-    "mutedPointsColor": "#707070"
+    "mutedPointsColor": "#707070",
+    "chevronColor": "#BCBCBD",
+    "dividerColor": "#F5F5F5"
   }
 }
 ```
@@ -213,7 +223,9 @@ All rewards pages uses the same route as the Ways to spend route because they ar
     "buttonFontColor": "white",
     "contentBackground": "white",
     "contentFontColor": "black",
-    "mutedPointsColor": "#707070"
+    "mutedPointsColor": "#707070",
+    "chevronColor": "#BCBCBD",
+    "dividerColor": "#F5F5F5"
   }
 }
 ```
@@ -232,7 +244,9 @@ With the `colorConfig` and `loginPageText.headerText.primaryText` you can config
     "buttonFontColor": "white",
     "contentBackground": "white",
     "contentFontColor": "black",
-    "mutedPointsColor": "#707070"
+    "mutedPointsColor": "#707070",
+    "chevronColor": "#BCBCBD",
+    "dividerColor": "#F5F5F5"
   },
   "loginPageText": {
     "headerText": {
@@ -256,7 +270,9 @@ This page will utitlize the `colorConfig` and `loginPageText.headerText.primaryT
     "buttonFontColor": "white",
     "contentBackground": "white",
     "contentFontColor": "black",
-    "mutedPointsColor": "#707070"
+    "mutedPointsColor": "#707070",
+    "chevronColor": "#BCBCBD",
+    "dividerColor": "#F5F5F5"
   },
   "loginPageText": {
     "headerText": {

@@ -1,6 +1,5 @@
 import { appDidStart$, main$, historyPush, routeWillEnter$ } from '@shopgate/engage/core';
-import { userDataReceived$, userDidLogout$ } from '@shopgate/engage/user';
-import { checkoutSucceeded$ } from '@shopgate/engage/checkout';
+import { userDidLogin$, userDidLogout$ } from '@shopgate/engage/user';
 import {
   ITEM_PATTERN,
   ITEM_GALLERY_PATTERN,
@@ -57,16 +56,16 @@ export default (subscribe) => {
     dispatch(fetchSmileWaysToEarn());
   });
 
-  subscribe(userDataReceived$, ({ dispatch }) => {
+  subscribe(userDidLogin$, ({ dispatch }) => {
     dispatch(fetchSmileCustomer(true));
     dispatch(fetchSmileYourRewards(true));
-    dispatch(fetchSmileWaysToEarn());
+    dispatch(fetchSmileWaysToEarn(true));
   });
 
   subscribe(userDidLogout$, ({ dispatch }) => {
     dispatch(clearSmileCustomer());
     dispatch(clearSmileYourRewards());
-    dispatch(fetchSmileWaysToEarn());
+    dispatch(fetchSmileWaysToEarn(true));
   });
 
   subscribe(smilePurchaseRewardReceived$, ({ dispatch, action }) => {

@@ -28,9 +28,7 @@ const TabBarItem = ({ TabBarAction, path }) => {
 
   const { push } = useNavigation();
 
-  const isHighlighted = [
-    ...TAB_BAR_BLACKLIST,
-  ].includes(path);
+  const isHighlighted = TAB_BAR_BLACKLIST.includes(path);
 
   /**
    * Handles click.

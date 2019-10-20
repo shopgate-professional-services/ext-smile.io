@@ -14,7 +14,7 @@ const container = css({
   alignItems: 'center',
   display: 'flex',
   margin: 'auto',
-  backgroundColor: '#fff',
+  backgroundColor: `${colorConfig.contentBackground}`,
   boxShadow: '0 - 3px 12px 0 rgba(0, 0, 0, .04)',
   zIndex: '1',
 }).toString();

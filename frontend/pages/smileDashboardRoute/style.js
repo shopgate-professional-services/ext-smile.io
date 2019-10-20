@@ -15,7 +15,6 @@ const headerContainer = css({
   height: '0',
   width: '100%',
   overflow: 'visible',
-  color: '#fff',
   outline: 'none',
 });
 

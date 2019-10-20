@@ -57,7 +57,7 @@ export const fetchPointsProducts = () => (dispatch, getState) => {
 
 /**
  * Fetches Smile Customer from smile
- * @param {[boolean]} force Boolean to bypass TTL value
+ * @param {boolean} [force=false] Boolean to bypass TTL value
  * @returns {Function}
  */
 export const fetchSmileCustomer = (force = false) => (dispatch, getState) => {
@@ -85,7 +85,7 @@ export const fetchSmileCustomer = (force = false) => (dispatch, getState) => {
 
 /**
  * Fetches Smile Your Rewards
- * @param {[boolean]} force Boolean to bypass TTL value
+ * @param {boolean} [force=false] Boolean to bypass TTL value
  * @return {Function}
  */
 export const fetchSmileYourRewards = (force = false) => (dispatch, getState) => {
@@ -112,12 +112,16 @@ export const fetchSmileYourRewards = (force = false) => (dispatch, getState) => 
 
 /**
  * Fetches Smile Ways to Earn
+ * @param {boolean} [force=false] Boolean to bypass TTL value
  * @return {Function}
  */
-export const fetchSmileWaysToEarn = () => (dispatch, getState) => {
+export const fetchSmileWaysToEarn = (force = false) => (dispatch, getState) => {
   const smileWaysToEarnState = getSmileWaysToEarnState(getState());
 
-  if (smileWaysToEarnState.isFetching || smileWaysToEarnState.expires <= Date.now()) {
+  if (!force && (
+    smileWaysToEarnState.isFetching ||
+    smileWaysToEarnState.expires >= Date.now())
+  ) {
     return;
   }
 

@@ -129,7 +129,9 @@
         "buttonFontColor": "white",
         "contentBackground": "white",
         "contentFontColor": "black",
-        "mutedPointsColor": "#707070"
+        "mutedPointsColor": "#707070",
+        "chevronColor": "#BCBCBD",
+        "dividerColor": "#F5F5F5"
       },
       "params": {
         "label": "Configuration for colors",

@@ -5,7 +5,7 @@ import SmileChevron from '../SmileChevron';
 import { YOUR_REWARD_ROUTE } from '../../constants';
 
 /**
- * RewardLink component
+ * YourRewardLink component
  * @param {Object} reward Smile reward object
  * @return {JSX}
  */

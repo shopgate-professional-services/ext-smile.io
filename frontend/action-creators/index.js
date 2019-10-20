@@ -20,7 +20,6 @@ import {
 
 /**
  * Request smile pointsProducts
- * @param {string} id customer id
  * @returns {Object}
  */
 export const requestPointsProducts = () => ({

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import WaysToEarnCard from './components/WaysToEarnCard';
 import WaysToSpendCard from './components/WaysToSpendCard';
 import { WAYS_TO_EARN_ROUTE } from '../../constants';
@@ -21,6 +22,11 @@ const SmilePanel = ({
   haveSmileCustomer,
   userPoints,
 }) => {
+  const container = classNames(
+    styles.container,
+    { [styles.loggedInContainer]: haveSmileCustomer }
+  );
+
   const cards = location === WAYS_TO_EARN_ROUTE ? (
     options.map((option, index) => (
       <WaysToEarnCard key={index.toString()} option={option} />
@@ -36,7 +42,7 @@ const SmilePanel = ({
       )));
 
   return (
-    <div className={styles.panelContainer}>
+    <div className={container}>
       <div className={styles.headerContainer}>{header}</div>
       <div className={styles.cardListContainer}>
         {cards}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Route } from '@shopgate/engage/components';
 import { useTheme, i18n } from '@shopgate/engage/core';
 import SmileFooter from '../../components/SmileFooter';
-import YourRewardsList from './components/YourRwardsList';
+import YourRewardsList from './components/YourRewardsList';
 import config from '../../config';
 import { YOUR_REWARDS_ROUTE } from '../../constants';
 import connect from '../connector';

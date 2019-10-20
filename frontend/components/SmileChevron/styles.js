@@ -1,4 +1,7 @@
 import { css } from 'glamor';
+import config from '../../config';
+
+const { colorConfig } = config;
 
 const container = css({
   width: '25px',
@@ -9,7 +12,7 @@ const img = css({
   transform: 'scaleX(-1)',
   width: '100%',
   height: '100%',
-  color: '#BCBCBD',
+  color: `${colorConfig.chevronColor}`,
 }).toString();
 
 export default {
