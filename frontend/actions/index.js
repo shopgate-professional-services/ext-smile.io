@@ -1,4 +1,5 @@
 import { PipelineRequest, logger } from '@shopgate/engage/core';
+import { isUserLoggedIn } from '@shopgate/pwa-common/selectors/user';
 import {
   GET_SMILE_POINTS_PRODUCTS,
   GET_SMILE_CUSTOMER,
@@ -61,6 +62,10 @@ export const fetchPointsProducts = () => (dispatch, getState) => {
  * @returns {Function}
  */
 export const fetchSmileCustomer = (force = false) => (dispatch, getState) => {
+  if (!isUserLoggedIn(getState())) {
+    return;
+  }
+
   const smileCustomerState = getSmileCustomerState(getState()) || {};
 
   if (!force && (
@@ -89,6 +94,10 @@ export const fetchSmileCustomer = (force = false) => (dispatch, getState) => {
  * @return {Function}
  */
 export const fetchSmileYourRewards = (force = false) => (dispatch, getState) => {
+  if (!isUserLoggedIn(getState())) {
+    return;
+  }
+
   const yourRewardsState = getSmileYourRewardsState(getState());
 
   if (!force && (
