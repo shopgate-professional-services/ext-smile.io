@@ -24,8 +24,7 @@ const contentItem = css({
 }).toString();
 
 const muteWrapper = css({
-  opacity: '.5 !important',
-  color: 'black !important',
+  color: `${colorConfig.mutedPointsColor}`,
 }).toString();
 
 const baseContent = css({
