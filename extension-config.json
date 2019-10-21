@@ -28,31 +28,31 @@
     },
     {
       "id": "smileDashboardRoute",
-      "path": "frontend/pages/smileDashboardRoute/index.jsx",
+      "path": "frontend/pages/SmileDashboardRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
     {
       "id": "waysToEarnRoute",
-      "path": "frontend/pages/waysToEarnRoute/index.jsx",
+      "path": "frontend/pages/WaysToEarnRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
     {
       "id": "waysToSpendRoute",
-      "path": "frontend/pages/waysToSpendRoute/index.jsx",
+      "path": "frontend/pages/WaysToSpendRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
     {
       "id": "smileYourRewardsRoute",
-      "path": "frontend/pages/smileYourRewardsRoute/index.jsx",
+      "path": "frontend/pages/SmileYourRewardsRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
     {
       "id": "smileYourRewardDetailRoute",
-      "path": "frontend/pages/smileYourRewardDetailRoute/index.jsx",
+      "path": "frontend/pages/SmileYourRewardDetailRoute/index.jsx",
       "target": "app.routes",
       "type": "portals"
     },
