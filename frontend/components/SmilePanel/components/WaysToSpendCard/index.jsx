@@ -18,6 +18,7 @@ const WaysToSpendCard = ({ option, haveSmileCustomer, points = 0 }) => {
     points_price: pointsPrice,
     id,
   } = option || {};
+
   if (!haveSmileCustomer || !pointsPrice) {
     return (
       <BaseSmileLink

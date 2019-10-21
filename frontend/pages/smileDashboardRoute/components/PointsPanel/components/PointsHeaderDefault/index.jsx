@@ -12,6 +12,7 @@ const PointsHeaderDefault = ({ pointsText }) => {
   if (!(header && paragraph)) {
     return null;
   }
+
   return (
     <Fragment>
       <div className={styles.header}>

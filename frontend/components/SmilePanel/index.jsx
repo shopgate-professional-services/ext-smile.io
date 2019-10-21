@@ -50,6 +50,7 @@ const SmilePanel = ({
     </div>
   );
 };
+
 SmilePanel.propTypes = {
   header: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape()).isRequired,

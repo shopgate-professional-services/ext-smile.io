@@ -159,6 +159,7 @@ export const getSmileYourRewards = createSelector(
   getSmileYourRewardsState,
   (yourRewardsState) => {
     const { rewards = [] } = yourRewardsState || {};
+
     return rewards.filter(reward => !reward.used_at);
   }
 );

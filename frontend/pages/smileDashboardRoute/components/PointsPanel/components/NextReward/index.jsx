@@ -15,6 +15,7 @@ const NextReward = ({ points, nextPointProduct }) => {
   if (!(points && nextPointProduct)) {
     return null;
   }
+
   return (
     <div>
       <div className={styles.title}>

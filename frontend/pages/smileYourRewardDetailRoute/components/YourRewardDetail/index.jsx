@@ -24,6 +24,7 @@ const YourRewardDetail = ({ reward }) => {
   if (!code) {
     return null;
   }
+
   const inputRef = useRef(null);
 
   /**

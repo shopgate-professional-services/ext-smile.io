@@ -13,6 +13,7 @@ const ListItem = ({ img, text, pathname }) => {
   if (!img || !pathname) {
     return null;
   }
+
   return (
     <BaseSmileLink
       headline={i18n.text(text)}

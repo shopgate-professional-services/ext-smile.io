@@ -15,7 +15,7 @@ const getRewardLabel = (number) => {
     return i18n.text('smile.reward');
   }
   return i18n.text('smile.rewards');
-}
+};
 
 /**
  * YourRewardsLink component

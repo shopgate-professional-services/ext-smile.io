@@ -19,6 +19,7 @@ const SmileYourRewardsRoute = ({ haveSmileCustomer, points = 0 }) => {
   const title = haveSmileCustomer
     ? `${points} ${i18n.text('smile.points')}`
     : loginPageText.headerText.primaryText;
+
   return (
     <View>
       <AppBar

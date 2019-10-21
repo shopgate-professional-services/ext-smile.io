@@ -16,6 +16,7 @@ const YourRewardLink = ({ reward }) => {
     image_url: imageUrl,
     source_description: sourceDescription,
   } = reward;
+
   return (
     <BaseSmileLink
       headline={name}

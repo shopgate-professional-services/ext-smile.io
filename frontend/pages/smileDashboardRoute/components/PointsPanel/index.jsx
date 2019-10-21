@@ -19,9 +19,11 @@ const PointsPanel = ({ pointsText, haveSmileCustomer, points = 0 }) => {
   if (!pointsText) {
     return null;
   }
+
   const { imageSrcs } = config || {};
   const { waysToEarn, waysToSpend } = imageSrcs;
   const waysToSpendText = haveSmileCustomer ? 'smile.all_rewards' : 'smile.ways_to_spend';
+
   return (
     <PanelContainer>
       <div className={styles.container}>

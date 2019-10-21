@@ -106,6 +106,7 @@ export const fetchSmileYourRewards = (force = false) => (dispatch, getState) => 
   )) {
     return;
   }
+
   dispatch(requestSmileYourRewards());
   new PipelineRequest(GET_SMILE_YOUR_REWARDS)
     .dispatch()
