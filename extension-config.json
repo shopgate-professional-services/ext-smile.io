@@ -1,7 +1,257 @@
 {
   "version": "1.0.0",
   "id": "@shopgate-project/smile-io",
-  "components": [],
-  "configuration": {},
+  "components": [
+    {
+      "id": "DashboardLinkButton",
+      "path": "frontend/portals/DashboardLinkButton/index.jsx",
+      "target": "app.globals",
+      "type": "portals"
+    },
+    {
+      "id": "NavDrawerItem",
+      "path": "frontend/portals/NavDrawer/index.jsx",
+      "target": "nav-menu.home.before",
+      "type": "portals"
+    },
+    {
+      "id": "TabBarItem",
+      "path": "frontend/portals/TabBarItem/index.jsx",
+      "target": "tab-bar.cart.after",
+      "type": "portals"
+    },
+    {
+      "id": "CustomFont",
+      "type": "portals",
+      "path": "frontend/portals/CustomFont",
+      "target": "app.globals"
+    },
+    {
+      "id": "smileDashboardRoute",
+      "path": "frontend/pages/SmileDashboardRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "waysToEarnRoute",
+      "path": "frontend/pages/WaysToEarnRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "waysToSpendRoute",
+      "path": "frontend/pages/WaysToSpendRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "smileYourRewardsRoute",
+      "path": "frontend/pages/SmileYourRewardsRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "smileYourRewardDetailRoute",
+      "path": "frontend/pages/SmileYourRewardDetailRoute/index.jsx",
+      "target": "app.routes",
+      "type": "portals"
+    },
+    {
+      "id": "pointsProducts",
+      "path": "frontend/reducers/pointsProducts.js",
+      "type": "reducers"
+    },
+    {
+      "id": "smileCustomer",
+      "path": "frontend/reducers/smileCustomer.js",
+      "type": "reducers"
+    },
+    {
+      "id": "smileYourRewards",
+      "path": "frontend/reducers/smileYourRewards.js",
+      "type": "reducers"
+    },
+    {
+      "id": "smileWaysToEarn",
+      "path": "frontend/reducers/smileWaysToEarn.js",
+      "type": "reducers"
+    },
+    {
+      "id": "purchaseSmileRewards",
+      "path": "frontend/reducers/purchaseSmileRewards.js",
+      "type": "reducers"
+    },
+    {
+      "id": "subscriptions",
+      "path": "frontend/subscriptions/index.js",
+      "type": "subscribers"
+    },
+    {
+      "type": "translations",
+      "path": "frontend/locale/en-US.json",
+      "id": "locale/en-US"
+    }
+  ],
+  "configuration": {
+    "fontFamily": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "secondaryFontFamily": "Poppins,arial,sans-serif",
+        "secondaryFontFamilyUrl": "https://fonts.googleapis.com/css?family=Poppins&display=swap",
+        "primaryFontFamily": "Poppins,arial,sans-serif",
+        "primaryFontFamilyUrl": "https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      },
+      "params": {
+        "label": "Configuration for image source locations",
+        "type": "json"
+      }
+    },
+    "imageSrcs": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "waysToEarn": "https://cdn.sweettooth.io/v1/images/earn-more-points.svg?color=%23000000&theme=light",
+        "waysToSpend": "https://cdn.sweettooth.io/v1/images/spend-your-points.svg?color=%23000000&theme=light"
+      },
+      "params": {
+        "label": "Configuration for image source locations",
+        "type": "json"
+      }
+    },
+    "colorConfig": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "headerBackground": "black",
+        "headerFontColor": "white",
+        "buttonBackground": "black",
+        "buttonFontColor": "white",
+        "contentBackground": "white",
+        "contentFontColor": "black",
+        "mutedPointsColor": "#707070",
+        "chevronColor": "#BCBCBD",
+        "dividerColor": "#F5F5F5"
+      },
+      "params": {
+        "label": "Configuration for colors",
+        "type": "json"
+      }
+    },
+    "loginPageText": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "headerText": {
+          "secondaryText": "Welcome To",
+          "primaryText": "Merlin's magnificent magic shop"
+        },
+        "pointsText": {
+          "header": "Points",
+          "paragraph": "Earn more Points for different actions, and turn those Points into awesome rewards!"
+        },
+        "memberText": {
+          "header": "Become a member",
+          "paragraph": "With more ways to unlock exciting perks, this is your all access pass to exclusive rewards."
+        }
+      },
+      "params": {
+        "label": "Configuration for login page text",
+        "type": "json"
+      }
+    },
+    "smileApiUrl": {
+      "type": "admin",
+      "destination": "backend",
+      "default": "https://api.sweettooth.io/v1",
+      "params": {
+        "label": "Smile api url endpoint",
+        "type": "text",
+        "required": true
+      }
+    },
+    "smileApiSecret": {
+      "type": "admin",
+      "destination": "backend",
+      "default": "",
+      "params": {
+        "label": "Smile api secret",
+        "type": "text",
+        "required": true
+      }
+    },
+    "smileChannelApiKey": {
+      "type": "admin",
+      "destination": "backend",
+      "default": "",
+      "params": {
+        "label": "Smile channel API key",
+        "type": "text",
+        "required": true
+      }
+    },
+    "showFixedDashboardButton": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": false,
+      "params": {
+        "label": "Should the fixed dashboard button shown at the bottom",
+        "type": "checkbox"
+      }
+    },
+    "fixedDashboardButtonUrlBlacklist": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": [
+        "/item/:productId/gallery/:slide",
+        "/login"
+      ],
+      "params": {
+        "label": "Blacklist for urls where the button should not been shown",
+        "type": "json"
+      }
+    },
+    "fixedDashboardButtonStyling": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": {
+        "bgColor": "#000000",
+        "iconUrl": "https://cdn.sweettooth.io/v1/images/launcher_icons/bag.svg?color=",
+        "iconColor": "#FFFFFF",
+        "position": "right"
+      },
+      "params": {
+        "label": "Styling for the fixed dashboard button at the bottom",
+        "type": "json"
+      }
+    },
+    "addLinksToMenu": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": true,
+      "params": {
+        "label": "Adds links to the dashboard to navdrawer/tabbar",
+        "type": "checkbox"
+      }
+    },
+    "smileTTL": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": 60000,
+      "params": {
+        "label": "Value for caching smile info.",
+        "type": "number"
+      }
+    },
+    "smileDataTTL": {
+      "type": "admin",
+      "destination": "frontend",
+      "default": 604800000,
+      "params": {
+        "label": "Value for caching smile data info.",
+        "type": "number"
+      }
+    }
+  },
   "steps": []
 }
