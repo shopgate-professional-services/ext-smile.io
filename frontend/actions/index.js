@@ -62,11 +62,13 @@ export const fetchPointsProducts = () => (dispatch, getState) => {
  * @returns {Function}
  */
 export const fetchSmileCustomer = (force = false) => (dispatch, getState) => {
-  if (!isUserLoggedIn(getState())) {
+  const state = getState();
+
+  if (!isUserLoggedIn(state)) {
     return;
   }
 
-  const smileCustomerState = getSmileCustomerState(getState()) || {};
+  const smileCustomerState = getSmileCustomerState(state) || {};
 
   if (!force && (
     smileCustomerState.isFetching ||
@@ -94,11 +96,13 @@ export const fetchSmileCustomer = (force = false) => (dispatch, getState) => {
  * @return {Function}
  */
 export const fetchSmileYourRewards = (force = false) => (dispatch, getState) => {
-  if (!isUserLoggedIn(getState())) {
+  const state = getState();
+
+  if (!isUserLoggedIn(state)) {
     return;
   }
 
-  const yourRewardsState = getSmileYourRewardsState(getState());
+  const yourRewardsState = getSmileYourRewardsState(state);
 
   if (!force && (
     yourRewardsState.isFetching ||

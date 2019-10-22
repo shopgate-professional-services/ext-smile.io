@@ -6,7 +6,7 @@ import connect from './connector';
 
 /**
  * Smile footer component
- * @param {Object} smileCustomer Smile customer object
+ * @param {Bool} smileCustomerAvailable Checks if we have smile customer info
  * @return {JSX}
  */
 const SmileFooter = ({ smileCustomerAvailable }) => {

@@ -37,5 +37,5 @@ export default {
   cardListContainer,
   headerContainer,
   container,
-  loggedInContainer
+  loggedInContainer,
 };
