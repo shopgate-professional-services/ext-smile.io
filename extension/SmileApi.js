@@ -94,7 +94,7 @@ class SmileApi {
           this.logger.error({
             body,
             httpCode: res.statusCode
-          }, 'ReCharge request error')
+          }, 'SmileAPI request error')
           return reject(new Error(`Received error code from the API: ${res.statusCode}`))
         }
 
