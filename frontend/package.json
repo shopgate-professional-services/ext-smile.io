@@ -1,6 +1,6 @@
 {
   "name": "@shopgate-project/smile-io",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Smile.io integration",
   "license": "Apache-2.0",
   "scripts": {
@@ -38,9 +38,6 @@
     "react-transition-group": "^2.2.1",
     "react-hot-loader": "^3.1.3",
     "react-transform-catch-errors": "^1.0.2"
-  },
-  "peerDependencies": {
-    "@shopgate/engage": "^6.7.2"
   },
   "dependencies": {
     "@shopgate-ps/pwa-extension-kit": "^0.7.1"
